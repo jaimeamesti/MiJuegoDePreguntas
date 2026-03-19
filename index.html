@@ -140,6 +140,32 @@
             word-wrap: break-word;
         }
 
+        .opt-letter-badge {
+            flex-shrink: 0;
+            display: inline-block;
+            margin-right: 0.65rem;
+            font-size: 1.5rem;
+            font-weight: 900;
+            letter-spacing: 0.01em;
+            background: linear-gradient(135deg, #38bdf8 0%, #a855f7 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .opt-letter-a {
+            color: inherit;
+        }
+
+        .opt-letter-b {
+            color: inherit;
+        }
+
+        .opt-answer-text {
+            color: inherit;
+            line-height: 1.35;
+        }
+
         .opt-text:hover {
             background: rgba(51, 65, 85, 0.7);
             border-color: var(--accent);
@@ -1227,8 +1253,8 @@
     <div id="q" class="question">Cargando...</div>
     
     <div class="options-text-container">
-        <div id="textA" class="opt-text" onclick="selectOption('A')">A) Opción A</div>
-        <div id="textB" class="opt-text" onclick="selectOption('B')">B) Opción B</div>
+        <div id="textA" class="opt-text" onclick="selectOption('A')"><span class="opt-letter-badge opt-letter-a">A</span><span class="opt-answer-text">Opción A</span></div>
+        <div id="textB" class="opt-text" onclick="selectOption('B')"><span class="opt-letter-badge opt-letter-b">B</span><span class="opt-answer-text">Opción B</span></div>
     </div>
 
     <div id="explanation-card">
@@ -1475,14 +1501,30 @@
     function addPlayer() {
         if (players.length >= 10) return;
         players.push({ name: `Jugador ${players.length + 1}`, score: maxLives });
+        resetPlayerLives();
+        showingResult = false;
+        pendingNewRound = false;
+        roundPlayers = [];
+        currentPlayerIndex = 0;
+        playerAnswers = [];
+        selectedAnswer = null;
         savePlayers();
         renderPlayersList();
+        loadQuestion();
     }
     function removePlayer(index) {
         if (players.length <= 1) return;
         players.splice(index, 1);
+        resetPlayerLives();
+        showingResult = false;
+        pendingNewRound = false;
+        roundPlayers = [];
+        currentPlayerIndex = 0;
+        playerAnswers = [];
+        selectedAnswer = null;
         savePlayers();
         renderPlayersList();
+        loadQuestion();
     }
     function updatePlayerName(index, value, refreshUI = false) {
         players[index].name = value.trim() || `Jugador ${index + 1}`;
@@ -1738,8 +1780,8 @@
         document.getElementById('progress').innerText = `Pregunta ${respondidas + 1} de ${total.length}`;
 
         document.getElementById('q').innerText = currentQ.q;
-        document.getElementById('textA').innerText = 'A) ' + currentQ.a;
-        document.getElementById('textB').innerText = 'B) ' + currentQ.b;
+        document.getElementById('textA').innerHTML = `<span class="opt-letter-badge opt-letter-a">A</span><span class="opt-answer-text">${escapeHtml(currentQ.a)}</span>`;
+        document.getElementById('textB').innerHTML = `<span class="opt-letter-badge opt-letter-b">B</span><span class="opt-answer-text">${escapeHtml(currentQ.b)}</span>`;
         document.getElementById('textA').className = 'opt-text';
         document.getElementById('textB').className = 'opt-text';
         document.getElementById('explanation-card').classList.remove('show');
