@@ -1305,6 +1305,15 @@
         </label>
         <div id="openTriviaHint" class="menu-section-help">Cargar preguntas online desde Open Trivia DB.</div>
     </div>
+
+    <div class="menu-section">
+        <div class="menu-section-title">🔊 Audio</div>
+        <label class="menu-toggle-row">
+            <span class="menu-toggle-text">Sonidos</span>
+            <input id="soundToggle" class="menu-toggle" type="checkbox" onchange="updateSoundEnabled(this.checked)">
+        </label>
+        <div class="menu-section-help">Activa o desactiva efectos de sonido del juego.</div>
+    </div>
     
     <div class="menu-section" id="categorySection">
         <div class="menu-section-title">📁 Categoría</div>
@@ -1395,8 +1404,6 @@
     </div>
 </div>
 
-<audio id="dingSound" src="https://assets.mixkit.co"></audio>
-
 <script>
     const USE_MOCK_QUESTIONS = false;
     const MOCK_QUESTIONS = [
@@ -1419,6 +1426,7 @@
     // ── Configuración ───────────────────────────────────────────
     let maxLives = 6;
     let openTriviaMode = false;
+    let soundEnabled = true;
 
     // ── Estado multijugador ─────────────────────────────────────
     let players = [{ name: 'Jugador 1', score: maxLives }];
@@ -1433,7 +1441,7 @@
     let pendingRoundReset = false;
     let pendingNewRound = false;
 
-    const ding = document.getElementById('dingSound');
+    let sfxAudioCtx = null;
 
     // ── Persistencia ────────────────────────────────────────────
     function loadAnsweredQuestions() {
@@ -1525,6 +1533,27 @@
         loadQuestion();
     }
 
+    function saveSoundEnabled() {
+        localStorage.setItem('soundEnabled', soundEnabled ? 'true' : 'false');
+    }
+
+    function loadSoundEnabled() {
+        try {
+            const saved = localStorage.getItem('soundEnabled');
+            soundEnabled = saved !== 'false';
+        } catch (e) {
+            soundEnabled = true;
+        }
+
+        const toggle = document.getElementById('soundToggle');
+        if (toggle) toggle.checked = soundEnabled;
+    }
+
+    function updateSoundEnabled(enabled) {
+        soundEnabled = !!enabled;
+        saveSoundEnabled();
+    }
+
     function saveRankingVisibility(isCollapsed) {
         localStorage.setItem('rankingCollapsed', isCollapsed ? 'true' : 'false');
     }
@@ -1557,6 +1586,61 @@
         const txt = document.createElement('textarea');
         txt.innerHTML = text || '';
         return txt.value;
+    }
+
+    function ensureSfxContext() {
+        if (!sfxAudioCtx) {
+            const AudioCtx = window.AudioContext || window.webkitAudioContext;
+            if (!AudioCtx) return null;
+            sfxAudioCtx = new AudioCtx();
+        }
+        if (sfxAudioCtx.state === 'suspended') sfxAudioCtx.resume();
+        return sfxAudioCtx;
+    }
+
+    function playTone({ frequency, duration = 0.12, type = 'sine', volume = 0.035, offset = 0 }) {
+        if (!soundEnabled) return;
+
+        const ctx = ensureSfxContext();
+        if (!ctx) return;
+
+        const now = ctx.currentTime + offset;
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+
+        osc.type = type;
+        osc.frequency.setValueAtTime(frequency, now);
+
+        gain.gain.setValueAtTime(0.0001, now);
+        gain.gain.exponentialRampToValueAtTime(volume, now + 0.015);
+        gain.gain.exponentialRampToValueAtTime(0.0001, now + duration);
+
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        osc.start(now);
+        osc.stop(now + duration + 0.015);
+    }
+
+    function playCorrectSfx() {
+        playTone({ frequency: 620, duration: 0.1, type: 'triangle', volume: 0.035, offset: 0 });
+        playTone({ frequency: 830, duration: 0.13, type: 'triangle', volume: 0.03, offset: 0.08 });
+    }
+
+    function playWrongSfx() {
+        playTone({ frequency: 230, duration: 0.12, type: 'sawtooth', volume: 0.032, offset: 0 });
+        playTone({ frequency: 170, duration: 0.16, type: 'sawtooth', volume: 0.03, offset: 0.08 });
+    }
+
+    function playEliminationSfx() {
+        playTone({ frequency: 300, duration: 0.09, type: 'square', volume: 0.03, offset: 0 });
+        playTone({ frequency: 220, duration: 0.1, type: 'square', volume: 0.03, offset: 0.06 });
+        playTone({ frequency: 150, duration: 0.12, type: 'square', volume: 0.028, offset: 0.12 });
+    }
+
+    function playGameOverSfx() {
+        playTone({ frequency: 520, duration: 0.11, type: 'triangle', volume: 0.035, offset: 0 });
+        playTone({ frequency: 660, duration: 0.14, type: 'triangle', volume: 0.033, offset: 0.1 });
+        playTone({ frequency: 440, duration: 0.2, type: 'triangle', volume: 0.032, offset: 0.24 });
     }
 
     const OPEN_TRIVIA_RETRY_DELAYS_MS = [3000, 6000, 9000, 12000];
@@ -1750,6 +1834,7 @@
     }
 
     function finishGame(gameOverData) {
+        playGameOverSfx();
         pendingRoundReset = true;
         resetPlayerLives();
         showingResult = false;
@@ -1880,7 +1965,7 @@
         const mainLivesList = document.getElementById('mainLivesList');
         const mainLives = document.getElementById('mainLives');
         if (mainLives) {
-            mainLives.style.display = isMultiplayer() ? 'block' : 'none';
+            mainLives.style.display = players.length > 0 ? 'block' : 'none';
         }
         if (mainLivesList) {
             mainLivesList.innerHTML = sorted.map((p, rank) => `
@@ -2260,9 +2345,6 @@
     }
 
     function revealAnswer() {
-        ding.currentTime = 0;
-        ding.play();
-
         document.getElementById('textA').classList.remove('selected');
         document.getElementById('textB').classList.remove('selected');
 
@@ -2279,18 +2361,36 @@
         }
 
         const lostLifePlayers = [];
+        const eliminatedPlayers = [];
         roundCorrectPlayerIndexes = [];
         roundWrongPlayerIndexes = [];
         playerAnswers.forEach(({ playerIndex, answer }) => {
             const correct = answer === currentQ.r;
             if (!correct) {
+                const prevScore = players[playerIndex].score;
                 players[playerIndex].score = Math.max(0, players[playerIndex].score - 1);
                 lostLifePlayers.push(playerIndex);
                 roundWrongPlayerIndexes.push(playerIndex);
+                if (prevScore > 0 && players[playerIndex].score === 0) {
+                    eliminatedPlayers.push(playerIndex);
+                }
             } else {
                 roundCorrectPlayerIndexes.push(playerIndex);
             }
         });
+
+        if (roundWrongPlayerIndexes.length > 0 && roundCorrectPlayerIndexes.length === 0) {
+            playWrongSfx();
+        } else if (roundCorrectPlayerIndexes.length > 0 && roundWrongPlayerIndexes.length === 0) {
+            playCorrectSfx();
+        } else if (roundWrongPlayerIndexes.length > 0) {
+            playWrongSfx();
+        }
+
+        if (eliminatedPlayers.length > 0) {
+            playEliminationSfx();
+        }
+
         savePlayers();
         const el = document.getElementById('playerResults');
         el.innerHTML = '';
@@ -2318,6 +2418,7 @@
     document.getElementById('maxLivesDisplay').innerText = maxLives;
     loadRankingVisibility();
     loadOpenTriviaMode();
+    loadSoundEnabled();
     loadPlayers();
     loadQuestionsFromCSV();
 </script>
