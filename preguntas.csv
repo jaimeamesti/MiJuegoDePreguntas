@@ -197,63 +197,63 @@ Id,Categoría,Pregunta,Opción A,Opción B,Correcta,Dificultad,Explicación
 413,Cultura,"¿Autor de ""El Principito""?",Saint-Exupéry,Víctor Hugo,A,Fácil,Antoine de Saint-Exupéry lo publicó en 1943.
 26,Animales,¿Lengua de la jirafa?,Azul/Negra,Rosa,A,Media,Es oscura para evitar quemaduras solares mientras come de los árboles.
 180,Ciencia,¿Cerebro gasta energía?,20%,5%,A,Media,Consume una quinta parte de las calorías totales a pesar de su pequeño peso.
-1466,Tecnología,¿Qué significa la 'i' en iPhone?,Internet,Intelligent,A,Media,Steve Jobs explicó en 1998 que la 'i' significa Internet,Individual,Instruir,Informar e Inspirar.,,
+1466,Tecnología,¿Qué significa la 'i' en iPhone?,Internet,Intelligent,A,Media,Steve Jobs explicó en 1998 que la 'i' significa Internet
 1516,Videojuegos,¿Cuál fue el primer nombre de Mario?,Jumpman,Mr. Video,A,Fácil,Apareció por primera vez en el juego Donkey Kong (1981) rescatando a Pauline.
-1126,Marcas,¿Qué empresa inventó el diseño actual de Papá Noel?,Coca-Cola,Pepsi,A,Media,Aunque ya existía el traje rojo,las ilustraciones de Haddon Sundblom para Coca-Cola en 1931 estandarizaron su imagen moderna.,,,,
-1019,Internet,¿Cuál fue el primer video de YouTube?,Me at the zoo,Evolution of Dance,A,Difícil,Fue subido el 23 de abril de 2005 por Jawed Karim,cofundador de la plataforma,en el zoo de San Diego.,,,
-1450,Tecnología,¿Qué animal es el logo de Firefox?,Zorro,Panda Rojo,B,Difícil,Aunque parezca un zorro,Firefox' es el nombre común en inglés para el panda rojo (Ailurus fulgens).,,,,
+1126,Marcas,¿Qué empresa inventó el diseño actual de Papá Noel?,Coca-Cola,Pepsi,A,Media,Aunque ya existía el traje rojo
+1019,Internet,¿Cuál fue el primer video de YouTube?,Me at the zoo,Evolution of Dance,A,Difícil,Fue subido el 23 de abril de 2005 por Jawed Karim
+1450,Tecnología,¿Qué animal es el logo de Firefox?,Zorro,Panda Rojo,B,Difícil,Aunque parezca un zorro
 1513,Videojuegos,¿Consola más vendida de la historia?,PS2,Nintendo DS,A,Media,La PlayStation 2 vendió más de 155 millones de unidades antes de ser descontinuada.
-1127,Marcas,¿Qué significa 'LEGO'?,Jugar bien,Piezas unidas,A,Media,Proviene de la frase danesa 'Leg Godt',que significa literalmente 'Jugar bien'.,,,,
+1127,Marcas,¿Qué significa 'LEGO'?,Jugar bien,Piezas unidas,A,Media,Proviene de la frase danesa 'Leg Godt'
 1022,Internet,¿País donde se creó el primer sitio web?,Suiza (CERN),EE. UU.,A,Media,Tim Berners-Lee lo lanzó en agosto de 1991 mientras trabajaba en el laboratorio del CERN.
 1517,Videojuegos,¿De qué color es la gorra de Luigi?,Verde,Azul,A,Fácil,Luigi siempre viste de verde para diferenciarse del rojo característico de su hermano Mario.
 1474,Tecnología,¿Quién fundó Microsoft con Bill Gates?,Steve Jobs,Paul Allen,B,Media,Paul Allen fue el cofundador clave y quien acuñó el nombre 'Micro-Soft'.
-1376,Redes Sociales,¿Primera red social masiva?,MySpace,Friendster,B,Difícil,Friendster (2002) fue la pionera en conectar amigos,aunque MySpace y Facebook la superaron después.,,,,
+1376,Redes Sociales,¿Primera red social masiva?,MySpace,Friendster,B,Difícil,Friendster (2002) fue la pionera en conectar amigos
 1528,Videojuegos,¿Nombre del protagonista de Zelda?,Zelda,Link,B,Fácil,Zelda es la princesa que debe ser rescatada; el héroe que controlas es Link.
-1122,Marcas,¿Color original del logo de Apple?,Gris,Arcoíris,B,Media,Tras un primer logo con Newton,Apple usó la manzana con franjas de colores desde 1977 hasta 1998.,,,,
+1122,Marcas,¿Color original del logo de Apple?,Gris,Arcoíris,B,Media,Tras un primer logo con Newton
 1445,Tecnología,¿Lenguaje de programación más antiguo?,Python,Fortran,B,Media,Fortran fue creado por IBM en 1957; Python es mucho más reciente (1991).
 1522,Videojuegos,¿Juego donde aparece Donkey Kong?,Donkey Kong,Mario Bros,A,Fácil,Fue el juego de arcade original de 1981 donde Mario era el antagonista de Kong.
 1034,Internet,¿Qué significa 'WWW'?,World Wide Web,World Wide Wave,A,Fácil,Es el sistema de documentos de hipertexto interconectados que se acceden vía Internet.
-1121,Marcas,¿Animal en el logo de Porsche?,León,Caballo,B,Media,Es el escudo de la ciudad de Stuttgart,famosa por su cría de caballos.,,,,
+1121,Marcas,¿Animal en el logo de Porsche?,León,Caballo,B,Media,Es el escudo de la ciudad de Stuttgart
 1443,Tecnología,¿Cuántos bits tiene un byte?,8,16,A,Fácil,Es la unidad básica de información digital; 8 bits forman 1 octeto o byte.
 1524,Videojuegos,¿Moneda en el mundo de Zelda?,Rupias,Dólares,A,Fácil,Se presentan como gemas de colores con diferentes valores económicos.
 892,Hardware,¿Qué procesa los gráficos?,CPU,GPU,B,Fácil,La Graphics Processing Unit está diseñada específicamente para el renderizado de imágenes.
-1020,Internet,¿Dominio de nivel superior de España?,.es,.sp,A,Fácil,Gestionado por Red.es,es el sufijo oficial para sitios web vinculados a España.,,,,
+1020,Internet,¿Dominio de nivel superior de España?,.es,.sp,A,Fácil,Gestionado por Red.es
 1529,Videojuegos,¿Pokémon número 001?,Pikachu,Bulbasaur,B,Media,Bulbasaur encabeza la Pokédex nacional de la primera generación.
-1449,Tecnología,¿Primer teléfono inteligente?,iPhone,IBM Simon,B,Difícil,Lanzado en 1994,el IBM Simon tenía pantalla táctil,calendario y podía enviar correos.,,,
-1129,Marcas,¿Qué significa IKEA?,Nombres de fundadores,Muebles suecos,A,Difícil,Son las siglas de Ingvar Kamprad (fundador),Elmtaryd (granja) y Agunnaryd (pueblo natal).,,,,
+1449,Tecnología,¿Primer teléfono inteligente?,iPhone,IBM Simon,B,Difícil,Lanzado en 1994
+1129,Marcas,¿Qué significa IKEA?,Nombres de fundadores,Muebles suecos,A,Difícil,Son las siglas de Ingvar Kamprad (fundador)
 1515,Videojuegos,¿Creador de Metal Gear?,Hideo Kojima,Miyamoto,A,Media,Kojima es el autor intelectual de esta saga pionera en el sigilo.
 893,Hardware,¿Qué significa RAM?,Random Access Memory,Read Access Memory,A,Media,Es la memoria de acceso aleatorio donde se cargan los datos que el procesador usa al momento.
-1441,Tecnología,¿Año de lanzamiento de Windows 1,0?,1985,1995,A,Media,Microsoft lanzó su primera interfaz gráfica sobre MS-DOS en noviembre de 1985.,,,,
+1441,Tecnología,¿Año de lanzamiento de Windows 1,0?,1985,1995,A,Media
 1021,Internet,¿Dueño actual de la red social X?,Zuckerberg,Elon Musk,B,Fácil,Musk compró Twitter en 2022 y cambió su nombre a X meses después.
-1523,Videojuegos,¿Juego más vendido de la historia?,Minecraft,Tetris,A,Media,Minecraft ha superado los 300 millones de copias,superando al Tetris original.,,,,
-1124,Marcas,¿Marca con un cocodrilo?,Polo,Lacoste,B,Fácil,Inspirado en el apodo del tenista René Lacoste,a quien llamaban 'El Cocodrilo'.,,,,
+1523,Videojuegos,¿Juego más vendido de la historia?,Minecraft,Tetris,A,Media,Minecraft ha superado los 300 millones de copias
+1124,Marcas,¿Marca con un cocodrilo?,Polo,Lacoste,B,Fácil,Inspirado en el apodo del tenista René Lacoste
 1469,Tecnología,¿Qué significa PDF?,Portable Document Format,Personal Data File,A,Media,Formato creado por Adobe para que los archivos se vean igual en cualquier equipo.
 1521,Videojuegos,¿Jefe final de Super Mario Bros?,Bowser,Wario,A,Fácil,El Rey Koopa es el eterno archienemigo de Mario desde el primer juego de NES.
 878,Hardware,¿Cerebro del ordenador?,Procesador,Disco Duro,A,Fácil,La CPU (Unidad Central de Procesamiento) ejecuta todas las instrucciones del sistema.
 1018,Internet,¿Buscador más usado del mundo?,Bing,Google,B,Fácil,Google domina más del 90% de la cuota de mercado de búsquedas a nivel mundial.
-1532,Videojuegos,¿Qué animal es Sonic?,Gato,Erizo,B,Fácil,Es el erizo azul más rápido del mundo,creado por SEGA para competir con Mario.,,,,
-1447,Tecnología,¿Origen del nombre Bluetooth?,Rey Vikingo,Diente azul,A,Difícil,Se debe al rey Harald 'Diente Azul' Gormsson,que unificó las tribus de Dinamarca y Noruega.,,,,
+1532,Videojuegos,¿Qué animal es Sonic?,Gato,Erizo,B,Fácil,Es el erizo azul más rápido del mundo
+1447,Tecnología,¿Origen del nombre Bluetooth?,Rey Vikingo,Diente azul,A,Difícil,Se debe al rey Harald 'Diente Azul' Gormsson
 1375,Redes Sociales,¿Límite original de Twitter?,140,280,A,Media,Se basaba en el límite de caracteres de los mensajes SMS de los teléfonos antiguos.
 1510,Videojuegos,¿Ciudad de GTA V?,Liberty City,Los Santos,B,Fácil,Es una parodia ficticia de la ciudad de Los Ángeles y el sur de California.
 1120,Marcas,¿A quién pertenece Instagram?,Google,Meta (Facebook),B,Fácil,Mark Zuckerberg compró la plataforma en 2012 por unos 1.000 millones de dólares.
 1448,Tecnología,¿Padre de la computación?,Alan Turing,Isaac Newton,A,Media,Turing sentó las bases de la informática moderna y la inteligencia artificial.
-890,Hardware,¿Qué es un SSD?,Disco sólido,Disco mecánico,A,Media,Al no tener partes móviles,el Solid State Drive es mucho más rápido que un HDD tradicional.,,,,
+890,Hardware,¿Qué es un SSD?,Disco sólido,Disco mecánico,A,Media,Al no tener partes móviles
 1526,Videojuegos,¿Nombre del hermano de Mario?,Luigi,Wario,A,Fácil,Luigi es el gemelo más alto y asustadizo que apareció por primera vez en 1983.
 1033,Internet,¿Qué es una URL?,Dirección web,Un virus,A,Fácil,Uniform Resource Locator es el estándar para localizar recursos en la red.
 1462,Tecnología,¿Qué mide un Píxel?,Color y luz,Velocidad,A,Media,Es la menor unidad homogénea en color que forma parte de una imagen digital.
 1514,Videojuegos,¿Consola que usa cartuchos?,N64,PS1,A,Fácil,Nintendo mantuvo los cartuchos en la 64 mientras Sony apostó por el CD-ROM.
 884,Hardware,¿Qué es la placa base?,Circuito principal,Caja del PC,A,Fácil,Es el componente que conecta físicamente a todos los demás elementos del ordenador.
 1029,Internet,¿Qué es la nube?,Servidores remotos,Espacio en el cielo,A,Fácil,Es el procesamiento y almacenamiento de datos en servidores accesibles por Internet.
-1475,Tecnología,¿Significado de WiFi?,Wireless Fidelity,Wide Fiber,A,Media,Aunque es un nombre comercial,se usa para describir redes locales inalámbricas.,,,,
+1475,Tecnología,¿Significado de WiFi?,Wireless Fidelity,Wide Fiber,A,Media,Aunque es un nombre comercial
 1531,Videojuegos,¿Qué animal es Crash Bandicoot?,Marsupial,Zorro,A,Media,Es un peramélido (marsupial) de Australia alterado genéticamente por el Dr. Neo Cortex.
 891,Hardware,¿Qué hace un Router?,Reparte la conexión,Crea energía,A,Fácil,Dirige el tráfico de datos entre tu red local e Internet.
 1444,Tecnología,¿En qué año se envió el primer email?,1971,1991,A,Difícil,Ray Tomlinson envió el primer mensaje entre dos ordenadores usando el símbolo @.
-1123,Marcas,¿De qué país es Nintendo?,Japón,Corea del Sur,A,Fácil,Fundada en Kioto en 1889,originalmente fabricaba barajas de cartas Hanafuda.,,,,
+1123,Marcas,¿De qué país es Nintendo?,Japón,Corea del Sur,A,Fácil,Fundada en Kioto en 1889
 1025,Internet,¿Qué es el Spam?,Correo no deseado,Un virus troyano,A,Fácil,El término viene de una marca de carne enlatada y un sketch de los Monty Python.
 1530,Videojuegos,¿Protagonista de Tomb Raider?,Lara Croft,Jill Valentine,A,Fácil,La arqueóloga británica es uno de los personajes más icónicos de la historia.
 1460,Tecnología,¿Qué es un Algoritmo?,Serie de pasos,Un código secreto,A,Media,Es un conjunto ordenado de operaciones que permite hallar la solución de un problema.
 894,Hardware,¿Qué unidad mide la CPU?,Hertzios,Voltios,A,Media,La velocidad de reloj se mide en Gigahercios (GHz) actualmente.
-1125,Marcas,¿Qué empresa creó el Kindle?,Amazon,Google,A,Fácil,Lanzado en 2007,revolucionó la forma de leer libros electrónicos.,,,,
+1125,Marcas,¿Qué empresa creó el Kindle?,Amazon,Google,A,Fácil,Lanzado en 2007
 1511,Videojuegos,¿Color de Pac-Man?,Amarillo,Naranja,A,Fácil,Toru Iwatani se inspiró en una pizza a la que le faltaba una porción para su diseño.
 1023,Internet,¿Qué es el 4G/5G?,Generación de red,Número de antenas,A,Fácil,La 'G' indica la generación de la tecnología de red móvil.
 879,Hardware,¿Para qué sirve el SAI (UPS)?,Dar energía extra,Mejorar los gráficos,A,Media,Permite que el PC siga encendido unos minutos si hay un corte de luz.
@@ -264,10 +264,10 @@ Id,Categoría,Pregunta,Opción A,Opción B,Correcta,Dificultad,Explicación
 1534,Videojuegos,¿Qué es un FPS?,Disparos en 1ª persona,Fútbol Pro,A,Media,First Person Shooter; juegos donde ves la acción a través de los ojos del personaje.
 882,Hardware,¿Qué es la BIOS?,Software de inicio,Un virus biológico,A,Media,Basic Input/Output System; es el primer programa que se ejecuta al encender el PC.
 1128,Marcas,¿Qué significa HP?,Hewlett-Packard,High Power,A,Media,Fundada en un garaje por Bill Hewlett y David Packard en 1939.
-1512,Videojuegos,¿Compañía de Master Chief?,Xbox (Microsoft),PlayStation,A,Fácil,Es el protagonista de la saga Halo,exclusiva de las plataformas de Microsoft.,,,,
+1512,Videojuegos,¿Compañía de Master Chief?,Xbox (Microsoft),PlayStation,A,Fácil,Es el protagonista de la saga Halo
 1461,Tecnología,¿Qué mide un Bit?,0 o 1,La luz,A,Fácil,Es la unidad mínima de información: un estado de encendido o apagado.
 1028,Internet,¿Qué es la IP?,Identificador de red,Contraseña de usuario,A,Fácil,Internet Protocol es la dirección única que identifica a un dispositivo en la red.
-888,Hardware,¿Qué es un Periférico?,Componente externo,El monitor solo,A,Media,Cualquier dispositivo que se conecta al PC (teclado,ratón,impresora).,,,
+888,Hardware,¿Qué es un Periférico?,Componente externo,El monitor solo,A,Media,Cualquier dispositivo que se conecta al PC (teclado
 1458,Tecnología,¿Qué es la Inteligencia Artificial?,Máquinas que aprenden,Robots de metal,A,Media,Sistemas que imitan funciones cognitivas humanas como aprender y razonar.
 1527,Videojuegos,¿Nombre del mundo de Mario?,Reino Champiñón,Hyrule,A,Fácil,Gobernado por la Princesa Peach y hogar de los Toads.
 1024,Internet,¿Qué es el HTTP?,Protocolo de envío,Un lenguaje de diseño,A,Media,Hypertext Transfer Protocol es el protocolo de comunicación de la web.
@@ -275,14 +275,14 @@ Id,Categoría,Pregunta,Opción A,Opción B,Correcta,Dificultad,Explicación
 1455,Tecnología,¿Qué es el Código Fuente?,Instrucciones escritas,El resultado final,A,Media,Es el conjunto de líneas de texto que los programadores escriben para crear software.
 1518,Videojuegos,¿En qué año salió la Game Boy?,1989,1995,A,Media,Nintendo revolucionó el mercado portátil con esta consola de pantalla gris.
 886,Hardware,¿Qué es un Cooler?,Ventilador/Disipador,Un puerto USB,A,Fácil,Mantiene los componentes a una temperatura segura para evitar daños.
-1454,Tecnología,¿Qué es el BitCoin?,Moneda digital,Un juego online,A,Fácil,Es la primera criptomoneda descentralizada del mundo,creada en 2009.,,,,
+1454,Tecnología,¿Qué es el BitCoin?,Moneda digital,Un juego online,A,Fácil,Es la primera criptomoneda descentralizada del mundo
 1537,Videojuegos,¿Quién es Solid Snake?,Protagonista Metal Gear,Villano de Mario,A,Fácil,Experto en infiltración y clon del legendario Big Boss.
-1026,Internet,¿Qué es la Deep Web?,Contenido no indexado,La web oscura ilegal,A,Difícil,Es todo el contenido que los buscadores no muestran (correos,nubes privadas,bases de datos).,,,
+1026,Internet,¿Qué es la Deep Web?,Contenido no indexado,La web oscura ilegal,A,Difícil,Es todo el contenido que los buscadores no muestran (correos
 885,Hardware,¿Qué es la resolución 4K?,4000 píxeles horizontales,4000 colores,A,Media,Ofrece una nitidez mucho mayor que el estándar Full HD.
 1471,Tecnología,¿Qué significa USB?,Universal Serial Bus,Unique Service Box,A,Media,Estándar de conexión creado por un grupo de empresas incluyendo Intel y Microsoft.
 1525,Videojuegos,¿Nombre de la saga de Link?,The Legend of Zelda,Final Fantasy,A,Fácil,Creada por Shigeru Miyamoto para Nintendo en 1986.
 880,Hardware,¿Qué es el Overclock?,Subir velocidad procesador,Bajar el consumo,A,Media,Forzar un componente para que trabaje a más velocidad de la que viene de fábrica.
-1456,Tecnología,¿Qué es el Open Source?,Software libre/abierto,Software gratis siempre,A,Media,Su código fuente es público para que cualquiera pueda verlo,modificarlo y distribuirlo.,,,,
+1456,Tecnología,¿Qué es el Open Source?,Software libre/abierto,Software gratis siempre,A,Media,Su código fuente es público para que cualquiera pueda verlo
 1535,Videojuegos,¿Qué es un Glitch?,Un error visual/juego,Un jefe secreto,A,Fácil,Fallo técnico que no impide jugar pero muestra cosas imprevistas.
 1027,Internet,¿Qué es la Fibra Óptica?,Cables de luz,Cables de cobre,A,Fácil,Transmite datos mediante pulsos de luz a velocidades altísimas.
 887,Hardware,¿Qué es un Monitor?,La pantalla,El teclado,A,Fácil,Dispositivo de salida que muestra los datos e imágenes al usuario.
@@ -773,17 +773,17 @@ Id,Categoría,Pregunta,Opción A,Opción B,Correcta,Dificultad,Explicación
 1359,Récords,¿Película con más Oscar (11)?,Titanic,El Padrino,A,Media,Comparte el récord histórico con Ben-Hur y El Retorno del Rey.
 432,Curiosidades,¿Animal que duerme más de 20h?,Koala,León,A,Media,Pasa la mayor parte del tiempo durmiendo para ahorrar energía tras comer eucalipto.
 1247,Música,¿Quién compuso El Lago de los Cisnes?,Tchaikovsky,Stravinsky,A,Fácil,Ballet clásico ruso estrenado en el Teatro Bolshói en 1877.
-1357,Récords,¿País más pequeño del mundo?,Vaticano,Mónaco,A,Fácil,Tiene una superficie de solo 0,44 kilómetros cuadrados.,,,,
+1357,Récords,¿País más pequeño del mundo?,Vaticano,Mónaco,A,Fácil,Tiene una superficie de solo 0
 443,Curiosidades,¿Animal que suda color rojo?,Hipopótamo,Jirafa,A,Media,Es un fluido aceitoso que protege su piel del sol y las bacterias.
 1218,Música,¿Banda de Robert Plant?,Led Zeppelin,Deep Purple,A,Fácil,Fue el vocalista de una de las bandas de rock más influyentes de los años 70.
-675,Extravagante,¿Qué animal fue nombrado Senador en Roma?,Un caballo,Un tigre,A,Media,Calígula amaba tanto a su caballo Incitatus que le dio casa,esclavos y el cargo de cónsul/senador.,,,,
+675,Extravagante,¿Qué animal fue nombrado Senador en Roma?,Un caballo,Un tigre,A,Media,Calígula amaba tanto a su caballo Incitatus que le dio casa
 379,Cuerpo Humano,¿Dónde están las papilas gustativas de un siluro?,En todo el cuerpo,En los bigotes,A,Difícil,Tiene más de 250.000 receptores; es como una lengua gigante con forma de pez.
 961,Historia,¿Qué guerra duró 335 años sin un solo disparo?,Países Bajos e Islas Sorlingas,España e Inglaterra,A,Difícil,"Se ""olvidaron"" de firmar la paz en 1651 y no lo hicieron oficialmente hasta 1986."
 1274,Naturaleza,¿Qué animal puede sobrevivir 10 años sin comer?,Olm (salamandra),Oso,A,Difícil,Este anfibio ciego vive en cuevas y tiene un metabolismo tan lento que apenas se mueve en años.
-658,Extravagante,¿De qué color es la orina de un reno en invierno?,Azul,Amarillo neón,A,Difícil,Debido a su dieta de líquenes y la luz UV en el Ártico,su orina puede reflejar tonos azulados.,,,,
+658,Extravagante,¿De qué color es la orina de un reno en invierno?,Azul,Amarillo neón,A,Difícil,Debido a su dieta de líquenes y la luz UV en el Ártico
 235,Ciencia,¿Qué árbol puede explotar literalmente?,Dinamita (Hura crepitans),Pino,A,Media,Sus frutos maduros estallan lanzando semillas a 250 km/h como si fueran granadas.
 397,Cuerpo Humano,¿Qué le pasa a tu cerebro si no duermes?,Se come a sí mismo,Se vuelve más grande,A,Media,Las células astrocitos empiezan a destruir las sinapsis y los desechos neuronales por error.
-720,Extravagante,¿Qué se usaba en Inglaterra como fertilizante en 1800?,Huesos de Waterloo,Estiércol de elefante,A,Difícil,Tras la batalla de Waterloo,se recolectaron miles de huesos de soldados y caballos para hacer abono.,,,,
+720,Extravagante,¿Qué se usaba en Inglaterra como fertilizante en 1800?,Huesos de Waterloo,Estiércol de elefante,A,Difícil,Tras la batalla de Waterloo
 1283,Naturaleza,¿Qué animal tiene el pene con forma de sacacorchos?,Pato,Elefante,A,Media,"Los patos han evolucionado con genitales en espiral para competir en una ""carrera armamentista"" biológica."
 997,Historia,¿Quién fue la persona más joven en ser elegida Papa?,Benedicto IX (12 años),Juan Pablo II,A,Difícil,Fue Papa tres veces en el siglo XI y la primera vez apenas era un adolescente.
 715,Extravagante,¿Qué ingrediente lleva el perfume más caro del mundo?,Vómito de ballena,Sangre de cobra,A,Media,El ámbar gris es una secreción del cachalote que se usa para fijar aromas y cuesta una fortuna.
@@ -792,42 +792,42 @@ Id,Categoría,Pregunta,Opción A,Opción B,Correcta,Dificultad,Explicación
 1288,Naturaleza,¿Qué árbol es técnicamente el ser vivo más grande?,Pando (bosque de álamos),Secuoya,A,Difícil,Pando es una colonia de 47.000 árboles conectados por una sola raíz; pesa 6.000 toneladas.
 906,Historia,¿De qué murió el descubridor de la higiene de manos?,En un manicomio,De viejo,A,Media,Ignaz Semmelweis fue humillado por decir que los médicos debían lavarse las manos y murió tras una paliza.
 716,Extravagante,¿Qué país no tiene un solo mosquito?,Islandia,Noruega,A,Media,Las rápidas subidas y bajadas de temperatura en Islandia matan a las larvas antes de que nazcan.
-373,Cuerpo Humano,¿Cuántos km de vasos sanguíneos tenemos?,96.000 km,1.000 km,A,Difícil,Si los estiraras todos,darían más de dos vueltas completas a la Tierra.,,,,
+373,Cuerpo Humano,¿Cuántos km de vasos sanguíneos tenemos?,96.000 km,1.000 km,A,Difícil,Si los estiraras todos
 700,Extravagante,¿Qué animal tiene 4 penes?,Equidna,Canguro,A,Difícil,Es un monotrema australiano que usa solo dos de sus cuatro cabezas de pene cada vez que se aparea.
-1294,Naturaleza,¿Qué fruto es radioactivo naturalmente?,Plátano,Manzana,A,Media,Contienen potasio-40,un isótopo radioactivo,pero tendrías que comer 10 millones a la vez para morir.,,,
+1294,Naturaleza,¿Qué fruto es radioactivo naturalmente?,Plátano,Manzana,A,Media,Contienen potasio-40
 957,Historia,¿Qué emperador declaró la guerra al Mar?,Calígula,Julio César,A,Media,"Ordenó a sus soldados apuñalar las olas y recoger conchas como ""botín de guerra"" contra Neptuno."
 680,Extravagante,¿Qué animal puede respirar por el ano?,Tortuga,Rana,A,Difícil,Ciertas tortugas pueden absorber oxígeno a través de la cloaca mientras hibernan bajo el agua.
-196,Ciencia,¿De qué color es la sangre de un cangrejo herradura?,Azul,Verde,A,Media,Contiene hemocianina basada en cobre en lugar de hierro,y es vital para la medicina moderna.,,,,
-719,Extravagante,¿Qué se usaba en Egipto como prueba de embarazo?,Trigo y cebada,Leche de vaca,A,Difícil,La mujer orinaba sobre los granos; si crecían,estaba embarazada (y funcionaba al 70% por los estrógenos).,,,,
+196,Ciencia,¿De qué color es la sangre de un cangrejo herradura?,Azul,Verde,A,Media,Contiene hemocianina basada en cobre en lugar de hierro
+719,Extravagante,¿Qué se usaba en Egipto como prueba de embarazo?,Trigo y cebada,Leche de vaca,A,Difícil,La mujer orinaba sobre los granos; si crecían
 1276,Naturaleza,"¿Qué animal se ""suicida"" tras aparearse?",Antechinus (marsupial),Abeja,A,Media,Los machos de esta especie australiana se aparean hasta morir por colapso del sistema inmune.
 1002,Historia,¿Quién inventó el primer vibrador?,Un médico,Una inventora,A,Media,"Se inventó a finales del XIX para tratar la ""histeria"" femenina de forma más rápida en las consultas médicas."
-659,Extravagante,¿De qué está hecho el cuerno de un rinoceronte?,Pelo (queratina),Hueso,A,Fácil,Es exactamente la misma sustancia que tus uñas y tu cabello,no tiene propiedades mágicas.,,,,
-250,Ciencia,¿Qué pasa si lloras en el espacio?,Las lágrimas no caen,No puedes llorar,A,Media,Sin gravedad,el agua se acumula en una bola alrededor del ojo y puede ser peligroso.,,,,
+659,Extravagante,¿De qué está hecho el cuerno de un rinoceronte?,Pelo (queratina),Hueso,A,Fácil,Es exactamente la misma sustancia que tus uñas y tu cabello
+250,Ciencia,¿Qué pasa si lloras en el espacio?,Las lágrimas no caen,No puedes llorar,A,Media,Sin gravedad
 691,Extravagante,¿Qué animal se tira pedos para comunicarse?,Arenque,Cachalote,A,Difícil,Emiten sonidos de alta frecuencia expulsando gas para mantener el grupo unido en la oscuridad.
 1292,Naturaleza,¿Qué flor huele a cadáver podrido?,Aro gigante (Titan Arum),Rosa de moscas,A,Media,Su olor atrae a insectos carroñeros que transportan el polen.
-981,Historia,¿Quién es el dueño legal de la Luna?,Nadie,La ONU,A,Media,Según el Tratado del Espacio de 1967,ningún país puede reclamar la soberanía de un cuerpo celeste.,,,,
+981,Historia,¿Quién es el dueño legal de la Luna?,Nadie,La ONU,A,Media,Según el Tratado del Espacio de 1967
 673,Extravagante,¿Qué animal es inmortal biológicamente?,Medusa Turritopsis,Tardígrado,A,Difícil,Puede revertir sus células a su estado infantil y volver a crecer indefinidamente.
 376,Cuerpo Humano,¿De dónde viene el polvo de tu casa?,Piel muerta,Arena de fuera,A,Media,Alrededor del 70% del polvo doméstico son células de piel que se nos caen cada día.
 705,Extravagante,¿Qué animal tiene el récord de la caca más larga?,Ballena azul,Elefante,A,Media,Sus heces son de color rosa neón (por el krill) y pueden extenderse metros en el agua.
-1275,Naturaleza,¿Qué animal puede sobrevivir al espacio?,Tardígrado,Cucaracha,A,Media,"Estos ""osos de agua"" soportan el vacío",la radiación y temperaturas extremas.,,,,
+1275,Naturaleza,¿Qué animal puede sobrevivir al espacio?,Tardígrado,Cucaracha,A,Media,"Estos ""osos de agua"" soportan el vacío"
 959,Historia,¿Qué fruta era un símbolo de estatus en 1700?,Piña,Mango,A,Difícil,Eran tan caras que la gente las alquilaba solo para lucirlas en fiestas sin llegar a comerlas.
-698,Extravagante,¿Qué animal tiene 32 cerebros?,Sanguijuela,Ciempiés,A,Difícil,Tienen 32 ganglios segmentarios independientes,cada uno controla una parte de su cuerpo.,,,,
+698,Extravagante,¿Qué animal tiene 32 cerebros?,Sanguijuela,Ciempiés,A,Difícil,Tienen 32 ganglios segmentarios independientes
 195,Ciencia,¿De qué color es el universo?,Beige cósmico,Negro absoluto,A,Difícil,Los científicos promediaron toda la luz de las galaxias y el resultado es un tono crema/beige.
 714,Extravagante,¿Qué animal usa su nariz como dedo?,Elefante,Topo,A,Fácil,La trompa tiene 40.000 músculos y puede recoger desde un tronco hasta una sola brizna de hierba.
-1291,Naturaleza,¿Qué ave tiene el récord de vuelo sin aterrizar?,Vencejo,Albatros,A,Difícil,Puede pasar hasta 10 meses seguidos volando,incluso duerme mientras planea.,,,,
+1291,Naturaleza,¿Qué ave tiene el récord de vuelo sin aterrizar?,Vencejo,Albatros,A,Difícil,Puede pasar hasta 10 meses seguidos volando
 973,Historia,¿Qué reina tenía un ejército de mujeres vírgenes?,Reina de Dahomey,Cleopatra,A,Media,"Las ""Amazonas de Dahomey"" eran soldados de élite temidas en toda África Occidental."
-711,Extravagante,¿Qué animal tiene leche verde?,Ninguno,Hipopótamo,A,Media,Es un mito; la leche del hipopótamo es blanca,pero su sudor rojo puede teñirla al mezclarse.,,,,
+711,Extravagante,¿Qué animal tiene leche verde?,Ninguno,Hipopótamo,A,Media,Es un mito; la leche del hipopótamo es blanca
 400,Cuerpo Humano,¿Qué órgano se encoge cuando te enamoras?,Ninguno,Cerebro,A,Media,"El amor libera tanta dopamina que ciertas áreas del juicio crítico se ""apagan"" temporalmente."
 688,Extravagante,¿Qué animal se defiende disparando sangre por los ojos?,Lagarto cornudo,Serpiente de coral,A,Media,Aumenta la presión en su cabeza hasta que los capilares de sus ojos estallan contra el depredador.
 1278,Naturaleza,¿Qué animal tiene 10 corazones?,Lombriz de tierra,Pulpo,A,Media,Tienen 5 pares de arcos aórticos que funcionan como corazones para bombear sangre.
 972,Historia,¿Qué país tuvo un Rey que duró 20 minutos?,Francia,Portugal,A,Difícil,Luis Antonio de Francia ostenta el récord de reinado más corto tras abdicar casi al instante.
 676,Extravagante,¿Qué animal no puede caminar hacia atrás?,Canguro,Elefante,A,Media,Su gran cola y la forma de sus patas traseras actúan como un trípode que solo permite el avance.
-242,Ciencia,¿Qué le pasa al metal en el espacio?,Se suelda solo,Se rompe,A,Media,"Se llama ""soldadura en frío""; si dos piezas del mismo metal se tocan",se unen permanentemente.,,,,
-712,Extravagante,¿Qué animal tiene los dientes más duros?,Lapa (molusco),Tiburón,A,Difícil,Sus dientes están hechos de goethita,el material biológico más resistente conocido.,,,,
-1281,Naturaleza,¿Qué animal tiene el esperma más largo?,Mosca de la fruta,Ballena,A,Difícil,El de la Drosophila bifurca mide 5,8 cm,unas 20 veces la longitud de su propio cuerpo.,,,
+242,Ciencia,¿Qué le pasa al metal en el espacio?,Se suelda solo,Se rompe,A,Media,"Se llama ""soldadura en frío""; si dos piezas del mismo metal se tocan"
+712,Extravagante,¿Qué animal tiene los dientes más duros?,Lapa (molusco),Tiburón,A,Difícil,Sus dientes están hechos de goethita
+1281,Naturaleza,¿Qué animal tiene el esperma más largo?,Mosca de la fruta,Ballena,A,Difícil,El de la Drosophila bifurca mide 5
 984,Historia,¿Quién escribió el primer algoritmo de la historia?,Ada Lovelace,Alan Turing,A,Media,La hija de Lord Byron lo escribió para la máquina analítica de Babbage en 1843.
 672,Extravagante,¿Qué animal duerme solo 2 horas al día?,Elefante,Caballo,A,Media,Los elefantes africanos en libertad son los mamíferos que menos necesitan dormir.
-402,Cuerpo Humano,¿Qué parte del cuerpo humano no puede curarse sola?,Dientes,Huesos,A,Fácil,El esmalte dental no es tejido vivo,por lo que no puede regenerarse una vez dañado.,,,,
+402,Cuerpo Humano,¿Qué parte del cuerpo humano no puede curarse sola?,Dientes,Huesos,A,Fácil,El esmalte dental no es tejido vivo
 684,Extravagante,¿Qué animal puede ver a través de sus orejas?,Murciélago,Lechuza,A,Media,Mediante la ecolocalización crean un mapa visual en su cerebro usando solo el sonido.
 1279,Naturaleza,¿Qué animal tiene 2.500 dientes?,Caracol,Tiburón,A,Difícil,Tienen una lengua dentada llamada rádula con miles de dientes microscópicos.
 966,Historia,¿Qué país fue bombardeado con plaga bubónica?,China,Japón,A,Media,Japón lanzó pulgas infectadas sobre ciudades chinas durante la Segunda Guerra Mundial.
@@ -840,8 +840,8 @@ Id,Categoría,Pregunta,Opción A,Opción B,Correcta,Dificultad,Explicación
 395,Cuerpo Humano,¿Qué hueso es el más difícil de romper?,Fémur,Cráneo,A,Media,Es tan fuerte como el hormigón y puede soportar hasta 30 veces el peso de una persona.
 687,Extravagante,"¿Qué animal se comunica con un ""estornudo""?",Licaón (perro salvaje),Lobo,A,Difícil,Los perros salvajes africanos votan si van de caza o no estornudando.
 1284,Naturaleza,¿Qué animal tiene la orina que huele a palomitas?,Binturong (oso gato),Panda,A,Difícil,Emiten un aroma similar a la mantequilla por una sustancia química en su orina.
-968,Historia,¿Qué país regaló a EE.UU. un oso polar?,Noruega,Canadá,A,Difícil,Fue un regalo diplomático en 1940,aunque terminó viviendo en un zoológico.,,,,
-702,Extravagante,¿Qué animal tiene el corazón en la cabeza?,Camarón,Cangrejo,A,Media,Su corazón se encuentra en el cefalotórax,justo detrás de los ojos.,,,,
+968,Historia,¿Qué país regaló a EE.UU. un oso polar?,Noruega,Canadá,A,Difícil,Fue un regalo diplomático en 1940
+702,Extravagante,¿Qué animal tiene el corazón en la cabeza?,Camarón,Cangrejo,A,Media,Su corazón se encuentra en el cefalotórax
 244,Ciencia,¿Qué material es 200 veces más fuerte que el acero?,Grafeno,Diamante,A,Media,Es una capa de carbono de un solo átomo de espesor y el más resistente del mundo.
 681,Extravagante,¿Qué animal puede rotar su cabeza 270 grados?,Búho,Águila,A,Fácil,Sus cuellos tienen adaptaciones óseas para no cortar el riego sanguíneo al girar.
 1285,Naturaleza,¿Qué animal tiene la piel transparente?,Rana de cristal,Pez cebra,A,Media,Se pueden ver sus órganos latir a través de su abdomen.
@@ -849,54 +849,54 @@ Id,Categoría,Pregunta,Opción A,Opción B,Correcta,Dificultad,Explicación
 674,Extravagante,¿Qué animal explota tras morir?,Ballena,Elefante,A,Media,Los gases de la descomposición se acumulan y pueden causar una explosión violenta si se tocan.
 374,Cuerpo Humano,¿Cuántos km recorre la sangre al día?,19.000 km,100 km,A,Difícil,La sangre circula por todo el cuerpo miles de veces al día a gran velocidad.
 697,Extravagante,¿Qué animal tiene 10.000 músculos en su nariz?,Elefante,Oso hormiguero,A,Media,Su trompa tiene más músculos que todo el cuerpo humano junto.
-1269,Naturaleza,¿Qué animal es capaz de volar hacia atrás?,Colibrí,Halcón,A,Fácil,Sus alas rotan en forma de ocho,permitiendo el vuelo estacionario y el retroceso.,,,,
-953,Historia,¿Qué ciudad fue construida sobre una ciénaga?,San Petersburgo,Venecia,A,Media,Pedro el Grande la fundó sobre un pantano,costando la vida a miles de trabajadores.,,,,
+1269,Naturaleza,¿Qué animal es capaz de volar hacia atrás?,Colibrí,Halcón,A,Fácil,Sus alas rotan en forma de ocho
+953,Historia,¿Qué ciudad fue construida sobre una ciénaga?,San Petersburgo,Venecia,A,Media,Pedro el Grande la fundó sobre un pantano
 677,Extravagante,¿Qué animal produce cubos de caca?,Wombat,Koala,A,Difícil,Sus intestinos tienen secciones rígidas que moldean las heces para que no rueden de las rocas.
 255,Ciencia,¿Qué planeta tiene vientos de 2.000 km/h?,Neptuno,Marte,A,Media,Son los vientos más rápidos medidos en todo el sistema solar.
 690,Extravagante,¿Qué animal se limpia los oídos con la lengua?,Jirafa,Geco,A,Media,Su lengua de 50 cm es tan flexible que puede llegar al interior de sus orejas.
 1286,Naturaleza,¿Qué animal vive en volcanes submarinos?,Cangrejo Yeti,Tiburón,A,Media,Soportan temperaturas extremas y aguas ácidas cargadas de metales pesados.
 969,Historia,¿Qué país tuvo 3 presidentes en 45 minutos?,México,Argentina,A,Difícil,Pedro Lascuráin fue presidente de México durante menos de una hora en 1913.
-704,Extravagante,¿Qué animal tiene el periodo de sueño más corto?,Jirafa,Elefante,A,Media,Solo necesitan unos 30 minutos de sueño al día,repartidos en siestas de 5 minutos.,,,,
+704,Extravagante,¿Qué animal tiene el periodo de sueño más corto?,Jirafa,Elefante,A,Media,Solo necesitan unos 30 minutos de sueño al día
 398,Cuerpo Humano,¿Qué le pasa a tu nariz cuando mientes?,Se calienta,Crece,A,Difícil,"Se llama ""Efecto Pinocho"": la temperatura de la nariz sube debido a la ansiedad."
 685,Extravagante,¿Qué animal puede vivir sin agua toda su vida?,Rata canguro,Camello,A,Difícil,Obtiene toda la humedad que necesita procesando las semillas que come.
 1280,Naturaleza,¿Qué animal tiene el corazón más pequeño?,Musaraña etrusca,Colibrí,A,Media,Su corazón late hasta 1.500 veces por minuto para mantener su metabolismo.
 1003,Historia,¿Quién inventó el sistema de cifrado de la WiFi?,Hedy Lamarr (actriz),Alan Turing,A,Difícil,La actriz de Hollywood desarrolló la tecnología de salto de frecuencia en la 2ª Guerra Mundial.
 708,Extravagante,¿Qué animal tiene la lengua rosa con espinas?,León,Oso,A,Media,Las papilas de su lengua son de queratina y sirven para arrancar la carne de los huesos.
-243,Ciencia,¿Qué le pasa al tiempo cerca de un agujero negro?,Se ralentiza,Se acelera,A,Media,Debido a la enorme gravedad,el tiempo pasa mucho más despacio que en la Tierra.,,,,
-671,Extravagante,¿Qué animal duerme flotando de pie?,Cachalote,Delfín,A,Media,Se quedan en estado vertical inmóvil,pareciendo monolitos flotando en el océano.,,,,
+243,Ciencia,¿Qué le pasa al tiempo cerca de un agujero negro?,Se ralentiza,Se acelera,A,Media,Debido a la enorme gravedad
+671,Extravagante,¿Qué animal duerme flotando de pie?,Cachalote,Delfín,A,Media,Se quedan en estado vertical inmóvil
 1282,Naturaleza,¿Qué animal tiene el grito más fuerte de la selva?,Mono aullador,Jaguar,A,Media,Su rugido puede oírse a casi 5 kilómetros de distancia entre la vegetación.
-967,Historia,¿Qué país fue el último en abolir la esclavitud?,Mauritania,Brasil,A,Difícil,No fue ilegal hasta 1981,y no fue penalizado hasta el año 2007.,,,,
-694,Extravagante,¿Qué animal tiene 1.000 patas?,Milpiés,Ciempiés,A,Media,Aunque el nombre asuste,la mayoría tiene unos 200,aunque una especie llegó a 1.300 recientemente.,,,
+967,Historia,¿Qué país fue el último en abolir la esclavitud?,Mauritania,Brasil,A,Difícil,No fue ilegal hasta 1981
+694,Extravagante,¿Qué animal tiene 1.000 patas?,Milpiés,Ciempiés,A,Media,Aunque el nombre asuste
 405,Cuerpo Humano,¿Qué parte del cuerpo tiene su propio ecosistema?,Ombligo,Boca,A,Media,Un estudio halló más de 2.300 especies de bacterias viviendo solo en el ombligo humano.
 678,Extravagante,¿Qué animal produce luz propia?,Luciérnaga,Pez linterna (ambos),A,Fácil,Usan una reacción química llamada bioluminiscencia para cazar o aparearse.
 1273,Naturaleza,¿Qué animal puede congelarse y volver a la vida?,Rana de la madera,Oso polar,A,Media,Su sangre produce un anticongelante natural que evita que sus células estallen.
 1008,Historia,¿Quién inventó la margarina?,Un químico francés,Un cocinero alemán,A,Media,Napoleón III ofreció un premio para crear un sustituto barato de la mantequilla para su ejército.
-703,Extravagante,¿Qué animal tiene el pelo transparente?,Oso polar,Conejo,A,Media,Su pelaje no es blanco,es translúcido y refleja la luz,lo que les ayuda a camuflarse.,,,
-251,Ciencia,¿Qué planeta flota en el agua?,Saturno,Júpiter,A,Media,Es menos denso que el agua; si tuvieras una bañera gigante,Saturno flotaría.,,,,
+703,Extravagante,¿Qué animal tiene el pelo transparente?,Oso polar,Conejo,A,Media,Su pelaje no es blanco
+251,Ciencia,¿Qué planeta flota en el agua?,Saturno,Júpiter,A,Media,Es menos denso que el agua; si tuvieras una bañera gigante
 701,Extravagante,¿Qué animal tiene el cerebro más pequeño?,Estegosaurio,Nuez,A,Media,Un dinosaurio de 9 metros tenía un cerebro del tamaño de una nuez o un limón.
-1270,Naturaleza,¿Qué animal es el más solitario?,Oso polar,Lobo,A,Media,Apenas interactúan con otros,excepto para aparearse,recorriendo miles de km solos.,,,
-964,Historia,¿Qué país declaró la guerra a los pájaros emúes?,Australia,Sudáfrica,A,Media,En 1932,el ejército australiano usó ametralladoras contra los pájaros y,técnicamente,perdió.,,
+1270,Naturaleza,¿Qué animal es el más solitario?,Oso polar,Lobo,A,Media,Apenas interactúan con otros
+964,Historia,¿Qué país declaró la guerra a los pájaros emúes?,Australia,Sudáfrica,A,Media,En 1932
 682,Extravagante,¿Qué animal puede sobrevivir a una decapitación por semanas?,Cucaracha,Hormiga,A,Media,Respiran por espiráculos en el cuerpo y su cerebro no controla la presión sanguínea.
 1138,Medicina,¿Qué se usaba en el siglo XIX para tratar el asma?,Cigarrillos de arsénico,Jarabe de caracol,A,Difícil,"Se creía que el humo de ciertas sustancias tóxicas ""abría"" las vías respiratorias."
-970,Historia,¿Qué país tuvo un presidente que era un cadáver?,Grecia,Ecuador,B,Difícil,En 1906,"el cadáver de Federico Páez fue ""sentado"" en la silla presidencial durante una revuelta.",,,,
-166,Biología,¿Qué animal tiene el corazón en la rodilla?,Grillo,Camarón,B,Difícil,En realidad,"los grillos tienen los ""oídos"" en las rodillas y los camarones el corazón en el cefalotórax.",,,,
+970,Historia,¿Qué país tuvo un presidente que era un cadáver?,Grecia,Ecuador,B,Difícil,En 1906
+166,Biología,¿Qué animal tiene el corazón en la rodilla?,Grillo,Camarón,B,Difícil,En realidad
 656,Extravagante,¿De qué color es la leche de ballena?,Blanca,Amarilla y espesa,B,Media,Tiene un 50% de grasa (parecido a la pasta de dientes) para que no se disuelva en el agua.
 248,Ciencia,¿Qué metal explota si le cae agua?,Potasio,Oro,A,Fácil,Es un metal alcalino tan reactivo que genera una explosión de hidrógeno al contacto con humedad.
 974,Historia,¿Qué se usaba en el Antiguo Egipto como anticonceptivo?,Estiércol de cocodrilo,Miel de abeja,A,Media,Se mezclaba con otras sustancias para crear una barrera ácida que bloqueaba el paso.
 695,Extravagante,¿Qué animal tiene 10.000 dientes en la lengua?,Caracol,Tiburón,A,Difícil,Su lengua (rádula) tiene filas de dientes microscópicos de quitina para raspar alimento.
 399,Cuerpo Humano,"¿Qué órgano puede ""gustar"" además de la lengua?",Los testículos,Los pulmones,A,Difícil,"Tienen receptores de sabor para detectar aminoácidos; aunque el cerebro no ""siente"" el sabor."
-1289,Naturaleza,"¿Qué árbol puede ""caminar""?",Palmera caminante,Pino de agua,A,Media,La 'Socratea exorrhiza' mueve sus raíces hacia la luz,desplazándose unos centímetros al año.,,,,
+1289,Naturaleza,"¿Qué árbol puede ""caminar""?",Palmera caminante,Pino de agua,A,Media,La 'Socratea exorrhiza' mueve sus raíces hacia la luz
 692,Extravagante,¿Qué animal se tira pedos para defenderse?,Mofeta,Avispa de mar,A,Fácil,Su líquido fétido es una mezcla de químicos que puede causar ceguera temporal.
-982,Historia,¿Quién es la persona con más hijos de la historia?,Valentina Vassilyeva (69),Isabel la Católica,A,Difícil,Una campesina rusa del siglo XVIII tuvo 16 pares de gemelos,7 de trillizos y 4 de cuatrillizos.,,,,
+982,Historia,¿Quién es la persona con más hijos de la historia?,Valentina Vassilyeva (69),Isabel la Católica,A,Difícil,Una campesina rusa del siglo XVIII tuvo 16 pares de gemelos
 670,Extravagante,¿Qué animal duerme con la mitad del cerebro despierto?,Delfín,León,A,Media,Se llama sueño unihemisférico y les permite seguir nadando y subiendo a respirar.
-256,Ciencia,¿Qué sustancia es más dura que el diamante?,Lonsdaleíta,Grafeno,B,Media,El grafeno es el material más resistente jamás testado,aunque la lonsdaleíta es un 58% más dura que el diamante.,,,,
+256,Ciencia,¿Qué sustancia es más dura que el diamante?,Lonsdaleíta,Grafeno,B,Media,El grafeno es el material más resistente jamás testado
 958,Historia,¿Qué emperador romano se vestía de mujer para prostituirse?,Heliogábalo,Calígula,A,Difícil,Ofrecía grandes sumas de dinero a quien pudiera realizarle una operación de cambio de sexo.
 706,Extravagante,¿Qué animal tiene la caca en forma de cubo?,Wombat,Koala,A,Media,Sus intestinos tienen zonas rígidas y flexibles que moldean las heces para que no rueden.
-396,Cuerpo Humano,¿Qué le pasa a tu altura en el espacio?,Cunces unos 5 cm,Te encoges,A,Media,Sin la gravedad que comprima los discos intervertebrales,la columna se expande.,,,,
+396,Cuerpo Humano,¿Qué le pasa a tu altura en el espacio?,Cunces unos 5 cm,Te encoges,A,Media,Sin la gravedad que comprima los discos intervertebrales
 1277,Naturaleza,¿Qué animal se comunica mediante ultrasonidos por el ano?,Arenque,Cachalote,A,Difícil,Emiten ráfagas de burbujas (pedos) para mantener el contacto con el banco de peces en la oscuridad.
 722,Extravagante,¿Qué se usaba en Roma para blanquear los dientes?,Orina,Vinagre de manzana,A,Media,El amoníaco de la orina servía como agente blanqueador; se importaba incluso de otras regiones.
-960,Historia,¿Qué guerra comenzó por un partido de fútbol?,Honduras y El Salvador,Brasil y Argentina,A,Media,En 1969,las tensiones políticas estallaron tras un partido eliminatorio para el Mundial.,,,,
-679,Extravagante,¿Qué animal puede cambiar de sexo a voluntad?,Pez payaso,Delfín,A,Media,Si la hembra dominante muere,el macho más grande se transforma en hembra.,,,,
+960,Historia,¿Qué guerra comenzó por un partido de fútbol?,Honduras y El Salvador,Brasil y Argentina,A,Media,En 1969
+679,Extravagante,¿Qué animal puede cambiar de sexo a voluntad?,Pez payaso,Delfín,A,Media,Si la hembra dominante muere
 168,Biología,¿Qué animal tiene la lengua más pesada que un elefante?,Ballena azul,Megalodón,A,Fácil,La lengua de una ballena azul puede pesar hasta 2.700 kilos.
 717,Extravagante,"¿Qué país tiene una ""Policía de la Moda"" real?",Irán,Corea del Norte,B,Media,Existen cortes de pelo y vestimentas prohibidas bajo penas de cárcel o multas.
 904,Historia,¿De qué murió el creador de la margarina?,De hambre,En la guillotina,A,Difícil,Hippolyte Mège-Mouriès murió en la pobreza absoluta a pesar de su invento millonario.
@@ -908,18 +908,18 @@ Id,Categoría,Pregunta,Opción A,Opción B,Correcta,Dificultad,Explicación
 686,Extravagante,¿Qué animal puede vivir sin agua toda su vida?,Rata canguro,Camello,A,Media,Extraen la humedad de las semillas y su metabolismo recicla el agua interna.
 254,Ciencia,¿Qué planeta tiene lluvia de diamantes?,Neptuno,Marte,A,Media,La alta presión convierte el metano en cristales de diamante que caen al núcleo.
 1004,Historia,¿Quién inventó el sistema de la WiFi?,Hedy Lamarr (actriz),Alan Turing,A,Difícil,La actriz de Hollywood desarrolló una tecnología de salto de frecuencia durante la 2ª Guerra Mundial.
-713,Extravagante,¿Qué animal tiene ojos más grandes que su cerebro?,Avestruz,Lechuza,A,Media,Sus ojos son del tamaño de una pelota de billar,optimizados para ver depredadores a km.,,,,
+713,Extravagante,¿Qué animal tiene ojos más grandes que su cerebro?,Avestruz,Lechuza,A,Media,Sus ojos son del tamaño de una pelota de billar
 368,Cuerpo Humano,¿Cuántas bacterias hay en tu ombligo?,Más de 2.000 especies,Unas 50,A,Difícil,Un estudio encontró una biodiversidad similar a la de una selva tropical en el ombligo humano.
 1271,Naturaleza,¿Qué animal es inmortal?,Medusa Turritopsis,Tardígrado,A,Media,Puede revertir sus células a una etapa temprana y volver a empezar su ciclo vital.
 721,Extravagante,¿Qué se usaba en la Edad Media para saber si alguien estaba vivo?,Campana en el ataúd,Espejo en la nariz,A,Media,"El miedo a ser enterrado vivo (tafofobia) creó los ""ataúdes de seguridad""."
-963,Historia,¿Qué país declaró la guerra a los pájaros Emú?,Australia,Sudáfrica,A,Media,En 1932,"el ejército australiano perdió una ""guerra"" contra 20.000 emúes.",,,,
+963,Historia,¿Qué país declaró la guerra a los pájaros Emú?,Australia,Sudáfrica,A,Media,En 1932
 709,Extravagante,¿Qué animal tiene la orina que huele a palomitas?,Binturong,Oso panda,A,Difícil,Producen una sustancia química (2-AP) que es la misma que da olor al maíz inflado.
-167,Biología,¿Qué animal tiene el periodo de sueño más corto?,Jirafa,Elefante,A,Media,Duermen unos 30 minutos al día en siestas de 5 minutos,a menudo de pie.,,,,
-660,Extravagante,¿De qué está hecho el cuerno del rinoceronte?,Pelo compactado,Hueso,A,Fácil,Es queratina pura,la misma sustancia de tus uñas y cabello.,,,,
+167,Biología,¿Qué animal tiene el periodo de sueño más corto?,Jirafa,Elefante,A,Media,Duermen unos 30 minutos al día en siestas de 5 minutos
+660,Extravagante,¿De qué está hecho el cuerno del rinoceronte?,Pelo compactado,Hueso,A,Fácil,Es queratina pura
 683,Extravagante,¿Qué animal puede sobrevivir semanas sin cabeza?,Cucaracha,Hormiga,A,Media,Respiran por espiráculos en el cuerpo y no mueren por falta de cerebro sino de hambre.
 1137,Medicina,¿Qué se fumaba para el asma en el siglo XIX?,Cigarrillos de arsénico,Tabaco de menta,A,Difícil,"Se creía que el humo tóxico ""limpiaba"" los pulmones de mucosidad."
 971,Historia,¿Qué país tuvo un presidente que era un cadáver?,Ecuador,Grecia,A,Difícil,En 1906 el cadáver de Federico Páez fue sentado en la silla para legitimar una revuelta.
-165,Biología,¿Qué animal tiene el corazón en la cabeza?,Camarón,Grillo,A,Media,Su sistema circulatorio se concentra en el cefalotórax,justo detrás de los ojos.,,,,
+165,Biología,¿Qué animal tiene el corazón en la cabeza?,Camarón,Grillo,A,Media,Su sistema circulatorio se concentra en el cefalotórax
 657,Extravagante,¿De qué color es la leche de ballena?,Blanca,Rosa y espesa,B,Media,Tiene un 50% de grasa (textura de pasta de dientes) para que no se disuelva en el agua.
 247,Ciencia,¿Qué metal explota al contacto con el agua?,Sodio,Oro,A,Fácil,Reacciona violentamente liberando hidrógeno y calor hasta estallar.
 896,Historia,¿Anticonceptivo en el Antiguo Egipto?,Estiércol de cocodrilo,Miel de palma,A,Media,Se usaba como barrera ácida y física antes del coito.
@@ -936,7 +936,7 @@ Id,Categoría,Pregunta,Opción A,Opción B,Correcta,Dificultad,Explicación
 1258,Naturaleza,¿Animal que habla por el ano?,Arenque,Cachalote,A,Difícil,Emiten ráfagas de burbujas para mantener contacto con el grupo en la oscuridad.
 650,Extravagante,¿Blanqueador dental en Roma?,Orina,Vinagre,A,Media,El amoníaco de la orina era un agente limpiador muy valorado.
 927,Historia,¿Guerra que empezó por fútbol?,Honduras/Salvador,Brasil/Arg,A,Media,En 1969 las tensiones políticas estallaron tras un partido clasificatorio.
-638,Extravagante,¿Animal que cambia de sexo?,Pez payaso,Delfín,A,Media,Si la hembra muere,el macho dominante se transforma en hembra.,,,,
+638,Extravagante,¿Animal que cambia de sexo?,Pez payaso,Delfín,A,Media,Si la hembra muere
 161,Biología,¿Lengua más pesada que un elefante?,Ballena azul,Megalodón,A,Fácil,La lengua de una ballena azul pesa unas 2.7 toneladas.
 668,Extravagante,¿País con Policía de la Moda?,Corea del Norte,Irán,A,Media,Controlan cortes de pelo y el uso de vaqueros o marcas occidentales.
 905,Historia,¿De qué murió el creador de la margarina?,Hambre/Pobreza,Guillotina,A,Difícil,Hippolyte Mège-Mouriès murió pobre a pesar de su invento global.
@@ -954,7 +954,7 @@ Id,Categoría,Pregunta,Opción A,Opción B,Correcta,Dificultad,Explicación
 649,Extravagante,¿Ataúdes con campanas para?,Enterrados vivos,Llamar ángeles,A,Media,En la época victoriana el miedo a la catalepsia creó estos inventos.
 923,Historia,¿Guerra contra pájaros Emú?,Australia,Sudáfrica,A,Media,En 1932 el ejército australiano perdió contra 20.000 aves.
 643,Extravagante,¿Animal que huele a palomitas?,Binturong,Oso panda,A,Difícil,Su orina contiene la misma molécula química que el maíz inflado.
-170,Biología,¿Sueño de la jirafa?,30 minutos al día,10 horas,A,Media,Duermen en breves siestas de 5 minutos,a menudo de pie.,,,,
+170,Biología,¿Sueño de la jirafa?,30 minutos al día,10 horas,A,Media,Duermen en breves siestas de 5 minutos
 655,Extravagante,¿Cuerno de rinoceronte es?,Pelo (queratina),Hueso,A,Fácil,Es la misma sustancia que las uñas o el cabello humano.
 911,Historia,¿Ejército de mujeres vírgenes?,Reina de Dahomey,Cleopatra,A,Media,Eran soldados de élite temidas en toda África Occidental.
 635,Extravagante,¿Animal con leche verde?,Hipopótamo,Flamenco,A,Media,Es un mito; su sudor rojo mezclado con leche blanca da ese tono.
@@ -984,7 +984,7 @@ Id,Categoría,Pregunta,Opción A,Opción B,Correcta,Dificultad,Explicación
 632,Extravagante,¿Animal con 32 cerebros?,Sanguijuela,Ciempiés,A,Difícil,Tiene un ganglio independiente para cada segmento.
 183,Ciencia,¿Color del universo?,Beige cósmico,Negro,A,Difícil,Es el promedio de toda la luz emitida por las galaxias.
 724,Extravagante,¿Usa la nariz como dedo?,Elefante,Topo,A,Fácil,Su trompa tiene 40.000 músculos y precisión milimétrica.
-1296,Naturaleza,¿Vuela 10 meses sin parar?,Vencejo,Albatros,A,Media,Comen,duermen y se aparean en el aire.,,,,
+1296,Naturaleza,¿Vuela 10 meses sin parar?,Vencejo,Albatros,A,Media,Comen
 934,Historia,¿Mujeres amazonas reales en?,Dahomey (África),Grecia,A,Media,Eran un regimiento de élite que existió hasta finales del s. XIX.
 666,Extravagante,¿Miedo al ombligo?,Onfalofobia,Acluofobia,A,Media,Miedo irracional a tocar o ver ombligos ajenos o propios.
 390,Cuerpo Humano,¿Órgano que crece siempre?,Nariz/Orejas,Ojos,A,Fácil,El cartílago sigue expandiéndose debido a la gravedad.
@@ -1067,7 +1067,7 @@ Id,Categoría,Pregunta,Opción A,Opción B,Correcta,Dificultad,Explicación
 580,Espacio,¿Cuántas veces ha orbitado el Sol la galaxia?,20 veces,1000 veces,A,Difícil,Desde que nació hace 4.600 millones de años; nuestro sistema ha dado unas 20 vueltas a la Vía Láctea.
 133,Astronomía,"¿Qué planeta es el ""Vigilante"" de la Tierra?",Júpiter,Luna,A,Media,Su enorme gravedad atrae y desvía la mayoría de los asteroides peligrosos que vendrían hacia nosotros.
 1321,Psicología,¿Qué es la Pareidolia?,Ver caras en objetos,Miedo a los payasos,A,Fácil,Es una respuesta evolutiva para detectar rostros rápidamente en el entorno.
-1143,Mente,¿Cuánto dura la memoria a corto plazo?,20 segundos,10 minutos,A,Media,Si no se repite la información,el cerebro la descarta casi de inmediato.,,,,
+1143,Mente,¿Cuánto dura la memoria a corto plazo?,20 segundos,10 minutos,A,Media,Si no se repite la información
 1314,Psicología,¿Qué es el Efecto Placebo?,Mejora por sugestión,Miedo a las medicinas,A,Fácil,El paciente mejora al creer que recibe un tratamiento real aunque sea inocuo.
 1154,Mente,¿Qué hemisferio controla la mano derecha?,Izquierdo,Derecho,A,Media,Las conexiones motoras del cerebro están cruzadas respecto al cuerpo.
 1316,Psicología,¿Qué es la Agorafobia?,Miedo a espacios abiertos,Miedo a las arañas,A,Fácil,Es la ansiedad intensa ante lugares donde escapar resulta difícil o vergonzoso.
@@ -1120,21 +1120,21 @@ Id,Categoría,Pregunta,Opción A,Opción B,Correcta,Dificultad,Explicación
 1486,Viajes,¿En qué ciudad hay una góndola real?,Venecia,Florencia,A,Fácil,Es el transporte tradicional por los canales de la ciudad italiana.
 1182,Monumentos,¿Años para construir la Gran Pirámide?,20 años,100 años,A,Media,Se estima que miles de obreros trabajaron dos décadas para Keops.
 505,Destinos,¿Continente sin hormigas?,Antártida,Oceanía,A,Difícil,Es el único lugar de la Tierra donde no existen estos insectos de forma nativa.
-1203,Monumentos,¿País de Chichén Itzá?,México,Guatemala,A,Fácil,Es una de las siete maravillas del mundo moderno,situada en Yucatán.,,,,
+1203,Monumentos,¿País de Chichén Itzá?,México,Guatemala,A,Fácil,Es una de las siete maravillas del mundo moderno
 1477,Viajes,¿Aeropuerto más concurrido del mundo?,Atlanta,Londres,A,Difícil,Hartsfield-Jackson maneja más de 100 millones de pasajeros al año.
 518,Destinos,¿País de la ciudad de Petra?,Jordania,Egipto,A,Media,Famosa por sus edificios tallados directamente en la roca de los acantilados.
 1214,Monumentos,¿Torre que se inclina por suelo blando?,Torre de Pisa,Torre Eiffel,A,Fácil,Empezó a inclinarse poco después de iniciar su construcción en 1173.
-1508,Viajes,¿Red ferroviaria más larga?,EE. UU.,China,A,Difícil,EE. UU. tiene más de 250.000 km de vías,principalmente para carga.,,,,
+1508,Viajes,¿Red ferroviaria más larga?,EE. UU.,China,A,Difícil,EE. UU. tiene más de 250.000 km de vías
 510,Destinos,¿Isla más grande del mundo?,Groenlandia,Australia,A,Media,Australia se considera masa continental; Groenlandia es la isla mayor.
 1186,Monumentos,¿Ciudad del Taj Mahal?,Agra,Nueva Delhi,A,Media,Construido por el emperador Shah Jahan en honor a su esposa favorita.
 1476,Viajes,¿Aerolínea más antigua activa?,KLM,Lufthansa,A,Difícil,La aerolínea holandesa fue fundada en 1919 y nunca ha cambiado de nombre.
 515,Destinos,"¿País de la ""Puerta al Infierno""?",Turkmenistán,Irán,A,Difícil,Es un pozo de gas natural que lleva ardiendo desde 1971.
-1202,Monumentos,¿Material de la Muralla China?,Piedra y arroz,Solo piedra,A,Difícil,Se usó mortero de arroz pegajoso para unir los ladrillos,haciéndola muy resistente.,,,,
+1202,Monumentos,¿Material de la Muralla China?,Piedra y arroz,Solo piedra,A,Difícil,Se usó mortero de arroz pegajoso para unir los ladrillos
 1480,Viajes,¿Ciudad con más canales que Venecia?,Hamburgo,Ámsterdam,A,Media,Tiene más de 2.300 puentes y muchísimos más kilómetros de agua que Venecia.
 535,Destinos,¿País del Salar de Uyuni?,Bolivia,Chile,A,Fácil,Es el mayor desierto de sal continuo y alto del mundo.
 1188,Monumentos,¿Diseñador de la Sagrada Familia?,Gaudí,Dalí,A,Fácil,Antoni Gaudí dedicó 43 años de su vida a este templo inacabado.
 1493,Viajes,¿País con más hoteles de lujo?,China,Dubái,A,Difícil,China lidera el crecimiento de hoteles de 5 estrellas en la última década.
-512,Destinos,¿Océano de las Maldivas?,Índico,Pacífico,A,Media,Es el país más bajo y plano del mundo,en pleno corazón del Índico.,,,,
+512,Destinos,¿Océano de las Maldivas?,Índico,Pacífico,A,Media,Es el país más bajo y plano del mundo
 1199,Monumentos,¿Estatua de Río de 30 metros?,Cristo Redentor,Pan de Azúcar,A,Fácil,Situado en la cima del cerro del Corcovado a 710 metros sobre el nivel del mar.
 1506,Viajes,"¿País típico del ""Tea Time""?",Reino Unido,India,A,Fácil,La tradición de la merienda con té se popularizó en el siglo XIX.
 511,Destinos,¿Lugar más seco de la Tierra?,Atacama,Sahara,A,Media,Hay zonas en este desierto chileno donde nunca se ha registrado lluvia.
@@ -1145,9 +1145,9 @@ Id,Categoría,Pregunta,Opción A,Opción B,Correcta,Dificultad,Explicación
 1485,Viajes,¿Ciudad del Burj Khalifa?,Dubái,Abu Dabi,A,Fácil,Es la estructura más alta construida por el hombre (828 metros).
 504,Destinos,¿Ciudad más fría habitada?,Oymyakon,Yakutsk,A,Difícil,Se han registrado temperaturas de -71.2 grados Celsius.
 1209,Monumentos,¿Quién construyó el Partenón?,Griegos,Romanos,A,Fácil,Templo consagrado a la diosa Atenea en la Acrópolis de Atenas.
-1492,Viajes,¿País con más castillos por km2?,Gales,Alemania,A,Difícil,Tiene más de 600 castillos,legado de siglos de invasiones y defensas.,,,,
+1492,Viajes,¿País con más castillos por km2?,Gales,Alemania,A,Difícil,Tiene más de 600 castillos
 514,Destinos,¿País de cataratas Victoria?,Zambia,Brasil,A,Media,El humo que truena separa las fronteras de Zambia y Zimbabue.
-1183,Monumentos,¿Ciudad del Big Ben?,Londres,Mánchester,A,Fácil,Es el nombre de la campana principal,no de la torre (Torre de Isabel).,,,,
+1183,Monumentos,¿Ciudad del Big Ben?,Londres,Mánchester,A,Fácil,Es el nombre de la campana principal
 1509,Viajes,¿Tren más largo del mundo?,Transiberiano,Orient Express,A,Media,Cruza 8 zonas horarias y recorre más de 9.000 km.
 531,Destinos,¿País del Kilimanjaro?,Tanzania,Kenia,A,Media,Es la montaña más alta de África y un volcán de triple cumbre.
 1185,Monumentos,¿Ciudad del Louvre?,París,Lyon,A,Fácil,Es el museo de arte más visitado del mundo y antigua residencia real.
@@ -1159,13 +1159,13 @@ Id,Categoría,Pregunta,Opción A,Opción B,Correcta,Dificultad,Explicación
 1494,Viajes,¿País con más husos horarios?,Francia,Rusia,A,Difícil,Tiene 12 zonas horarias por sus territorios en los cinco continentes.
 530,Destinos,¿País del Everest?,Nepal y China,India,A,Media,La cima se encuentra justo en la frontera entre ambos países.
 1192,Monumentos,¿Dónde está la Alhambra?,Granada,Sevilla,A,Fácil,Es una ciudad palatina andalusí única en el mundo.
-1482,Viajes,¿Ciudad con más museos?,Londres,París,A,Difícil,Londres tiene más de 170 museos,muchos de ellos gratuitos.,,,,
+1482,Viajes,¿Ciudad con más museos?,Londres,París,A,Difícil,Londres tiene más de 170 museos
 520,Destinos,¿País de la Gran Barrera de Coral?,Australia,Fiyi,A,Fácil,Es el mayor arrecife de coral del mundo y visible desde el espacio.
 1200,Monumentos,¿Estatua más alta del mundo?,Unidad (India),Libertad,A,Media,La Estatua de la Unidad mide 182 metros de altura.
 1487,Viajes,¿En qué país está el Delta del Okavango?,Botsuana,Kenia,A,Media,Es uno de los pocos deltas interiores que no desembocan en el mar.
 525,Destinos,¿País de la Mezquita Azul?,Turquía,Irán,A,Fácil,Sultanahmet Camii es la mezquita más famosa de Estambul.
 1210,Monumentos,¿Quién construyó el Taj Mahal?,Shah Jahan,Akbar,A,Media,Lo hizo como mausoleo para su esposa Mumtaz Mahal.
-1501,Viajes,¿País donde se conduce por la izquierda?,Japón,Francia,A,Media,Al igual que el Reino Unido,Japón mantiene esta norma de tráfico.,,,,
+1501,Viajes,¿País donde se conduce por la izquierda?,Japón,Francia,A,Media,Al igual que el Reino Unido
 1495,Viajes,¿País con más husos horarios?,Francia,Rusia,A,Difícil,Debido a sus territorios de ultramar repartidos por el mundo; Francia tiene 12 zonas horarias.
 509,Destinos,¿En qué país está el Monte Everest?,Nepal y China,India,A,Media,La frontera entre ambos países pasa justo por el punto más alto de la cima.
 1193,Monumentos,¿Dónde está la Alhambra?,Granada (España),Sevilla,A,Fácil,Es una ciudad palatina andalusí que fue el último reducto musulmán en la península.
@@ -1269,40 +1269,40 @@ Id,Categoría,Pregunta,Opción A,Opción B,Correcta,Dificultad,Explicación
 476,Deportes,¿Ciudad de los primeros JJOO modernos?,Atenas,París,A,Fácil,Se celebraron en 1896 en el Estadio Panatenaico para recuperar la tradición griega.
 1341,Récords,¿Hombre más rápido de la historia?,Usain Bolt,Tyson Gay,A,Fácil,Ostenta el récord mundial de 100 metros lisos con un tiempo de 9.58 segundos (Berlín 2009).
 481,Deportes,¿Con qué se juega en hockey hielo?,Puck (disco),Pelota,A,Fácil,Es un disco de caucho vulcanizado que se desliza por la superficie helada.
-1299,Olimpiadas,¿Color del anillo central olímpico?,Negro,Verde,A,Media,Los cinco colores (azul,amarillo,negro,verde y rojo) representan los continentes unidos.,,
+1299,Olimpiadas,¿Color del anillo central olímpico?,Negro,Verde,A,Media,Los cinco colores (azul
 491,Deportes,¿Jugadores de baloncesto en pista?,5,6,A,Fácil,Cada equipo tiene cinco jugadores en cancha; los cambios son ilimitados.
-1349,Récords,¿Más mundiales ganados como jugador?,Pelé,Maradona,A,Media,Edson Arantes do Nascimento es el único en la historia con 3 Copas del Mundo (1958,1962,1970).,,,
-488,Deportes,¿Estilo de natación más lento?,Braza,Crol,A,Media,Debido a su mecánica de empuje y resistencia al agua,es el estilo con menor velocidad punta.,,,,
-1297,Olimpiadas,¿Cada cuántos años hay JJOO verano?,4,2,A,Fácil,Se celebran cada cuatro años (Olimpiada),siguiendo el ciclo iniciado en la era moderna.,,,,
+1349,Récords,¿Más mundiales ganados como jugador?,Pelé,Maradona,A,Media,Edson Arantes do Nascimento es el único en la historia con 3 Copas del Mundo (1958
+488,Deportes,¿Estilo de natación más lento?,Braza,Crol,A,Media,Debido a su mecánica de empuje y resistencia al agua
+1297,Olimpiadas,¿Cada cuántos años hay JJOO verano?,4,2,A,Fácil,Se celebran cada cuatro años (Olimpiada)
 478,Deportes,¿Club con más Champions League?,Real Madrid,AC Milan,A,Fácil,El club español lidera el palmarés europeo con 15 títulos (hasta 2024).
 1338,Récords,¿Distancia exacta del Maratón?,42.195 km,40 km,A,Media,La distancia se fijó en Londres 1908 para que la meta estuviera frente al palco real.
 493,Deportes,¿País donde nació el fútbol?,Inglaterra,Brasil,A,Fácil,Las reglas modernas (The Football Association) se establecieron en Londres en 1863.
 1307,Olimpiadas,¿Mujeres en los JJOO de 1896?,No,Sí,A,Media,Las mujeres no pudieron competir oficialmente hasta los Juegos de París 1900.
-475,Deportes,¿Carreras mínimas en un Home Run?,1 carrera,3 carreras,A,Fácil,Si el bateador saca la bola,recorre todas las bases y anota al menos su propio punto.,,,,
-1372,Récords,¿Tenista masculino con más Grand Slams?,Djokovic,Nadal,A,Media,Novak Djokovic superó los 22 títulos de Nadal,alcanzando los 24 (hasta 2023).,,,,
+475,Deportes,¿Carreras mínimas en un Home Run?,1 carrera,3 carreras,A,Fácil,Si el bateador saca la bola
+1372,Récords,¿Tenista masculino con más Grand Slams?,Djokovic,Nadal,A,Media,Novak Djokovic superó los 22 títulos de Nadal
 490,Deportes,¿Golpe de salida en el golf?,Tee shot,Putt,A,Media,"Se realiza desde el ""tee"" (soporte) para iniciar cada hoyo del recorrido."
-1308,Olimpiadas,¿Qué simbolizan los 5 anillos?,5 continentes,5 deportes,A,Fácil,Representan a África,América,Asia,Europa y Oceanía en el espíritu olímpico.,,
+1308,Olimpiadas,¿Qué simbolizan los 5 anillos?,5 continentes,5 deportes,A,Fácil,Representan a África
 487,Deportes,¿Duración asalto boxeo profesional?,3 minutos,5 minutos,A,Media,Es el tiempo estándar para hombres; en el boxeo femenino suelen ser de 2 minutos.
 1336,Récords,¿Deporte más visto del mundo?,Fútbol,Baloncesto,A,Fácil,Tiene una audiencia estimada de 3.500 millones de seguidores a nivel global.
 502,Deportes,"¿Selección que hace la ""Haka""?",Nueva Zelanda,Australia,A,Fácil,Los 'All Blacks' realizan esta danza maorí para desafiar a sus rivales antes del partido.
 1306,Olimpiadas,¿Material de la medalla de oro?,Plata bañada,Oro puro,A,Difícil,Solo contiene unos 6 gramos de oro real; el resto es plata de alta pureza.
-477,Deportes,¿Ciudad de Roland Garros?,París,Londres,A,Fácil,Es el torneo sobre tierra batida más prestigioso del mundo,celebrado en la capital francesa.,,,,
-1370,Récords,¿Silueta del logo de la NBA?,Jerry West,Michael Jordan,A,Media,Aunque la NBA nunca lo admitió oficialmente,el diseñador se basó en una foto de West.,,,,
+477,Deportes,¿Ciudad de Roland Garros?,París,Londres,A,Fácil,Es el torneo sobre tierra batida más prestigioso del mundo
+1370,Récords,¿Silueta del logo de la NBA?,Jerry West,Michael Jordan,A,Media,Aunque la NBA nunca lo admitió oficialmente
 497,Deportes,¿Puntos por tiro libre (Basket)?,1,2,A,Fácil,Es el lanzamiento que se concede tras una falta personal; se tira sin oposición.
-1305,Olimpiadas,¿Lema olímpico oficial?,Citius Altius Fortius,Veni Vidi Vici,A,Media,"Significa ""Más rápido",más alto,"más fuerte"" en latín.",,,
+1305,Olimpiadas,¿Lema olímpico oficial?,Citius Altius Fortius,Veni Vidi Vici,A,Media,"Significa ""Más rápido"
 501,Deportes,¿Selección con más mundiales fútbol?,Brasil,Alemania,A,Fácil,La 'Canarinha' es la única selección pentacampeona del mundo (5 títulos).
 1348,Récords,¿Más medallas olímpicas totales?,Michael Phelps,Larisa Latynina,A,Fácil,El nadador estadounidense tiene 28 medallas (23 de ellas de oro).
 489,Deportes,¿Forma del campo de béisbol?,Diamante,Rectángulo,A,Fácil,Se denomina así por la disposición de las cuatro bases que forman un cuadrado.
-1302,Olimpiadas,¿Donde se encendió la 1ª llama?,Grecia,Italia,A,Fácil,La tradición se remonta a Olimpia,donde se mantenía un fuego sagrado durante los Juegos.,,,,
+1302,Olimpiadas,¿Donde se encendió la 1ª llama?,Grecia,Italia,A,Fácil,La tradición se remonta a Olimpia
 485,Deportes,¿Deporte con volante y raqueta?,Bádminton,Tenis,A,Fácil,El volante (o pluma) tiene forma de cono y está hecho de plumas de ganso o nailon.
 1358,Récords,¿Partida perfecta en bolos?,300 puntos,100 puntos,A,Media,"Se consigue al realizar 12 ""strikes"" (plenos) consecutivos en una misma línea."
 496,Deportes,¿Piloto con más mundiales F1?,Schumacher/Hamilton,Senna,A,Media,Ambos comparten el récord histórico con 7 títulos mundiales cada uno.
-1298,Olimpiadas,¿Ciudad con 3 JJOO verano?,Londres,Madrid,A,Media,Londres acogió los juegos en 1908,1948 y 2012 (París igualará este récord en 2024).,,,,
+1298,Olimpiadas,¿Ciudad con 3 JJOO verano?,Londres,Madrid,A,Media,Londres acogió los juegos en 1908
 479,Deportes,¿Color del líder Tour Francia?,Amarillo,Rosa,A,Fácil,El 'Maillot Jaune' distingue al corredor que encabeza la clasificación general.
 1340,Récords,¿Equipo NBA con más anillos?,Boston Celtics,LA Lakers,A,Media,Los Celtics lideran históricamente (18 títulos tras ganar en 2024).
 495,Deportes,¿Partes de partido fútbol americano?,4 cuartos,2 tiempos,A,Fácil,Se divide en cuatro periodos de 15 minutos cada uno con un descanso largo a mitad.
 1304,Olimpiadas,¿Largo piscina olímpica?,50 metros,25 metros,A,Fácil,"Es la medida estándar para competiciones internacionales; la de 25m es ""piscina corta""."
-503,Deportes,¿Significado de Karate?,Mano vacía,Puño fuerte,A,Media,"Proviene del japonés ""Kara"" (vacío) y ""Te"" (mano)",indicando defensa sin armas.,,,,
+503,Deportes,¿Significado de Karate?,Mano vacía,Puño fuerte,A,Media,"Proviene del japonés ""Kara"" (vacío) y ""Te"" (mano)"
 1367,Récords,¿Quién inventó el voleibol?,William G. Morgan,James Naismith,A,Difícil,Lo creó en 1895 en EE. UU. como una alternativa menos intensa que el baloncesto.
 492,Deportes,¿Nombre trofeo mundial fútbol?,Copa Mundial FIFA,Copa Jules Rimet,A,Fácil,El trofeo actual se usa desde 1974; el anterior (Jules Rimet) se lo quedó Brasil.
 1309,Olimpiadas,¿Sede de los JJOO 2028?,Los Ángeles,Brisbane,A,Media,Será la tercera vez que la ciudad californiana organice unos Juegos Olímpicos.
@@ -1449,50 +1449,50 @@ Id,Categoría,Pregunta,Opción A,Opción B,Correcta,Dificultad,Explicación
 738,Extremo,¿Qué animal tiene el sistema inmune más fuerte?,Tiburón,Cocodrilo,B,Difícil,La sangre del cocodrilo tiene anticuerpos que eliminan bacterias y virus que matarían a un humano.
 172,Biología,¿Único mamífero que no puede saltar?,Elefante,Perezoso,A,Fácil,Su enorme peso y la falta de elasticidad en los tendones de sus patas lo hacen físicamente imposible.
 47,Animales,¿Qué animal tiene tres corazones?,Pulpo,Calamar (ambos),A,Media,Dos corazones bombean sangre a las branquias y el tercero al resto del cuerpo.
-731,Extremo,¿Animal que regenera su propio cerebro?,Axolote,Estrella de mar,A,Difícil,Este anfibio mexicano puede regenerar extremidades,médula espinal e incluso partes del cerebro.,,,,
+731,Extremo,¿Animal que regenera su propio cerebro?,Axolote,Estrella de mar,A,Difícil,Este anfibio mexicano puede regenerar extremidades
 13,Animales,¿Ave que vuela hacia atrás?,Colibrí,Vencejo,A,Fácil,"Es la única ave capaz de volar en todas las direcciones gracias a la rotación de sus alas en ""8""."
-156,Biología,¿Cuántos estómagos tiene un camello?,3,4,A,Difícil,A diferencia de las vacas (4),los camellos tienen tres compartimentos estomacales para digerir fibra.,,,,
+156,Biología,¿Cuántos estómagos tiene un camello?,3,4,A,Difícil,A diferencia de las vacas (4)
 27,Animales,¿Lengua más larga que su propio cuerpo?,Camaleón,Oso hormiguero,A,Media,La lengua del camaleón se dispara a una velocidad increíble y mide hasta 1.5 veces su cuerpo.
 735,Extremo,¿Animal sin cuerdas vocales?,Jirafa,Conejo,A,Media,Se comunican mediante infrasonidos de baja frecuencia que el oído humano no puede percibir.
 9,Animales,¿Animal que duerme con un ojo abierto?,Delfín,León,A,Fácil,Descansan la mitad de su cerebro a la vez para mantenerse alerta ante depredadores y respirar.
-144,Biología,¿Animal con huellas dactilares humanas?,Koala,Chimpancé,A,Media,Incluso bajo el microscopio,las huellas de un koala son casi indistinguibles de las nuestras.,,,,
+144,Biología,¿Animal con huellas dactilares humanas?,Koala,Chimpancé,A,Media,Incluso bajo el microscopio
 31,Animales,¿Pariente vivo más cercano del T-Rex?,Gallina,Cocodrilo,A,Difícil,Análisis genéticos de colágeno óseo demuestran que las aves son descendientes directos de los terópodos.
 728,Extremo,¿Animal con leche de color rosa?,Hipopótamo,Yack,A,Media,Su sudor rojo protector se mezcla con la leche blanca dándole ese tono rosáceo.
-29,Animales,¿Mordida más potente del mundo?,Cocodrilo Nilo,Hipopótamo,A,Media,El cocodrilo del Nilo ejerce una presión de 5.000 psi,la mayor medida en un animal vivo.,,,,
+29,Animales,¿Mordida más potente del mundo?,Cocodrilo Nilo,Hipopótamo,A,Media,El cocodrilo del Nilo ejerce una presión de 5.000 psi
 146,Biología,¿Animal inmortal biológicamente?,Medusa Turritopsis,Tardígrado,A,Difícil,Puede revertir sus células a su estado de pólipo juvenil y volver a empezar su ciclo vital.
 4,Animales,¿Animal con pupilas rectangulares?,Cabra,Gato,A,Media,Esto les da un campo de visión panorámico de 340 grados para detectar depredadores.
 733,Extremo,¿Animal que sobrevive al vacío espacial?,Tardígrado,Cucaracha,A,Media,"El ""oso de agua"" puede entrar en un estado de criptobiosis que lo hace casi indestructible."
 45,Animales,¿Qué animal tiene más dientes?,Caracol (25.000),Tiburón,A,Difícil,Su lengua (rádula) está cubierta por miles de dentículos microscópicos para raspar comida.
 169,Biología,¿Sentido del gusto en las patas?,Mariposa,Mosca (ambas),A,Media,Tienen receptores químicos en las patas para saber si una planta es apta para alimentarse.
-5,Animales,¿Animal más ruidoso del océano?,Cachalote,Ballena Azul,A,Difícil,"Sus ""clics"" alcanzan los 230 decibelios",más que un avión a reacción al despegar.,,,,
-730,Extremo,¿Animal que cambia de sexo?,Pez payaso,Delfín,A,Media,Si la hembra dominante muere,el macho más grande se transforma en hembra para liderar el grupo.,,,,
+5,Animales,¿Animal más ruidoso del océano?,Cachalote,Ballena Azul,A,Difícil,"Sus ""clics"" alcanzan los 230 decibelios"
+730,Extremo,¿Animal que cambia de sexo?,Pez payaso,Delfín,A,Media,Si la hembra dominante muere
 24,Animales,¿Gesta más larga (22 meses)?,Elefante africano,Orca,A,Fácil,El desarrollo de un bebé elefante requiere casi dos años dentro del vientre materno.
-150,Biología,¿Animal que no ve el color rojo?,Toro,Perro,A,Media,Los toros son dicromáticos; embisten a la muleta por el movimiento,no por el color rojo.,,,,
+150,Biología,¿Animal que no ve el color rojo?,Toro,Perro,A,Media,Los toros son dicromáticos; embisten a la muleta por el movimiento
 2,Animales,¿Animal con la lengua azul?,Jirafa,Oso Panda,A,Fácil,Es una adaptación para proteger la lengua de las quemaduras solares mientras comen hojas.
 729,Extremo,¿Animal macho que da a luz?,Caballito de mar,Pingüino,A,Fácil,La hembra pone los huevos en la bolsa del macho y él los incuba y expulsa al nacer.
-12,Animales,¿Animal que se reconoce en un espejo?,Delfín,Gato,A,Media,"Solo unos pocos animales pasan la ""prueba del espejo""",demostrando autoconciencia.,,,,
-154,Biología,¿Corazón situado en la cabeza?,Camarón,Cangrejo,A,Difícil,Su corazón se encuentra en el cefalotórax,protegido por el caparazón superior.,,,,
+12,Animales,¿Animal que se reconoce en un espejo?,Delfín,Gato,A,Media,"Solo unos pocos animales pasan la ""prueba del espejo"""
+154,Biología,¿Corazón situado en la cabeza?,Camarón,Cangrejo,A,Difícil,Su corazón se encuentra en el cefalotórax
 30,Animales,¿Nunca deja de crecer hasta morir?,Langosta,Tiburón,A,Difícil,No sufren envejecimiento biológico (senescencia); mueren por depredación o falta de energía para mudar.
 727,Extremo,¿Animal con 4 narices?,Babosa,Lombriz,A,Difícil,Tienen dos pares de tentáculos: uno para ver la luz y otro para el olfato y el tacto.
 25,Animales,¿Gira su cabeza 270 grados?,Búho,Halcón,A,Fácil,Tienen 14 vértebras cervicales (el doble que nosotros) y adaptaciones arteriales únicas.
-153,Biología,¿Cerebro más grande del mundo?,Cachalote,Ballena Azul,A,Media,El cerebro del cachalote pesa unos 8 kg,el más masivo de cualquier ser vivo.,,,,
+153,Biología,¿Cerebro más grande del mundo?,Cachalote,Ballena Azul,A,Media,El cerebro del cachalote pesa unos 8 kg
 28,Animales,¿Mamífero más lento del mundo?,Perezoso de tres dedos,Manatí,A,Fácil,Se desplaza a una velocidad máxima de 0.24 kilómetros por hora en tierra.
 739,Extremo,¿Usa herramientas para abrir comida?,Nutria marina,Delfín,A,Media,Utilizan piedras apoyadas en su pecho para romper las conchas de los moluscos.
 51,Animales,¿Sangre de color azul?,Cangrejo herradura,Pulpo (ambos),A,Difícil,Su sangre usa hemocianina (basada en cobre) en lugar de hemoglobina (hierro).
 160,Biología,¿Huele el agua a kilómetros?,Elefante,Camello,A,Media,Los elefantes africanos pueden detectar una fuente de agua a casi 20 km de distancia.
-56,Animales,¿Único que no camina hacia atrás?,Canguro,Emu (ambos),A,Media,Debido a su anatomía motriz,el canguro solo puede desplazarse saltando hacia adelante.,,,,
+56,Animales,¿Único que no camina hacia atrás?,Canguro,Emu (ambos),A,Media,Debido a su anatomía motriz
 736,Extremo,¿Más huesos en el cuello?,Cisne,Jirafa,A,Difícil,La jirafa tiene 7 vértebras (como nosotros); el cisne tiene hasta 25 vértebras cervicales.
-10,Animales,¿Animal que más humanos mata?,Mosquito,Serpiente,A,Fácil,Por las enfermedades que transmite (malaria,dengue),mata a más de 700.000 personas al año.,,,
+10,Animales,¿Animal que más humanos mata?,Mosquito,Serpiente,A,Fácil,Por las enfermedades que transmite (malaria
 164,Biología,¿Ojos más grandes que su cerebro?,Avestruz,Calamar,A,Media,Sus ojos de 5 cm son los más grandes de cualquier animal terrestre.
 14,Animales,¿Capaz de imitar el habla humana?,Loro,Delfín,A,Fácil,Tienen un órgano llamado siringe que les permite replicar sonidos complejos con precisión.
 726,Extremo,¿Animal con 32 cerebros?,Sanguijuela,Ciempiés,A,Difícil,Tienen 32 ganglios nerviosos segmentados que funcionan de forma independiente.
 155,Biología,¿Cuántas veces late el corazón de un colibrí?,1.200 por minuto,60 por minuto,A,Media,Tienen el metabolismo más rápido de cualquier ave para mantener el aleteo constante.
-35,Animales,¿Qué animal es el mejor saltador?,Pulga,Canguro,A,Fácil,En relación a su tamaño,una pulga puede saltar 200 veces su propia longitud.,,,,
+35,Animales,¿Qué animal es el mejor saltador?,Pulga,Canguro,A,Fácil,En relación a su tamaño
 732,Extremo,¿Animal que respira por el ano?,Tortuga,Rana,A,Difícil,Ciertas especies de tortugas hibernan bajo el agua absorbiendo oxígeno por la cloaca.
 3,Animales,¿Animal con más patas del mundo?,Milpiés (1.300),Ciempiés,A,Media,La especie 'Eumillipes persephone' fue descubierta con 1.306 patas exactamente.
-149,Biología,¿Animal que no tiene cerebro?,Estrella de mar,Delfín,A,Fácil,No tienen un cerebro central,sino un sistema nervioso distribuido por sus brazos.,,,,
+149,Biología,¿Animal que no tiene cerebro?,Estrella de mar,Delfín,A,Fácil,No tienen un cerebro central
 737,Extremo,¿Pez que puede vivir fuera del agua?,Pez pulmonado,Tiburón,A,Difícil,Puede sobrevivir años enterrado en el barro seco respirando aire hasta que vuelve la lluvia.
-54,Animales,¿Único animal con 4 rodillas?,Elefante,Camello,B,Media,Es un mito; el elefante tiene 2 rodillas y 2 codos,como cualquier otro mamífero de 4 patas.,,,,
+54,Animales,¿Único animal con 4 rodillas?,Elefante,Camello,B,Media,Es un mito; el elefante tiene 2 rodillas y 2 codos
 151,Biología,¿Animal que produce luz propia?,Luciérnaga,Pez abisal (ambos),A,Fácil,La bioluminiscencia es común en el fondo del mar y en algunos insectos terrestres.
 1,Animales,¿Animal capaz de reconocerse en un espejo?,Delfín,Perro,A,Media,Los delfines y elefantes pasan la prueba del espejo; los perros generalmente no.
 734,Extremo,¿Animal que vive en volcanes?,Cangrejo Yeti,Tiburón,A,Difícil,Habita cerca de fuentes hidrotermales a temperaturas que matarían a casi cualquier otro ser.
