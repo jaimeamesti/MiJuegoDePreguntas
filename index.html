@@ -1155,6 +1155,15 @@
         <div id="playersList"></div>
         <button id="addPlayerBtn" class="add-player-btn" onclick="addPlayer()">+ Añadir jugador</button>
     </div>
+
+    <div class="menu-section">
+        <div class="menu-section-title">❤️ Vidas por Jugador</div>
+        <input type="range" id="maxLivesSlider" min="1" max="10" value="6" 
+               onchange="updateMaxLives(this.value)" class="menu-slider">
+        <div style="text-align: center; color: #cbd5e1; font-size: 0.9rem; margin-top: 0.5rem;">
+            <span id="maxLivesDisplay">6</span> vidas
+        </div>
+    </div>
     
     <div class="menu-section">
         <div class="menu-section-title">📁 Categoría</div>
@@ -1168,15 +1177,6 @@
             <option value="Media">Media</option>
             <option value="Difícil">Difícil</option>
         </select>
-    </div>
-
-    <div class="menu-section">
-        <div class="menu-section-title">❤️ Vidas por Jugador</div>
-        <input type="range" id="maxLivesSlider" min="1" max="10" value="6" 
-               onchange="updateMaxLives(this.value)" class="menu-slider">
-        <div style="text-align: center; color: #cbd5e1; font-size: 0.9rem; margin-top: 0.5rem;">
-            <span id="maxLivesDisplay">6</span> vidas
-        </div>
     </div>
 
     <button class="menu-reset-btn" onclick="resetGame()">🔄 REINICIAR JUEGO</button>
@@ -1252,7 +1252,7 @@
 <audio id="dingSound" src="https://assets.mixkit.co"></audio>
 
 <script>
-    const USE_MOCK_QUESTIONS = false;
+    const USE_MOCK_QUESTIONS = true;
     const MOCK_QUESTIONS = [
         { id: 'mock-1', c: 'Historia', q: '¿La Revolucion Francesa comenzo en 1789?', a: 'Si', b: 'No', r: 'A', d: 'Fácil', e: 'La toma de la Bastilla en 1789 marca convencionalmente el inicio de la Revolucion Francesa.' },
         { id: 'mock-2', c: 'Ciencia', q: '¿El agua hierve a 100 grados Celsius al nivel del mar?', a: 'Si', b: 'No', r: 'A', d: 'Fácil', e: 'A una atmosfera de presion, el punto de ebullicion del agua es 100 °C.' },
@@ -1473,7 +1473,7 @@
 
     // ── Gestión de jugadores ─────────────────────────────────────
     function addPlayer() {
-        if (players.length >= 6) return;
+        if (players.length >= 10) return;
         players.push({ name: `Jugador ${players.length + 1}`, score: maxLives });
         savePlayers();
         renderPlayersList();
@@ -1544,7 +1544,7 @@
             list.appendChild(row);
         });
         document.getElementById('addPlayerBtn').style.display =
-            players.length >= 6 ? 'none' : 'block';
+            players.length >= 10 ? 'none' : 'block';
         renderScoreBoard();
     }
     function renderScoreBoard() {
@@ -1579,7 +1579,6 @@
                     <span class="main-life-player">
                         ${rankMarkup(rank, p.score)}
                         <span class="main-life-name">${escapeHtml(p.name)}</span>
-                        ${p.i === activePlayerIndex ? `<span class="main-life-badge" style="${getPlayerBadgeStyle(p.i)}">En turno</span>` : ''}
                     </span>
                     <span class="main-life-meta">
                         ${lifeLossPlayerIndexes.includes(p.i) ? '<span class="life-loss-indicator">-1 vida</span>' : ''}
