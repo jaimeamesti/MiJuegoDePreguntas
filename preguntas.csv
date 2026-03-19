@@ -1,4 +1,4 @@
-Id,Categoría,Pregunta,Opción A,Opción B,Correcta,Dificultad,Explicación
+Id,Category,Question,AnswerA,AnswerB,RightAnswer,Difficulty,Explanation
 1264,Naturaleza,¿De qué color es la leche de los hipopótamos?,Blanca,Rosa,B,Media,Contiene ácidos que actúan como protector solar y antibiótico natural.
 903,Historia,¿De qué material era la dentadura de Washington?,Madera,Marfil y dientes reales,B,Difícil,Era de marfil de hipopótamo y dientes humanos reales de esclavos.
 1065,Inventos,¿Qué se inventó primero?,El abrelatas,La comida en conserva,B,Difícil,La conserva surgió en 1810; el abrelatas 48 años después (antes usaban martillo).
