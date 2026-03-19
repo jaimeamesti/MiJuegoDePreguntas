@@ -584,6 +584,51 @@
             box-shadow: 0 0 8px rgba(56, 189, 248, 0.3);
         }
 
+        .menu-slider {
+            width: 100%;
+            height: 6px;
+            border-radius: 5px;
+            background: linear-gradient(to right, #ef4444, #f59e0b, #22c55e);
+            outline: none;
+            -webkit-appearance: none;
+            appearance: none;
+            margin: 1rem 0;
+            cursor: pointer;
+        }
+
+        .menu-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: var(--accent);
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(56, 189, 248, 0.4);
+            transition: all 0.2s;
+        }
+
+        .menu-slider::-webkit-slider-thumb:hover {
+            transform: scale(1.2);
+            box-shadow: 0 4px 12px rgba(56, 189, 248, 0.6);
+        }
+
+        .menu-slider::-moz-range-thumb {
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: var(--accent);
+            cursor: pointer;
+            border: none;
+            box-shadow: 0 2px 8px rgba(56, 189, 248, 0.4);
+            transition: all 0.2s;
+        }
+
+        .menu-slider::-moz-range-thumb:hover {
+            transform: scale(1.2);
+            box-shadow: 0 4px 12px rgba(56, 189, 248, 0.6);
+        }
+
         .menu-reset-btn {
             background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
             color: white;
@@ -972,6 +1017,13 @@
             font-weight: 800;
         }
 
+        .main-life-rank.eliminated-skull {
+            background: linear-gradient(135deg, #6b7280 0%, #1f2937 100%);
+            border-color: rgba(31, 41, 55, 0.7);
+            opacity: 0.7;
+            font-size: 1.1rem;
+        }
+
         .main-life-name {
             overflow: hidden;
             text-overflow: ellipsis;
@@ -1049,6 +1101,14 @@
             pointer-events: none;
         }
 
+        .main-lives.collapsed .main-lives-list {
+            display: none;
+        }
+
+        .main-lives.collapsed #rankingToggleIcon {
+            transform: rotate(-90deg);
+        }
+
         @keyframes life-loss-shake {
             0%, 100% { transform: translateX(0); }
             20% { transform: translateX(-4px); }
@@ -1110,6 +1170,15 @@
         </select>
     </div>
 
+    <div class="menu-section">
+        <div class="menu-section-title">❤️ Vidas por Jugador</div>
+        <input type="range" id="maxLivesSlider" min="1" max="10" value="6" 
+               onchange="updateMaxLives(this.value)" class="menu-slider">
+        <div style="text-align: center; color: #cbd5e1; font-size: 0.9rem; margin-top: 0.5rem;">
+            <span id="maxLivesDisplay">6</span> vidas
+        </div>
+    </div>
+
     <button class="menu-reset-btn" onclick="resetGame()">🔄 REINICIAR JUEGO</button>
 </div>
 
@@ -1119,7 +1188,7 @@
         <div class="privacy-icon">✅</div>
         <div class="privacy-title" id="privacyTitle">¡Ha respondido!</div>
         <div class="privacy-subtitle" id="privacySubtitle">Pasa el dispositivo al siguiente jugador</div>
-        <button class="privacy-btn" onclick="nextPlayerTurn()">LISTO →</button>
+        <button class="privacy-btn" onclick="nextPlayerTurn()">LISTO</button>
     </div>
 </div>
 
@@ -1173,7 +1242,9 @@
     <button id="mainBtn" class="action-btn" onclick="handleAction()">REVELAR RESPUESTA</button>
 
     <div id="mainLives" class="main-lives">
-        <span class="main-lives-title">Vidas de los jugadores</span>
+        <span class="main-lives-title" onclick="toggleRankingVisibility()" style="cursor: pointer; user-select: none;" title="Click para mostrar/ocultar ranking">
+            RANKING <span id="rankingToggleIcon" style="margin-left: 0.5rem; display: inline-block; transform: rotate(0deg); transition: transform 0.3s;">▼</span>
+        </span>
         <div id="mainLivesList" class="main-lives-list"></div>
     </div>
 </div>
@@ -1199,8 +1270,11 @@
     let showingResult = false;
     let answeredQuestions = [];
 
+    // ── Configuración ───────────────────────────────────────────
+    let maxLives = 6;
+
     // ── Estado multijugador ─────────────────────────────────────
-    let players = [{ name: 'Jugador 1', score: 6 }];
+    let players = [{ name: 'Jugador 1', score: maxLives }];
     let currentPlayerIndex = 0;
     let roundPlayers = [];   // índices de jugadores activos en esta pregunta
     let playerAnswers = [];   // [{playerIndex, answer:'A'|'B'}]
@@ -1221,18 +1295,53 @@
         localStorage.setItem('answeredQuestions', JSON.stringify(answeredQuestions));
     }
     function savePlayers() {
-        localStorage.setItem('players', JSON.stringify(players.map(p => p.name)));
+        localStorage.setItem('players', JSON.stringify(players));
+    }
+    function saveMaxLives() {
+        localStorage.setItem('maxLives', maxLives.toString());
     }
     function loadPlayers() {
         try {
             const saved = localStorage.getItem('players');
             if (saved) {
-                const names = JSON.parse(saved);
-                if (Array.isArray(names) && names.length > 0)
-                    players = names.map(name => ({ name, score: 6 }));
+                const data = JSON.parse(saved);
+                if (Array.isArray(data) && data.length > 0) {
+                    players = data.map(p => ({
+                        name: p.name || p,
+                        score: typeof p.score === 'number' ? p.score : maxLives
+                    }));
+                }
             }
         } catch (e) {}
         renderPlayersList();
+    }
+    function loadMaxLives() {
+        try {
+            const saved = localStorage.getItem('maxLives');
+            if (saved) {
+                const parsed = parseInt(saved, 10);
+                if (parsed >= 1 && parsed <= 10) maxLives = parsed;
+            }
+        } catch (e) {}
+    }
+
+    function saveRankingVisibility(isCollapsed) {
+        localStorage.setItem('rankingCollapsed', isCollapsed ? 'true' : 'false');
+    }
+
+    function loadRankingVisibility() {
+        try {
+            const saved = localStorage.getItem('rankingCollapsed');
+            if (saved === 'true') {
+                document.getElementById('mainLives').classList.add('collapsed');
+            }
+        } catch (e) {}
+    }
+
+    function toggleRankingVisibility() {
+        const mainLives = document.getElementById('mainLives');
+        mainLives.classList.toggle('collapsed');
+        saveRankingVisibility(mainLives.classList.contains('collapsed'));
     }
 
     // ── Utilidades ───────────────────────────────────────────────
@@ -1270,13 +1379,14 @@
 
     function resetPlayerLives() {
         players.forEach(player => {
-            player.score = 6;
+            player.score = maxLives;
         });
         lifeLossPlayerIndexes = [];
         if (lifeLossTimeoutId) {
             clearTimeout(lifeLossTimeoutId);
             lifeLossTimeoutId = null;
         }
+        savePlayers();
         renderScoreBoard();
     }
 
@@ -1364,7 +1474,7 @@
     // ── Gestión de jugadores ─────────────────────────────────────
     function addPlayer() {
         if (players.length >= 6) return;
-        players.push({ name: `Jugador ${players.length + 1}`, score: 6 });
+        players.push({ name: `Jugador ${players.length + 1}`, score: maxLives });
         savePlayers();
         renderPlayersList();
     }
@@ -1400,6 +1510,23 @@
             });
         }
     }
+
+    function updateMaxLives(value) {
+        const numValue = Math.max(1, Math.min(10, parseInt(value, 10)));
+        maxLives = numValue;
+        saveMaxLives();
+        document.getElementById('maxLivesSlider').value = numValue;
+        document.getElementById('maxLivesDisplay').innerText = numValue;
+        
+        // Resetear vidas de todos los jugadores
+        players.forEach(player => {
+            player.score = maxLives;
+        });
+        savePlayers();
+        renderScoreBoard();
+        renderPlayersList();
+    }
+
     function renderPlayersList() {
         const list = document.getElementById('playersList');
         list.innerHTML = '';
@@ -1429,11 +1556,12 @@
             ? roundPlayers[currentPlayerIndex]
             : -1;
 
-        const heartsMarkup = score => Array.from({ length: 6 }, (_, index) => `
+        const heartsMarkup = score => Array.from({ length: maxLives }, (_, index) => `
             <span class="life-heart${index < score ? ' filled' : ''}">♥</span>
         `).join('');
 
-        const rankMarkup = rank => {
+        const rankMarkup = (rank, score) => {
+            if (score <= 0) return '<span class="main-life-rank eliminated-skull" title="Eliminado">💀</span>';
             if (rank === 0) return '<span class="main-life-rank first" title="Primer lugar">🥇</span>';
             if (rank === 1) return '<span class="main-life-rank second" title="Segundo lugar">🥈</span>';
             if (rank === 2) return '<span class="main-life-rank third" title="Tercer lugar">🥉</span>';
@@ -1449,13 +1577,12 @@
             mainLivesList.innerHTML = sorted.map((p, rank) => `
                 <div class="main-life-row${p.score <= 0 ? ' eliminated' : ''}${p.i === activePlayerIndex ? ' active' : ''}${lifeLossPlayerIndexes.includes(p.i) ? ' losing' : ''}">
                     <span class="main-life-player">
-                        ${rankMarkup(rank)}
+                        ${rankMarkup(rank, p.score)}
                         <span class="main-life-name">${escapeHtml(p.name)}</span>
                         ${p.i === activePlayerIndex ? `<span class="main-life-badge" style="${getPlayerBadgeStyle(p.i)}">En turno</span>` : ''}
                     </span>
                     <span class="main-life-meta">
                         ${lifeLossPlayerIndexes.includes(p.i) ? '<span class="life-loss-indicator">-1 vida</span>' : ''}
-                        <span class="main-life-value">${p.score}</span>
                         <span class="life-hearts">${heartsMarkup(p.score)}</span>
                     </span>
                 </div>
@@ -1577,7 +1704,7 @@
                 document.getElementById('q').innerText = '✅ ¡Has respondido todas las preguntas!';
                 document.getElementById('progress').innerText =
                     `Preguntas respondidas: ${answeredQuestions.length} de ${total.length}`;
-                document.getElementById('mainBtn').innerText = 'NUEVA RONDA →';
+                document.getElementById('mainBtn').innerText = 'NUEVA RONDA';
                 document.getElementById('mainBtn').style.background = '#8b5cf6';
                 document.getElementById('mainBtn').disabled = false;
                 document.getElementById('textA').className = 'opt-text';
@@ -1665,7 +1792,7 @@
                 <span class="turn-label">Turno de</span>
                 <span class="turn-name">${escapeHtml(p.name)}</span>
             `;
-            btn.innerText = 'CONFIRMAR →';
+            btn.innerText = 'CONFIRMAR';
             btn.style.background = selectedAnswer ? 'var(--accent)' : '#334155';
             btn.disabled = !selectedAnswer;
         }
@@ -1780,10 +1907,11 @@
             html += `
                 <div class="player-result ${correct ? 'correct' : 'wrong'}">
                     <span class="result-player-name">${escapeHtml(p.name)}</span>
-                    <span class="result-answer">${escapeHtml(text)} · ${p.score}/6</span>
+                    <span class="result-answer">${escapeHtml(text)} · ${p.score}/${maxLives}</span>
                     <span class="result-icon">${correct ? '✅' : '❌'}</span>
                 </div>`;
         });
+        savePlayers();
         const el = document.getElementById('playerResults');
         el.innerHTML = html;
         el.style.display = isMultiplayer() ? 'flex' : 'none';
@@ -1805,6 +1933,10 @@
     }
 
     loadAnsweredQuestions();
+    loadMaxLives();
+    document.getElementById('maxLivesSlider').value = maxLives;
+    document.getElementById('maxLivesDisplay').innerText = maxLives;
+    loadRankingVisibility();
     loadPlayers();
     loadQuestionsFromCSV();
 </script>
