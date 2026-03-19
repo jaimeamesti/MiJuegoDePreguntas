@@ -654,6 +654,426 @@
                 height: 45px;
             }
         }
+
+        /* ====== Multijugador ====== */
+        .player-turn {
+            margin-bottom: 0.5rem;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            gap: 0.4rem;
+            font-size: 0.9rem;
+            color: #f8fafc;
+        }
+        .player-turn.visible { display: flex; }
+        .turn-label { color: #94a3b8; font-size: 0.9rem; font-weight: 600; }
+        .turn-name  { font-size: 0.9rem; font-weight: 800; color: var(--accent); }
+
+        .player-chips {
+            display: none;
+            gap: 0.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+        }
+        .player-chips.visible { display: flex; }
+
+        .player-chip {
+            min-width: 36px;
+            height: 36px;
+            padding: 0 0.5rem;
+            border-radius: 18px;
+            background: #1e293b;
+            border: 2px solid #334155;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            font-weight: 800;
+            color: #64748b;
+            transition: all 0.3s;
+            white-space: nowrap;
+        }
+        .player-chip.active {
+            background: rgba(56, 189, 248, 0.15);
+            border-color: var(--accent);
+            color: var(--accent);
+            transform: scale(1.1);
+            box-shadow: 0 0 10px rgba(56, 189, 248, 0.3);
+        }
+        .player-chip.answered {
+            background: rgba(34, 197, 94, 0.12);
+            border-color: var(--correct);
+            color: var(--correct);
+        }
+        .player-chip.eliminated {
+            background: rgba(148, 163, 184, 0.08);
+            border-color: #475569;
+            color: #64748b;
+            opacity: 0.6;
+            text-decoration: line-through;
+        }
+
+        .opt-text.selected {
+            background: rgba(56, 189, 248, 0.12);
+            border-color: var(--accent);
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        /* Pantalla de privacidad entre turnos */
+        .privacy-overlay {
+            position: fixed;
+            inset: 0;
+            background: #0b1120;
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.25s;
+        }
+        .privacy-overlay.active { opacity: 1; pointer-events: all; }
+
+        .privacy-card { text-align: center; padding: 2.5rem 2rem; max-width: 340px; width: 90%; }
+        .privacy-icon { font-size: 3.5rem; margin-bottom: 1.25rem; }
+        .privacy-title {
+            font-size: 1.5rem; font-weight: 800; color: #f8fafc; margin-bottom: 0.5rem;
+        }
+        .privacy-subtitle { font-size: 1rem; color: #94a3b8; margin-bottom: 2rem; line-height: 1.5; }
+        .privacy-btn {
+            background: var(--accent); color: #0f172a; border: none;
+            padding: 1rem 2rem; border-radius: 12px; font-size: 1rem;
+            font-weight: 800; cursor: pointer; transition: all 0.3s; width: 100%;
+        }
+        .privacy-btn:hover { filter: brightness(1.1); transform: translateY(-2px); }
+
+        .game-over-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(2, 6, 23, 0.82);
+            backdrop-filter: blur(6px);
+            z-index: 2100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.25s ease;
+        }
+
+        .game-over-overlay.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .game-over-card {
+            width: min(92vw, 420px);
+            padding: 2rem 1.6rem;
+            border-radius: 20px;
+            background: linear-gradient(180deg, rgba(30, 41, 59, 0.98) 0%, rgba(15, 23, 42, 0.98) 100%);
+            border: 1px solid rgba(148, 163, 184, 0.2);
+            box-shadow: 0 24px 60px rgba(0, 0, 0, 0.4);
+            text-align: center;
+        }
+
+        .game-over-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .game-over-title {
+            color: #f8fafc;
+            font-size: 1.55rem;
+            font-weight: 900;
+            margin-bottom: 0.5rem;
+        }
+
+        .game-over-winner {
+            color: var(--accent);
+            font-size: 1.15rem;
+            font-weight: 800;
+            margin-bottom: 0.85rem;
+        }
+
+        .game-over-text {
+            color: #cbd5e1;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            margin-bottom: 1.5rem;
+        }
+
+        .game-over-btn {
+            width: 100%;
+            border: none;
+            border-radius: 12px;
+            padding: 1rem;
+            font-size: 0.95rem;
+            font-weight: 800;
+            cursor: pointer;
+            color: #082f49;
+            background: linear-gradient(135deg, #67e8f9 0%, #38bdf8 100%);
+            transition: transform 0.2s ease, filter 0.2s ease;
+        }
+
+        .game-over-btn:hover {
+            filter: brightness(1.06);
+            transform: translateY(-2px);
+        }
+
+        /* Resultados por jugador tras revelar */
+        .player-results {
+            display: none;
+            flex-direction: column;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        .player-result {
+            display: flex; align-items: center; gap: 0.75rem;
+            padding: 0.7rem 1rem; border-radius: 10px; font-size: 0.9rem;
+        }
+        .player-result.correct {
+            background: rgba(34, 197, 94, 0.1); border: 1px solid rgba(34, 197, 94, 0.3);
+        }
+        .player-result.wrong {
+            background: rgba(239, 68, 68, 0.05); border: 1px solid rgba(239, 68, 68, 0.2);
+        }
+        .result-player-name { font-weight: 700; color: #f8fafc; flex: 1; text-align: left; }
+        .result-answer { color: #94a3b8; font-size: 0.82rem; flex: 2; text-align: left; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .result-icon { font-size: 1.1rem; }
+
+        /* Gestión de jugadores en el menú */
+        .player-row { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem; }
+        .player-name-input {
+            flex: 1; background: rgba(51, 65, 85, 0.4); color: white;
+            border: 1px solid #475569; padding: 0.6rem 0.75rem;
+            border-radius: 8px; font-size: 0.9rem; transition: all 0.2s;
+        }
+        .player-name-input:focus { outline: none; border-color: var(--accent); }
+        .remove-player-btn {
+            background: rgba(239, 68, 68, 0.12); color: #f87171;
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            width: 32px; height: 32px; border-radius: 8px;
+            cursor: pointer; font-size: 0.85rem; flex-shrink: 0;
+            display: flex; align-items: center; justify-content: center; transition: all 0.2s;
+        }
+        .remove-player-btn:hover { background: rgba(239, 68, 68, 0.25); }
+        .add-player-btn {
+            background: rgba(56, 189, 248, 0.08); color: var(--accent);
+            border: 1px dashed rgba(56, 189, 248, 0.4);
+            padding: 0.6rem; border-radius: 8px; width: 100%;
+            cursor: pointer; font-size: 0.85rem; font-weight: 700; transition: all 0.2s;
+            margin-top: 0.25rem;
+        }
+        .add-player-btn:hover { background: rgba(56, 189, 248, 0.18); }
+
+        /* Marcador en el menú */
+        #scoreBoard { margin-top: 0.5rem; }
+        .score-row {
+            display: flex; align-items: center; gap: 0.75rem;
+            padding: 0.4rem 0; border-bottom: 1px solid #1e293b;
+        }
+        .score-rank { font-size: 0.95rem; width: 1.5rem; text-align: center; }
+        .score-name { flex: 1; color: #f8fafc; font-size: 0.9rem; font-weight: 600; }
+        .score-pts  { color: var(--accent); font-weight: 800; font-size: 0.9rem; }
+
+        .main-lives {
+            margin-top: 1rem;
+            text-align: left;
+            background: rgba(15, 23, 42, 0.45);
+            border: 1px solid rgba(51, 65, 85, 0.9);
+            border-radius: 14px;
+            padding: 1rem;
+        }
+
+        .main-lives-title {
+            display: block;
+            font-size: 0.78rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: #94a3b8;
+            margin-bottom: 0.75rem;
+        }
+
+        .main-lives-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .main-life-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 0.75rem;
+            padding: 0.75rem 0.9rem;
+            border-radius: 10px;
+            background: rgba(30, 41, 59, 0.85);
+            border: 1px solid rgba(71, 85, 105, 0.7);
+        }
+
+        .main-life-row.eliminated {
+            opacity: 0.65;
+        }
+
+        .main-life-row.active {
+            border-color: rgba(56, 189, 248, 0.95);
+            box-shadow: 0 0 0 1px rgba(56, 189, 248, 0.35), 0 0 18px rgba(56, 189, 248, 0.18);
+            background: rgba(14, 165, 233, 0.14);
+        }
+
+        .main-life-name {
+            color: #f8fafc;
+            font-size: 0.92rem;
+            font-weight: 700;
+        }
+
+        .main-life-player {
+            display: flex;
+            align-items: center;
+            gap: 0.55rem;
+            min-width: 0;
+        }
+
+        .main-life-rank {
+            width: 2rem;
+            height: 2rem;
+            flex-shrink: 0;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 999px;
+            font-size: 1rem;
+            background: rgba(51, 65, 85, 0.95);
+            border: 1px solid rgba(100, 116, 139, 0.45);
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
+        }
+
+        .main-life-rank.first {
+            background: linear-gradient(135deg, #fde68a 0%, #f59e0b 100%);
+            border-color: rgba(245, 158, 11, 0.7);
+        }
+
+        .main-life-rank.second {
+            background: linear-gradient(135deg, #e2e8f0 0%, #94a3b8 100%);
+            border-color: rgba(148, 163, 184, 0.7);
+        }
+
+        .main-life-rank.third {
+            background: linear-gradient(135deg, #fdba74 0%, #c2410c 100%);
+            border-color: rgba(194, 65, 12, 0.7);
+        }
+
+        .main-life-rank.other {
+            color: #cbd5e1;
+            font-size: 0.82rem;
+            font-weight: 800;
+        }
+
+        .main-life-name {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .main-life-badge {
+            flex-shrink: 0;
+            padding: 0.24rem 0.55rem;
+            border-radius: 999px;
+            font-size: 0.66rem;
+            font-weight: 900;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--badge-text, #082f49);
+            background: linear-gradient(135deg, var(--badge-bg-start, #67e8f9) 0%, var(--badge-bg-end, #38bdf8) 100%);
+            box-shadow: 0 0 14px var(--badge-shadow, rgba(56, 189, 248, 0.32));
+        }
+
+        .main-life-value {
+            color: var(--accent);
+            font-size: 0.92rem;
+            font-weight: 800;
+        }
+
+        .life-hearts {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.14rem;
+            letter-spacing: 0;
+        }
+
+        .life-heart {
+            font-size: 0.95rem;
+            line-height: 1;
+            color: rgba(100, 116, 139, 0.55);
+        }
+
+        .life-heart.filled {
+            color: #ef4444;
+            text-shadow: 0 0 8px rgba(239, 68, 68, 0.28);
+        }
+
+        .main-life-meta {
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+            position: relative;
+        }
+
+        .score-life-hearts {
+            margin-left: auto;
+        }
+
+        .main-life-row.losing {
+            animation: life-loss-shake 0.55s ease, life-loss-flash 0.9s ease;
+            border-color: rgba(239, 68, 68, 0.9);
+            background: rgba(127, 29, 29, 0.28);
+        }
+
+        .main-life-row.losing .life-heart.filled {
+            animation: heart-drop 0.8s ease;
+        }
+
+        .life-loss-indicator {
+            position: absolute;
+            right: 0;
+            top: -1.1rem;
+            font-size: 0.72rem;
+            font-weight: 900;
+            letter-spacing: 0.08em;
+            color: #fca5a5;
+            text-transform: uppercase;
+            animation: life-loss-indicator-rise 1s ease forwards;
+            pointer-events: none;
+        }
+
+        @keyframes life-loss-shake {
+            0%, 100% { transform: translateX(0); }
+            20% { transform: translateX(-4px); }
+            40% { transform: translateX(4px); }
+            60% { transform: translateX(-3px); }
+            80% { transform: translateX(3px); }
+        }
+
+        @keyframes life-loss-flash {
+            0% { box-shadow: 0 0 0 rgba(239, 68, 68, 0); }
+            35% { box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.35), 0 0 22px rgba(239, 68, 68, 0.25); }
+            100% { box-shadow: 0 0 0 rgba(239, 68, 68, 0); }
+        }
+
+        @keyframes heart-drop {
+            0% { transform: scale(1); filter: brightness(1); }
+            35% { transform: scale(1.35); filter: brightness(1.35); }
+            100% { transform: scale(0.85); filter: brightness(0.85); }
+        }
+
+        @keyframes life-loss-indicator-rise {
+            0% { opacity: 0; transform: translateY(8px); }
+            25% { opacity: 1; transform: translateY(0); }
+            100% { opacity: 0; transform: translateY(-12px); }
+        }
     </style>
 </head>
 <body>
@@ -669,6 +1089,12 @@
 
 <div class="menu-dropdown" id="menuDropdown">
     <div class="menu-title">⚙️ Opciones</div>
+
+    <div class="menu-section" style="margin-top: 2rem;">
+        <div class="menu-section-title">👥 Jugadores</div>
+        <div id="playersList"></div>
+        <button id="addPlayerBtn" class="add-player-btn" onclick="addPlayer()">+ Añadir jugador</button>
+    </div>
     
     <div class="menu-section">
         <div class="menu-section-title">📁 Categoría</div>
@@ -683,8 +1109,28 @@
             <option value="Difícil">Difícil</option>
         </select>
     </div>
-    
+
     <button class="menu-reset-btn" onclick="resetGame()">🔄 REINICIAR JUEGO</button>
+</div>
+
+<!-- Pantalla de privacidad entre turnos -->
+<div id="privacyOverlay" class="privacy-overlay">
+    <div class="privacy-card">
+        <div class="privacy-icon">✅</div>
+        <div class="privacy-title" id="privacyTitle">¡Ha respondido!</div>
+        <div class="privacy-subtitle" id="privacySubtitle">Pasa el dispositivo al siguiente jugador</div>
+        <button class="privacy-btn" onclick="nextPlayerTurn()">LISTO →</button>
+    </div>
+</div>
+
+<div id="gameOverOverlay" class="game-over-overlay">
+    <div class="game-over-card">
+        <div class="game-over-icon" id="gameOverIcon">🏆</div>
+        <div class="game-over-title" id="gameOverTitle">Fin de la partida</div>
+        <div class="game-over-winner" id="gameOverWinner">Jugador</div>
+        <div class="game-over-text" id="gameOverText">Las vidas se han reiniciado para la siguiente ronda.</div>
+        <button class="game-over-btn" onclick="closeGameOverModal()">CONTINUAR</button>
+    </div>
 </div>
 
 <div id="game-container">
@@ -697,13 +1143,23 @@
             <div class="title-sub">Preguntas & Respuestas</div>
         </div>
     </div>
+
+    <div id="questionTags" class="tags-container">
+        <span id="categoryTag" class="category-tag"></span>
+        <span id="difficultyTag" class="difficulty-tag"></span>
+    </div>
     
     <div id="progress" class="progress-info">Pregunta 0 de 0</div>
+
+    <!-- Turno actual y chips de jugadores (multijugador) -->
+    <div id="playerTurn" class="player-turn"></div>
+    <div id="playerChips" class="player-chips"></div>
+
     <div id="q" class="question">Cargando...</div>
     
     <div class="options-text-container">
-        <div id="textA" class="opt-text">A) Opción A</div>
-        <div id="textB" class="opt-text">B) Opción B</div>
+        <div id="textA" class="opt-text" onclick="selectOption('A')">A) Opción A</div>
+        <div id="textB" class="opt-text" onclick="selectOption('B')">B) Opción B</div>
     </div>
 
     <div id="explanation-card">
@@ -711,113 +1167,372 @@
         <span id="expl-text"></span>
     </div>
     
+    <!-- Resultados por jugador (multijugador, tras revelar) -->
+    <div id="playerResults" class="player-results"></div>
+
     <button id="mainBtn" class="action-btn" onclick="handleAction()">REVELAR RESPUESTA</button>
+
+    <div id="mainLives" class="main-lives">
+        <span class="main-lives-title">Vidas de los jugadores</span>
+        <div id="mainLivesList" class="main-lives-list"></div>
+    </div>
 </div>
 
 <audio id="dingSound" src="https://assets.mixkit.co"></audio>
 
 <script>
+    const USE_MOCK_QUESTIONS = false;
+    const MOCK_QUESTIONS = [
+        { id: 'mock-1', c: 'Historia', q: '¿La Revolucion Francesa comenzo en 1789?', a: 'Si', b: 'No', r: 'A', d: 'Fácil', e: 'La toma de la Bastilla en 1789 marca convencionalmente el inicio de la Revolucion Francesa.' },
+        { id: 'mock-2', c: 'Ciencia', q: '¿El agua hierve a 100 grados Celsius al nivel del mar?', a: 'Si', b: 'No', r: 'A', d: 'Fácil', e: 'A una atmosfera de presion, el punto de ebullicion del agua es 100 °C.' },
+        { id: 'mock-3', c: 'Geografia', q: '¿Australia es a la vez un pais y un continente?', a: 'Si', b: 'No', r: 'A', d: 'Media', e: 'Australia es un pais soberano y forma parte del continente australiano u Oceania segun la clasificacion.' },
+        { id: 'mock-4', c: 'Deportes', q: '¿En futbol un partido oficial se juega con 11 jugadores por equipo al inicio?', a: 'Si', b: 'No', r: 'A', d: 'Fácil', e: 'En condiciones normales, cada equipo comienza el partido con once jugadores.' },
+        { id: 'mock-5', c: 'Arte', q: '¿La Mona Lisa fue pintada por Vincent van Gogh?', a: 'Si', b: 'No', r: 'B', d: 'Media', e: 'La Mona Lisa fue pintada por Leonardo da Vinci, no por Vincent van Gogh.' },
+        { id: 'mock-6', c: 'Tecnologia', q: '¿HTML es un lenguaje de programacion?', a: 'Si', b: 'No', r: 'B', d: 'Media', e: 'HTML es un lenguaje de marcado, no un lenguaje de programacion.' },
+        { id: 'mock-7', c: 'Cine', q: '¿El personaje Darth Vader pertenece a Star Wars?', a: 'Si', b: 'No', r: 'A', d: 'Fácil', e: 'Darth Vader es uno de los personajes centrales de la saga Star Wars.' },
+        { id: 'mock-8', c: 'Matematicas', q: '¿Un numero primo tiene exactamente dos divisores positivos?', a: 'Si', b: 'No', r: 'A', d: 'Difícil', e: 'Por definicion, un numero primo solo es divisible entre 1 y si mismo.' }
+    ];
+
+    // ── Estado general ──────────────────────────────────────────
     let questions = [];
     let currentQ;
     let showingResult = false;
-    let answeredQuestions = [];  // IDs de preguntas respondidas
+    let answeredQuestions = [];
+
+    // ── Estado multijugador ─────────────────────────────────────
+    let players = [{ name: 'Jugador 1', score: 6 }];
+    let currentPlayerIndex = 0;
+    let roundPlayers = [];   // índices de jugadores activos en esta pregunta
+    let playerAnswers = [];   // [{playerIndex, answer:'A'|'B'}]
+    let selectedAnswer = null;
+    let lifeLossPlayerIndexes = [];
+    let lifeLossTimeoutId = null;
+    let pendingRoundReset = false;
+    let pendingNewRound = false;
+
     const ding = document.getElementById('dingSound');
 
-    // Funciones de localStorage
+    // ── Persistencia ────────────────────────────────────────────
     function loadAnsweredQuestions() {
         const saved = localStorage.getItem('answeredQuestions');
         answeredQuestions = saved ? JSON.parse(saved) : [];
     }
-
     function saveAnsweredQuestions() {
         localStorage.setItem('answeredQuestions', JSON.stringify(answeredQuestions));
     }
+    function savePlayers() {
+        localStorage.setItem('players', JSON.stringify(players.map(p => p.name)));
+    }
+    function loadPlayers() {
+        try {
+            const saved = localStorage.getItem('players');
+            if (saved) {
+                const names = JSON.parse(saved);
+                if (Array.isArray(names) && names.length > 0)
+                    players = names.map(name => ({ name, score: 6 }));
+            }
+        } catch (e) {}
+        renderPlayersList();
+    }
 
-    function resetGame() {
-        if (confirm('¿Reiniciar el juego? Se borrarán todas las preguntas respondidas.')) {
-            answeredQuestions = [];
-            localStorage.removeItem('answeredQuestions');
-            closeMenu();
+    // ── Utilidades ───────────────────────────────────────────────
+    function isMultiplayer() { return players.length > 1; }
+
+    function escapeHtml(text) {
+        const d = document.createElement('div');
+        d.appendChild(document.createTextNode(text));
+        return d.innerHTML;
+    }
+
+    function triggerLifeLossAnimation(playerIndexes) {
+        lifeLossPlayerIndexes = [...new Set(playerIndexes)];
+        if (lifeLossTimeoutId) clearTimeout(lifeLossTimeoutId);
+        renderScoreBoard();
+        lifeLossTimeoutId = setTimeout(() => {
+            lifeLossPlayerIndexes = [];
+            renderScoreBoard();
+            lifeLossTimeoutId = null;
+        }, 1100);
+    }
+
+    function getPlayerBadgeStyle(playerIndex) {
+        const palette = [
+            { start: '#67e8f9', end: '#38bdf8', text: '#082f49', shadow: 'rgba(56, 189, 248, 0.32)' },
+            { start: '#86efac', end: '#22c55e', text: '#052e16', shadow: 'rgba(34, 197, 94, 0.3)' },
+            { start: '#f9a8d4', end: '#ec4899', text: '#4a044e', shadow: 'rgba(236, 72, 153, 0.3)' },
+            { start: '#fde68a', end: '#f59e0b', text: '#451a03', shadow: 'rgba(245, 158, 11, 0.3)' },
+            { start: '#c4b5fd', end: '#8b5cf6', text: '#2e1065', shadow: 'rgba(139, 92, 246, 0.3)' },
+            { start: '#fca5a5', end: '#ef4444', text: '#450a0a', shadow: 'rgba(239, 68, 68, 0.3)' }
+        ];
+        const color = palette[playerIndex % palette.length];
+        return `--badge-bg-start:${color.start}; --badge-bg-end:${color.end}; --badge-text:${color.text}; --badge-shadow:${color.shadow};`;
+    }
+
+    function resetPlayerLives() {
+        players.forEach(player => {
+            player.score = 6;
+        });
+        lifeLossPlayerIndexes = [];
+        if (lifeLossTimeoutId) {
+            clearTimeout(lifeLossTimeoutId);
+            lifeLossTimeoutId = null;
+        }
+        renderScoreBoard();
+    }
+
+    function getGameOverData() {
+        const alivePlayers = getAlivePlayerIndexes();
+
+        if (alivePlayers.length === 0) {
+            if (players.length === 1) {
+                return {
+                    icon: '💀',
+                    title: 'Fin de la partida',
+                    winner: players[0].name,
+                    text: 'Se quedó sin vidas. Las vidas se han reiniciado para empezar una nueva ronda.'
+                };
+            }
+            return {
+                icon: '💥',
+                title: 'Fin de la partida',
+                winner: 'Sin ganador',
+                text: 'Ningún jugador conservó vidas. Las vidas se han reiniciado para empezar una nueva ronda.'
+            };
+        }
+
+        if (players.length > 1 && alivePlayers.length === 1) {
+            const winner = players[alivePlayers[0]];
+            return {
+                icon: '🏆',
+                title: 'Tenemos ganador',
+                winner: winner.name,
+                text: 'Es el último jugador con vidas. Las vidas se han reiniciado para empezar una nueva ronda.'
+            };
+        }
+
+        return null;
+    }
+
+    function showGameOverModal(gameOverData) {
+        document.getElementById('gameOverIcon').innerText = gameOverData.icon;
+        document.getElementById('gameOverTitle').innerText = gameOverData.title;
+        document.getElementById('gameOverWinner').innerText = gameOverData.winner;
+        document.getElementById('gameOverText').innerText = gameOverData.text;
+        document.getElementById('gameOverOverlay').classList.add('active');
+    }
+
+    function closeGameOverModal() {
+        document.getElementById('gameOverOverlay').classList.remove('active');
+        if (pendingRoundReset) {
+            pendingRoundReset = false;
             loadQuestion();
         }
     }
 
-    // Funciones del menú
+    function updateQuestionTags(question) {
+        const tags = document.getElementById('questionTags');
+        const categoryTag = document.getElementById('categoryTag');
+        const difficultyTag = document.getElementById('difficultyTag');
+
+        if (!question) {
+            tags.style.display = 'none';
+            categoryTag.innerText = '';
+            difficultyTag.innerText = '';
+            return;
+        }
+
+        tags.style.display = 'flex';
+        categoryTag.innerText = question.c;
+        difficultyTag.innerText = question.d;
+    }
+
+    function finishGame(gameOverData) {
+        pendingRoundReset = true;
+        resetPlayerLives();
+        showingResult = false;
+        roundPlayers = [];
+        currentPlayerIndex = 0;
+        playerAnswers = [];
+        selectedAnswer = null;
+        updateQuestionTags(null);
+        document.getElementById('playerTurn').classList.remove('visible');
+        document.getElementById('playerChips').classList.remove('visible');
+        document.getElementById('mainBtn').disabled = true;
+        showGameOverModal(gameOverData);
+    }
+
+    // ── Gestión de jugadores ─────────────────────────────────────
+    function addPlayer() {
+        if (players.length >= 6) return;
+        players.push({ name: `Jugador ${players.length + 1}`, score: 6 });
+        savePlayers();
+        renderPlayersList();
+    }
+    function removePlayer(index) {
+        if (players.length <= 1) return;
+        players.splice(index, 1);
+        savePlayers();
+        renderPlayersList();
+    }
+    function updatePlayerName(index, value, refreshUI = false) {
+        players[index].name = value.trim() || `Jugador ${index + 1}`;
+        savePlayers();
+
+        if (!refreshUI) return;
+
+        renderPlayersList();
+
+        if (!showingResult && roundPlayers.length > 0 && playerAnswers.length < roundPlayers.length) {
+            const playerIndex = roundPlayers[currentPlayerIndex];
+            const currentPlayer = players[playerIndex];
+            document.getElementById('playerTurn').innerHTML = `
+                <span class="turn-label">Turno de</span>
+                <span class="turn-name">${escapeHtml(currentPlayer.name)}</span>
+            `;
+        }
+
+        if (showingResult) {
+            const resultNames = document.querySelectorAll('.player-result .result-player-name');
+            playerAnswers.forEach(({ playerIndex }, resultIndex) => {
+                if (resultNames[resultIndex]) {
+                    resultNames[resultIndex].innerText = players[playerIndex].name;
+                }
+            });
+        }
+    }
+    function renderPlayersList() {
+        const list = document.getElementById('playersList');
+        list.innerHTML = '';
+        players.forEach((p, i) => {
+            const row = document.createElement('div');
+            row.className = 'player-row';
+            row.innerHTML = `
+                <input type="text" class="player-name-input" value="${escapeHtml(p.name)}"
+                       onblur="updatePlayerName(${i}, this.value, true)"
+                       placeholder="Jugador ${i + 1}">
+                ${players.length > 1
+                    ? `<button class="remove-player-btn" onclick="removePlayer(${i})">✕</button>`
+                    : ''}
+            `;
+            list.appendChild(row);
+        });
+        document.getElementById('addPlayerBtn').style.display =
+            players.length >= 6 ? 'none' : 'block';
+        renderScoreBoard();
+    }
+    function renderScoreBoard() {
+        const sorted = [...players]
+            .map((p, i) => ({ ...p, i }))
+            .sort((a, b) => b.score - a.score);
+
+        const activePlayerIndex = !showingResult && roundPlayers.length > 0 && playerAnswers.length < roundPlayers.length
+            ? roundPlayers[currentPlayerIndex]
+            : -1;
+
+        const heartsMarkup = score => Array.from({ length: 6 }, (_, index) => `
+            <span class="life-heart${index < score ? ' filled' : ''}">♥</span>
+        `).join('');
+
+        const rankMarkup = rank => {
+            if (rank === 0) return '<span class="main-life-rank first" title="Primer lugar">🥇</span>';
+            if (rank === 1) return '<span class="main-life-rank second" title="Segundo lugar">🥈</span>';
+            if (rank === 2) return '<span class="main-life-rank third" title="Tercer lugar">🥉</span>';
+            return `<span class="main-life-rank other" title="Posición ${rank + 1}">#${rank + 1}</span>`;
+        };
+
+        const mainLivesList = document.getElementById('mainLivesList');
+        const mainLives = document.getElementById('mainLives');
+        if (mainLives) {
+            mainLives.style.display = isMultiplayer() ? 'block' : 'none';
+        }
+        if (mainLivesList) {
+            mainLivesList.innerHTML = sorted.map((p, rank) => `
+                <div class="main-life-row${p.score <= 0 ? ' eliminated' : ''}${p.i === activePlayerIndex ? ' active' : ''}${lifeLossPlayerIndexes.includes(p.i) ? ' losing' : ''}">
+                    <span class="main-life-player">
+                        ${rankMarkup(rank)}
+                        <span class="main-life-name">${escapeHtml(p.name)}</span>
+                        ${p.i === activePlayerIndex ? `<span class="main-life-badge" style="${getPlayerBadgeStyle(p.i)}">En turno</span>` : ''}
+                    </span>
+                    <span class="main-life-meta">
+                        ${lifeLossPlayerIndexes.includes(p.i) ? '<span class="life-loss-indicator">-1 vida</span>' : ''}
+                        <span class="main-life-value">${p.score}</span>
+                        <span class="life-hearts">${heartsMarkup(p.score)}</span>
+                    </span>
+                </div>
+            `).join('');
+        }
+    }
+
+    // ── Menú ────────────────────────────────────────────────────
     function toggleMenu() {
-        const menuBtn = document.getElementById('menuBtn');
-        const menuDropdown = document.getElementById('menuDropdown');
-        const menuOverlay = document.getElementById('menuOverlay');
-        
-        menuBtn.classList.toggle('active');
-        menuDropdown.classList.toggle('active');
-        menuOverlay.classList.toggle('active');
+        document.getElementById('menuBtn').classList.toggle('active');
+        document.getElementById('menuDropdown').classList.toggle('active');
+        document.getElementById('menuOverlay').classList.toggle('active');
     }
-
     function closeMenu() {
-        const menuBtn = document.getElementById('menuBtn');
-        const menuDropdown = document.getElementById('menuDropdown');
-        const menuOverlay = document.getElementById('menuOverlay');
-        
-        menuBtn.classList.remove('active');
-        menuDropdown.classList.remove('active');
-        menuOverlay.classList.remove('active');
+        document.getElementById('menuBtn').classList.remove('active');
+        document.getElementById('menuDropdown').classList.remove('active');
+        document.getElementById('menuOverlay').classList.remove('active');
+    }
+    function resetGame() {
+        if (confirm('¿Reiniciar el juego? Se borrarán preguntas respondidas y se restaurarán las vidas.')) {
+            answeredQuestions = [];
+            localStorage.removeItem('answeredQuestions');
+            resetPlayerLives();
+            closeMenu();
+            loadQuestion();
+        }
+    }
+    function resetAndLoad() {
+        loadQuestion();
     }
 
-    // Parse CSV and convert to questions array
+    function getAlivePlayerIndexes() {
+        const alive = [];
+        players.forEach((p, i) => {
+            if (p.score > 0) alive.push(i);
+        });
+        return alive;
+    }
+
+    // ── CSV ──────────────────────────────────────────────────────
     function parseCSV(csvText) {
         const lines = csvText.trim().split('\n');
-        const parsedQuestions = [];
-        
+        const parsed = [];
         for (let i = 1; i < lines.length; i++) {
             const line = lines[i].trim();
             if (!line) continue;
-            
-            // Parse CSV with proper handling of quoted fields
             const fields = [];
-            let current = '';
-            let inQuotes = false;
-            
+            let current = '', inQuotes = false;
             for (let j = 0; j < line.length; j++) {
-                const char = line[j];
-                if (char === '"') {
-                    inQuotes = !inQuotes;
-                } else if (char === ',' && !inQuotes) {
-                    fields.push(current.trim());
-                    current = '';
-                } else {
-                    current += char;
-                }
+                const ch = line[j];
+                if (ch === '"') { inQuotes = !inQuotes; }
+                else if (ch === ',' && !inQuotes) { fields.push(current.trim()); current = ''; }
+                else { current += ch; }
             }
             fields.push(current.trim());
-            
-            if (fields.length >= 8) {
-                parsedQuestions.push({
-                    id: fields[0],
-                    c: fields[1],   // Categoría
-                    q: fields[2],   // Pregunta
-                    a: fields[3],   // Opción A
-                    b: fields[4],   // Opción B
-                    r: fields[5],   // Correcta
-                    d: fields[6],   // Dificultad
-                    e: fields[7]    // Explicación
-                });
-            }
+            if (fields.length >= 8)
+                parsed.push({ id: fields[0], c: fields[1], q: fields[2], a: fields[3],
+                               b: fields[4], r: fields[5], d: fields[6], e: fields[7] });
         }
-        return parsedQuestions;
+        return parsed;
     }
-
     async function loadQuestionsFromCSV() {
         try {
+            if (USE_MOCK_QUESTIONS) {
+                questions = [...MOCK_QUESTIONS];
+                setupCategories();
+                loadQuestion();
+                return;
+            }
+
             const response = await fetch('preguntas.csv');
             if (!response.ok) throw new Error('Failed to load CSV');
-            const csvText = await response.text();
-            questions = parseCSV(csvText);
-            
+            questions = parseCSV(await response.text());
             if (questions.length === 0) {
                 document.getElementById('q').innerText = 'No se encontraron preguntas.';
                 return;
             }
-            
             setupCategories();
             loadQuestion();
         } catch (error) {
@@ -825,108 +1540,211 @@
             document.getElementById('q').innerText = 'Error al cargar preguntas.csv';
         }
     }
-
     function setupCategories() {
         const catSelect = document.getElementById('catFilter');
-        const uniqueCategories = [...new Set(questions.map(q => q.c))].sort();
-        uniqueCategories.forEach(cat => {
+        [...new Set(questions.map(q => q.c))].sort().forEach(cat => {
             const opt = document.createElement('option');
-            opt.value = cat;
-            opt.innerText = cat;
+            opt.value = cat; opt.innerText = cat;
             catSelect.appendChild(opt);
         });
     }
-
     function changeBackground(topic) {
-        const imageUrl = `https://source.unsplash.com/1600x900/?${topic.toLowerCase()},wallpaper`;
-        document.body.style.backgroundImage = `linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('${imageUrl}')`;
+        const url = `https://source.unsplash.com/1600x900/?${topic.toLowerCase()},wallpaper`;
+        document.body.style.backgroundImage =
+            `linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('${url}')`;
     }
 
-    function resetAndLoad() { 
-        answeredQuestions = [];
-        localStorage.removeItem('answeredQuestions');
-        loadQuestion(); 
-    }
-
+    // ── Cargar pregunta ──────────────────────────────────────────
     function loadQuestion() {
-        const diffSelect = document.getElementById('diffFilter');
-        const selectedDiffs = Array.from(diffSelect.selectedOptions).map(opt => opt.value);
-        const hasSelectedDiffs = selectedDiffs.length > 0;
-        const catSelect = document.getElementById('catFilter');
-        const selectedCats = Array.from(catSelect.selectedOptions).map(opt => opt.value);
-        const hasSelectedCats = selectedCats.length > 0;
-        
-        // Filtrar por categoría, dificultad Y preguntas no respondidas
-        let availablePool = questions.filter(q => 
-            (!hasSelectedCats || selectedCats.includes(q.c)) && 
-            (!hasSelectedDiffs || selectedDiffs.includes(q.d)) &&
-            !answeredQuestions.includes(q.id)  // Excluir respondidas
-        );
+        const selectedDiffs = Array.from(document.getElementById('diffFilter').selectedOptions).map(o => o.value);
+        const selectedCats  = Array.from(document.getElementById('catFilter').selectedOptions).map(o => o.value);
+        const hasDiffs = selectedDiffs.length > 0;
+        const hasCats  = selectedCats.length > 0;
 
-        if (availablePool.length === 0) {
-            // Si no hay más preguntas disponibles
-            const totalPool = questions.filter(q => 
-                (!hasSelectedCats || selectedCats.includes(q.c)) && 
-                (!hasSelectedDiffs || selectedDiffs.includes(q.d))
-            );
-            
-            if (totalPool.length === 0) {
-                document.getElementById('q').innerText = "Sin preguntas con este filtro.";
+        const inPool = q =>
+            (!hasCats  || selectedCats.includes(q.c)) &&
+            (!hasDiffs || selectedDiffs.includes(q.d));
+
+        const available = questions.filter(q => inPool(q) && !answeredQuestions.includes(q.id));
+
+        if (available.length === 0) {
+            const total = questions.filter(inPool);
+            updateQuestionTags(null);
+            if (total.length === 0) {
+                document.getElementById('q').innerText = 'Sin preguntas con este filtro.';
+                document.getElementById('mainBtn').disabled = true;
             } else {
-                document.getElementById('q').innerText = "✅ ¡Has respondido todas las preguntas disponibles! Haz clic en REINICIAR para empezar de nuevo.";
-                document.getElementById('progress').innerText = `Preguntas respondidas: ${answeredQuestions.length}`;
+                document.getElementById('q').innerText = '✅ ¡Has respondido todas las preguntas!';
+                document.getElementById('progress').innerText =
+                    `Preguntas respondidas: ${answeredQuestions.length} de ${total.length}`;
+                document.getElementById('mainBtn').innerText = 'NUEVA RONDA →';
+                document.getElementById('mainBtn').style.background = '#8b5cf6';
+                document.getElementById('mainBtn').disabled = false;
+                document.getElementById('textA').className = 'opt-text';
+                document.getElementById('textB').className = 'opt-text';
+                document.getElementById('textA').innerText = '';
+                document.getElementById('textB').innerText = '';
+                document.getElementById('explanation-card').classList.remove('show');
+                document.getElementById('playerResults').style.display = 'none';
+                document.getElementById('playerTurn').classList.remove('visible');
+                document.getElementById('playerChips').classList.remove('visible');
+                showingResult = false;
+                pendingNewRound = true;
             }
-            document.getElementById('mainBtn').disabled = true;
             return;
         }
 
-        document.getElementById('mainBtn').disabled = false;
-        currentQ = availablePool[Math.floor(Math.random() * availablePool.length)];
-        changeBackground(currentQ.c);
+        const gameOverData = getGameOverData();
+        if (gameOverData) {
+            finishGame(gameOverData);
+            return;
+        }
 
-        // Actualizar progreso
-        const totalPool = questions.filter(q => 
-            (!hasSelectedCats || selectedCats.includes(q.c)) && 
-            (!hasSelectedDiffs || selectedDiffs.includes(q.d))
-        );
-        const respondidas = answeredQuestions.filter(id => 
-            questions.find(q => q.id === id && 
-                (!hasSelectedCats || selectedCats.includes(q.c)) && 
-                (!hasSelectedDiffs || selectedDiffs.includes(q.d))
-            )
-        ).length;
-        document.getElementById('progress').innerText = `Pregunta ${respondidas + 1} de ${totalPool.length}`;
-        
+        const alivePlayers = getAlivePlayerIndexes();
+
+        document.getElementById('mainBtn').disabled = false;
+        currentQ = available[Math.floor(Math.random() * available.length)];
+        changeBackground(currentQ.c);
+        updateQuestionTags(currentQ);
+
+        const total = questions.filter(inPool);
+        const respondidas = answeredQuestions.filter(id => questions.find(q => q.id === id && inPool(q))).length;
+        document.getElementById('progress').innerText = `Pregunta ${respondidas + 1} de ${total.length}`;
+
         document.getElementById('q').innerText = currentQ.q;
-        document.getElementById('textA').innerText = "A) " + currentQ.a;
-        document.getElementById('textB').innerText = "B) " + currentQ.b;
-        
-        document.getElementById('textA').className = "opt-text";
-        document.getElementById('textB').className = "opt-text";
+        document.getElementById('textA').innerText = 'A) ' + currentQ.a;
+        document.getElementById('textB').innerText = 'B) ' + currentQ.b;
+        document.getElementById('textA').className = 'opt-text';
+        document.getElementById('textB').className = 'opt-text';
         document.getElementById('explanation-card').classList.remove('show');
-        document.getElementById('mainBtn').innerText = "REVELAR RESPUESTA";
-        document.getElementById('mainBtn').style.background = "var(--accent)";
+        document.getElementById('playerResults').style.display = 'none';
+        document.getElementById('playerResults').innerHTML = '';
+
+        // Reset estado multijugador
+        roundPlayers = alivePlayers;
+        currentPlayerIndex = 0;
+        playerAnswers = [];
+        selectedAnswer = null;
         showingResult = false;
+
+        updateTurnUI();
     }
 
-    function handleAction() {
-        if (!showingResult) {
-            ding.currentTime = 0;
-            ding.play();
+    // ── UI de turnos ─────────────────────────────────────────────
+    function updateTurnUI() {
+        const turnEl  = document.getElementById('playerTurn');
+        const chipsEl = document.getElementById('playerChips');
+        const btn     = document.getElementById('mainBtn');
 
-            const correctID = "text" + currentQ.r;
-            const wrongID = currentQ.r === 'A' ? 'textB' : 'textA';
-            
-            document.getElementById(correctID).classList.add('highlight-correct');
-            document.getElementById(wrongID).classList.add('dim-wrong');
-            document.getElementById('expl-text').innerText = currentQ.e;
-            document.getElementById('explanation-card').classList.add('show');
-            
-            document.getElementById('mainBtn').innerText = "SIGUIENTE PREGUNTA";
-            document.getElementById('mainBtn').style.background = "#475569";
-            showingResult = true;
+        if (roundPlayers.length === 0) {
+            turnEl.classList.remove('visible');
+            chipsEl.classList.remove('visible');
+            btn.innerText = 'REVELAR RESPUESTA';
+            btn.style.background = 'var(--accent)';
+            btn.disabled = false;
+            renderScoreBoard();
+            return;
+        }
+
+        turnEl.classList.add('visible');
+        // ocultar turno en modo un jugador
+        if (!isMultiplayer()) turnEl.classList.remove('visible');
+        chipsEl.classList.remove('visible');
+
+        const allAnswered = playerAnswers.length === roundPlayers.length;
+
+        if (allAnswered) {
+            turnEl.innerHTML = '<span>✨ ¡Todos han respondido!</span>';
+            btn.innerText = 'REVELAR RESPUESTA';
+            btn.style.background = '#8b5cf6';
+            btn.disabled = false;
         } else {
-            // Guardar pregunta como respondida
+            const playerIndex = roundPlayers[currentPlayerIndex];
+            const p = players[playerIndex];
+            turnEl.innerHTML = `
+                <span class="turn-label">Turno de</span>
+                <span class="turn-name">${escapeHtml(p.name)}</span>
+            `;
+            btn.innerText = 'CONFIRMAR →';
+            btn.style.background = selectedAnswer ? 'var(--accent)' : '#334155';
+            btn.disabled = !selectedAnswer;
+        }
+
+        // Chips
+        chipsEl.innerHTML = '';
+        players.forEach((p, i) => {
+            const answered = playerAnswers.some(a => a.playerIndex === i);
+            const eliminated = p.score <= 0;
+            const chip = document.createElement('div');
+            chip.className = `player-chip${answered ? ' answered' : ''}` +
+                             `${i === roundPlayers[currentPlayerIndex] && !allAnswered ? ' active' : ''}` +
+                             `${eliminated ? ' eliminated' : ''}`;
+            chip.textContent = p.name.slice(0, 3).toUpperCase();
+            chip.title = eliminated ? `${p.name} (sin puntos)` : p.name;
+            chipsEl.appendChild(chip);
+        });
+
+        document.getElementById('textA').classList.toggle('selected', selectedAnswer === 'A');
+        document.getElementById('textB').classList.toggle('selected', selectedAnswer === 'B');
+
+        renderScoreBoard();
+    }
+
+    // ── Seleccionar opción ───────────────────────────────────────
+    function selectOption(option) {
+        if (showingResult) return;
+        if (playerAnswers.length === roundPlayers.length) return;
+
+        selectedAnswer = option;
+        document.getElementById('textA').classList.toggle('selected', option === 'A');
+        document.getElementById('textB').classList.toggle('selected', option === 'B');
+        updateTurnUI();
+    }
+
+    // ── Pantalla de privacidad ───────────────────────────────────
+    function showPrivacyScreen() {
+        const answered = players[roundPlayers[currentPlayerIndex]].name;
+        const nextIdx  = currentPlayerIndex + 1;
+        const next     = nextIdx < roundPlayers.length ? players[roundPlayers[nextIdx]].name : null;
+        document.getElementById('privacyTitle').innerText   = `¡${answered} ha respondido!`;
+        document.getElementById('privacySubtitle').innerText =
+            next ? `Pasa el dispositivo a ${next}` : '';
+        document.getElementById('privacyOverlay').classList.add('active');
+    }
+    function nextPlayerTurn() {
+        document.getElementById('privacyOverlay').classList.remove('active');
+        currentPlayerIndex++;
+        selectedAnswer = null;
+        updateTurnUI();
+    }
+
+    // ── Acción principal ─────────────────────────────────────────
+    function handleAction() {
+        if (pendingNewRound) {
+            pendingNewRound = false;
+            answeredQuestions = [];
+            saveAnsweredQuestions();
+            document.getElementById('mainBtn').style.background = 'var(--accent)';
+            loadQuestion();
+            return;
+        }
+
+        if (!showingResult) {
+            if (playerAnswers.length < roundPlayers.length) {
+                if (!selectedAnswer) return;
+                const playerIndex = roundPlayers[currentPlayerIndex];
+                playerAnswers.push({ playerIndex, answer: selectedAnswer });
+                if (playerAnswers.length < roundPlayers.length) {
+                    showPrivacyScreen();
+                } else if (!isMultiplayer()) {
+                    revealAnswer();
+                } else {
+                    updateTurnUI();
+                }
+            } else {
+                revealAnswer();
+            }
+        } else {
             if (!answeredQuestions.includes(currentQ.id)) {
                 answeredQuestions.push(currentQ.id);
                 saveAnsweredQuestions();
@@ -935,7 +1753,59 @@
         }
     }
 
+    function revealAnswer() {
+        ding.currentTime = 0;
+        ding.play();
+
+        document.getElementById('textA').classList.remove('selected');
+        document.getElementById('textB').classList.remove('selected');
+
+        const correctID = 'text' + currentQ.r;
+        const wrongID   = currentQ.r === 'A' ? 'textB' : 'textA';
+        document.getElementById(correctID).classList.add('highlight-correct');
+        document.getElementById(wrongID).classList.add('dim-wrong');
+        document.getElementById('expl-text').innerText = currentQ.e;
+        document.getElementById('explanation-card').classList.add('show');
+
+        let html = '';
+        const lostLifePlayers = [];
+        playerAnswers.forEach(({ playerIndex, answer }) => {
+            const correct = answer === currentQ.r;
+            if (!correct) {
+                players[playerIndex].score = Math.max(0, players[playerIndex].score - 1);
+                lostLifePlayers.push(playerIndex);
+            }
+            const p = players[playerIndex];
+            const text = answer === 'A' ? currentQ.a : currentQ.b;
+            html += `
+                <div class="player-result ${correct ? 'correct' : 'wrong'}">
+                    <span class="result-player-name">${escapeHtml(p.name)}</span>
+                    <span class="result-answer">${escapeHtml(text)} · ${p.score}/6</span>
+                    <span class="result-icon">${correct ? '✅' : '❌'}</span>
+                </div>`;
+        });
+        const el = document.getElementById('playerResults');
+        el.innerHTML = html;
+        el.style.display = isMultiplayer() ? 'flex' : 'none';
+        showingResult = true;
+        renderScoreBoard();
+        if (lostLifePlayers.length > 0) triggerLifeLossAnimation(lostLifePlayers);
+        document.getElementById('playerTurn').classList.remove('visible');
+        document.getElementById('playerChips').classList.remove('visible');
+
+        const gameOverData = getGameOverData();
+        if (gameOverData) {
+            finishGame(gameOverData);
+            return;
+        }
+
+        document.getElementById('mainBtn').innerText = 'SIGUIENTE PREGUNTA';
+        document.getElementById('mainBtn').style.background = '#475569';
+        document.getElementById('mainBtn').disabled = false;
+    }
+
     loadAnsweredQuestions();
+    loadPlayers();
     loadQuestionsFromCSV();
 </script>
 </body>
