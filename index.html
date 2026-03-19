@@ -610,6 +610,100 @@
             box-shadow: 0 0 8px rgba(56, 189, 248, 0.3);
         }
 
+        .menu-toggle-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 0.75rem;
+            background: rgba(51, 65, 85, 0.35);
+            border: 1px solid #475569;
+            border-radius: 10px;
+            padding: 0.75rem 0.85rem;
+            margin-bottom: 0.55rem;
+        }
+
+        .menu-toggle-text {
+            color: #e2e8f0;
+            font-size: 0.92rem;
+            font-weight: 700;
+        }
+
+        .menu-toggle {
+            width: 44px;
+            height: 24px;
+            appearance: none;
+            border-radius: 999px;
+            background: #334155;
+            border: 1px solid #64748b;
+            position: relative;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .menu-toggle::after {
+            content: '';
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: #f8fafc;
+            transition: transform 0.2s;
+        }
+
+        .menu-toggle:checked {
+            background: linear-gradient(135deg, #38bdf8 0%, #a855f7 100%);
+            border-color: rgba(56, 189, 248, 0.7);
+        }
+
+        .menu-toggle:checked::after {
+            transform: translateX(20px);
+        }
+
+        .menu-section-help {
+            color: #94a3b8;
+            font-size: 0.78rem;
+            line-height: 1.4;
+        }
+
+        .mode-locked {
+            opacity: 0.45;
+            pointer-events: none;
+        }
+
+        .open-trivia-loader {
+            display: none;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 0.65rem;
+            margin: 0.85rem 0 1.25rem;
+        }
+
+        .open-trivia-spinner {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            border: 4px solid rgba(148, 163, 184, 0.25);
+            border-top-color: #38bdf8;
+            border-right-color: #a855f7;
+            box-shadow: 0 0 12px rgba(56, 189, 248, 0.22), 0 0 18px rgba(168, 85, 247, 0.16);
+            animation: open-trivia-spin 0.9s linear infinite;
+        }
+
+        @keyframes open-trivia-spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .open-trivia-loader-text {
+            color: #94a3b8;
+            font-size: 0.82rem;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+        }
+
         .menu-slider {
             width: 100%;
             height: 6px;
@@ -1190,13 +1284,22 @@
             <span id="maxLivesDisplay">6</span> vidas
         </div>
     </div>
-    
+
     <div class="menu-section">
+        <div class="menu-section-title">🌐 Modo de Juego</div>
+        <label class="menu-toggle-row">
+            <span class="menu-toggle-text">Open Trivia</span>
+            <input id="openTriviaToggle" class="menu-toggle" type="checkbox" onchange="updateOpenTriviaMode(this.checked)">
+        </label>
+        <div id="openTriviaHint" class="menu-section-help">Cargar preguntas online desde Open Trivia DB.</div>
+    </div>
+    
+    <div class="menu-section" id="categorySection">
         <div class="menu-section-title">📁 Categoría</div>
         <select id="catFilter" onchange="resetAndLoad()" multiple class="menu-select"></select>
     </div>
     
-    <div class="menu-section">
+    <div class="menu-section" id="difficultySection">
         <div class="menu-section-title">📊 Dificultad</div>
         <select id="diffFilter" onchange="resetAndLoad()" multiple class="menu-select">
             <option value="Fácil">Fácil</option>
@@ -1251,6 +1354,11 @@
     <div id="playerChips" class="player-chips"></div>
 
     <div id="q" class="question">Cargando...</div>
+
+    <div id="openTriviaLoader" class="open-trivia-loader" aria-live="polite">
+        <div class="open-trivia-spinner" role="img" aria-label="Cargando pregunta"></div>
+        <span class="open-trivia-loader-text">Cargando pregunta desde Open Trivia</span>
+    </div>
     
     <div class="options-text-container">
         <div id="textA" class="opt-text" onclick="selectOption('A')"><span class="opt-letter-badge opt-letter-a">A</span><span class="opt-answer-text">Opción A</span></div>
@@ -1298,6 +1406,7 @@
 
     // ── Configuración ───────────────────────────────────────────
     let maxLives = 6;
+    let openTriviaMode = false;
 
     // ── Estado multijugador ─────────────────────────────────────
     let players = [{ name: 'Jugador 1', score: maxLives }];
@@ -1351,6 +1460,59 @@
         } catch (e) {}
     }
 
+    function saveOpenTriviaMode() {
+        localStorage.setItem('openTriviaMode', openTriviaMode ? 'true' : 'false');
+    }
+
+    function syncModeControls() {
+        const openTriviaHint = document.getElementById('openTriviaHint');
+        const catSection = document.getElementById('categorySection');
+        const diffSection = document.getElementById('difficultySection');
+        const catFilter = document.getElementById('catFilter');
+        const diffFilter = document.getElementById('diffFilter');
+
+        if (openTriviaHint) {
+            openTriviaHint.innerText = openTriviaMode
+                ? 'Activo: se descarga 1 pregunta online por ronda desde Open Trivia DB.'
+                : 'Cargar preguntas online desde Open Trivia DB.';
+        }
+
+        if (catSection) catSection.classList.toggle('mode-locked', openTriviaMode);
+        if (diffSection) diffSection.classList.toggle('mode-locked', openTriviaMode);
+        if (catFilter) catFilter.disabled = openTriviaMode;
+        if (diffFilter) diffFilter.disabled = openTriviaMode;
+    }
+
+    function loadOpenTriviaMode() {
+        try {
+            const saved = localStorage.getItem('openTriviaMode');
+            openTriviaMode = saved === 'true';
+        } catch (e) {
+            openTriviaMode = false;
+        }
+
+        const toggle = document.getElementById('openTriviaToggle');
+        if (toggle) toggle.checked = openTriviaMode;
+        syncModeControls();
+    }
+
+    function updateOpenTriviaMode(enabled) {
+        openTriviaMode = !!enabled;
+        saveOpenTriviaMode();
+        syncModeControls();
+
+        answeredQuestions = [];
+        saveAnsweredQuestions();
+        pendingNewRound = false;
+        showingResult = false;
+
+        document.getElementById('mainBtn').disabled = false;
+        document.getElementById('mainBtn').innerText = 'REVELAR RESPUESTA';
+        document.getElementById('mainBtn').style.background = 'var(--accent)';
+
+        loadQuestion();
+    }
+
     function saveRankingVisibility(isCollapsed) {
         localStorage.setItem('rankingCollapsed', isCollapsed ? 'true' : 'false');
     }
@@ -1377,6 +1539,99 @@
         const d = document.createElement('div');
         d.appendChild(document.createTextNode(text));
         return d.innerHTML;
+    }
+
+    function decodeHtmlEntities(text) {
+        const txt = document.createElement('textarea');
+        txt.innerHTML = text || '';
+        return txt.value;
+    }
+
+    const OPEN_TRIVIA_RETRY_DELAYS_MS = [3000, 6000, 9000, 12000];
+
+    function sleep(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
+    const translationCache = new Map();
+
+    async function translateTextToSpanish(text) {
+        const source = (text || '').trim();
+        if (!source) return source;
+        if (translationCache.has(source)) return translationCache.get(source);
+
+        try {
+            const response = await fetch(
+                `https://api.mymemory.translated.net/get?q=${encodeURIComponent(source)}&langpair=en|es`
+            );
+            if (!response.ok) throw new Error('Translation service error');
+
+            const data = await response.json();
+            const translated = decodeHtmlEntities(data?.responseData?.translatedText || source).trim() || source;
+            translationCache.set(source, translated);
+            return translated;
+        } catch (e) {
+            return source;
+        }
+    }
+
+    async function fetchOpenTriviaQuestion() {
+        let lastError = null;
+
+        for (let attempt = 0; attempt <= OPEN_TRIVIA_RETRY_DELAYS_MS.length; attempt++) {
+            try {
+                const response = await fetch('https://opentdb.com/api.php?amount=1');
+                if (!response.ok) throw new Error('No se pudo cargar Open Trivia');
+
+                const data = await response.json();
+                if (data.response_code !== 0 || !Array.isArray(data.results) || data.results.length === 0)
+                    throw new Error('Open Trivia sin resultados');
+
+                const item = data.results[0];
+                const correctAnswer = decodeHtmlEntities(item.correct_answer || '');
+                const wrongPool = Array.isArray(item.incorrect_answers)
+                    ? item.incorrect_answers.map(a => decodeHtmlEntities(a))
+                    : [];
+                const wrongAnswer = wrongPool.length > 0
+                    ? wrongPool[Math.floor(Math.random() * wrongPool.length)]
+                    : (correctAnswer === 'True' ? 'False' : 'True');
+
+                // Elegimos explícitamente en qué lado cae la respuesta correcta (50/50).
+                const correctSlot = Math.random() < 0.5 ? 'A' : 'B';
+                const optionA = correctSlot === 'A' ? correctAnswer : wrongAnswer;
+                const optionB = correctSlot === 'B' ? correctAnswer : wrongAnswer;
+
+                const difficultyMap = { easy: 'Fácil', medium: 'Media', hard: 'Difícil' };
+                const difficulty = difficultyMap[(item.difficulty || '').toLowerCase()] || 'Media';
+
+                const [translatedCategory, translatedQuestion, translatedA, translatedB] = await Promise.all([
+                    translateTextToSpanish(decodeHtmlEntities(item.category || 'Open Trivia')),
+                    translateTextToSpanish(decodeHtmlEntities(item.question || 'Pregunta sin contenido')),
+                    translateTextToSpanish(optionA),
+                    translateTextToSpanish(optionB)
+                ]);
+
+                return {
+                    id: `otdb-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
+                    c: translatedCategory,
+                    q: translatedQuestion,
+                    a: translatedA,
+                    b: translatedB,
+                    r: correctSlot,
+                    d: difficulty,
+                    e: 'Fuente: Open Trivia DB'
+                };
+            } catch (error) {
+                lastError = error;
+                if (attempt === OPEN_TRIVIA_RETRY_DELAYS_MS.length) break;
+
+                const delayMs = OPEN_TRIVIA_RETRY_DELAYS_MS[attempt];
+                console.warn(`Open Trivia intento ${attempt + 1} fallido. Reintentando en ${delayMs / 1000}s...`, error);
+                await sleep(delayMs);
+            }
+        }
+
+        throw new Error(`Open Trivia no disponible tras 5 intentos: ${lastError?.message || 'error desconocido'}`);
     }
 
     function triggerLifeLossAnimation(playerIndexes) {
@@ -1710,6 +1965,7 @@
     }
     function setupCategories() {
         const catSelect = document.getElementById('catFilter');
+        catSelect.innerHTML = '';
         [...new Set(questions.map(q => q.c))].sort().forEach(cat => {
             const opt = document.createElement('option');
             opt.value = cat; opt.innerText = cat;
@@ -1723,7 +1979,73 @@
     }
 
     // ── Cargar pregunta ──────────────────────────────────────────
-    function loadQuestion() {
+    async function loadQuestion() {
+        const openTriviaLoader = document.getElementById('openTriviaLoader');
+        if (openTriviaLoader) openTriviaLoader.style.display = 'none';
+
+        if (openTriviaMode) {
+            const gameOverData = getGameOverData();
+            if (gameOverData) {
+                finishGame(gameOverData);
+                return;
+            }
+
+            const alivePlayers = getAlivePlayerIndexes();
+            const optionsContainer = document.querySelector('.options-text-container');
+            const mainBtn = document.getElementById('mainBtn');
+            const playerResults = document.getElementById('playerResults');
+
+            if (optionsContainer) optionsContainer.style.display = 'none';
+            if (openTriviaLoader) openTriviaLoader.style.display = 'flex';
+            if (playerResults) {
+                playerResults.style.display = 'none';
+                playerResults.innerHTML = '';
+            }
+            mainBtn.style.display = 'none';
+            mainBtn.disabled = true;
+            document.getElementById('q').innerText = '';
+            updateQuestionTags(null);
+
+            try {
+                currentQ = await fetchOpenTriviaQuestion();
+            } catch (error) {
+                console.error('Open Trivia error:', error);
+                if (openTriviaLoader) openTriviaLoader.style.display = 'none';
+                document.getElementById('q').innerText = 'Error al cargar Open Trivia. Intenta de nuevo.';
+                mainBtn.innerText = 'REINTENTAR';
+                mainBtn.style.background = '#8b5cf6';
+                mainBtn.style.display = '';
+                mainBtn.disabled = false;
+                return;
+            }
+
+            if (optionsContainer) optionsContainer.style.display = 'flex';
+            if (openTriviaLoader) openTriviaLoader.style.display = 'none';
+            mainBtn.style.display = '';
+            mainBtn.disabled = false;
+            changeBackground(currentQ.c);
+            updateQuestionTags(currentQ);
+            document.getElementById('progress').innerText = 'Open Trivia · pregunta online';
+
+            document.getElementById('q').innerText = currentQ.q;
+            document.getElementById('textA').innerHTML = `<span class="opt-letter-badge opt-letter-a">A</span><span class="opt-answer-text">${escapeHtml(currentQ.a)}</span>`;
+            document.getElementById('textB').innerHTML = `<span class="opt-letter-badge opt-letter-b">B</span><span class="opt-answer-text">${escapeHtml(currentQ.b)}</span>`;
+            document.getElementById('textA').className = 'opt-text';
+            document.getElementById('textB').className = 'opt-text';
+            document.getElementById('explanation-card').classList.remove('show');
+            document.getElementById('playerResults').style.display = 'none';
+            document.getElementById('playerResults').innerHTML = '';
+
+            roundPlayers = alivePlayers;
+            currentPlayerIndex = 0;
+            playerAnswers = [];
+            selectedAnswer = null;
+            showingResult = false;
+
+            updateTurnUI();
+            return;
+        }
+
         const selectedDiffs = Array.from(document.getElementById('diffFilter').selectedOptions).map(o => o.value);
         const selectedCats  = Array.from(document.getElementById('catFilter').selectedOptions).map(o => o.value);
         const hasDiffs = selectedDiffs.length > 0;
@@ -1932,8 +2254,13 @@
         const wrongID   = currentQ.r === 'A' ? 'textB' : 'textA';
         document.getElementById(correctID).classList.add('highlight-correct');
         document.getElementById(wrongID).classList.add('dim-wrong');
-        document.getElementById('expl-text').innerText = currentQ.e;
-        document.getElementById('explanation-card').classList.add('show');
+        if (openTriviaMode) {
+            document.getElementById('expl-text').innerText = '';
+            document.getElementById('explanation-card').classList.remove('show');
+        } else {
+            document.getElementById('expl-text').innerText = currentQ.e;
+            document.getElementById('explanation-card').classList.add('show');
+        }
 
         let html = '';
         const lostLifePlayers = [];
@@ -1978,6 +2305,7 @@
     document.getElementById('maxLivesSlider').value = maxLives;
     document.getElementById('maxLivesDisplay').innerText = maxLives;
     loadRankingVisibility();
+    loadOpenTriviaMode();
     loadPlayers();
     loadQuestionsFromCSV();
 </script>
