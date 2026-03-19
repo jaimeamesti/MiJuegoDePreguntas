@@ -573,6 +573,27 @@
             letter-spacing: 1px;
         }
 
+        .menu-help-btn {
+            width: 100%;
+            border: 1px solid rgba(56, 189, 248, 0.45);
+            border-radius: 10px;
+            background: rgba(56, 189, 248, 0.12);
+            color: #bae6fd;
+            font-size: 0.86rem;
+            font-weight: 800;
+            letter-spacing: 0.05em;
+            padding: 0.7rem 0.85rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            margin-bottom: 1.2rem;
+        }
+
+        .menu-help-btn:hover {
+            background: rgba(56, 189, 248, 0.2);
+            color: #e0f2fe;
+            transform: translateY(-1px);
+        }
+
         .menu-section {
             margin-bottom: 2rem;
         }
@@ -987,6 +1008,118 @@
             transform: translateY(-2px);
         }
 
+        .instructions-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(2, 6, 23, 0.86);
+            backdrop-filter: blur(6px);
+            z-index: 2200;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.25s ease;
+            padding: 1rem;
+        }
+
+        .instructions-overlay.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .instructions-modal {
+            width: min(96vw, 760px);
+            max-height: 90vh;
+            overflow-y: auto;
+            border-radius: 18px;
+            border: 1px solid rgba(100, 116, 139, 0.35);
+            background: linear-gradient(180deg, rgba(30, 41, 59, 0.98) 0%, rgba(15, 23, 42, 0.98) 100%);
+            box-shadow: 0 24px 56px rgba(0, 0, 0, 0.45);
+            padding: 1.35rem;
+            text-align: left;
+        }
+
+        .instructions-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 0.8rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 1px solid rgba(71, 85, 105, 0.55);
+        }
+
+        .instructions-title {
+            margin: 0;
+            color: #f8fafc;
+            font-size: 1.25rem;
+            font-weight: 900;
+            letter-spacing: 0.02em;
+        }
+
+        .instructions-close {
+            border: 1px solid rgba(148, 163, 184, 0.55);
+            background: rgba(30, 41, 59, 0.7);
+            color: #e2e8f0;
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            font-size: 1.2rem;
+            line-height: 1;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .instructions-close:hover {
+            border-color: rgba(56, 189, 248, 0.8);
+            color: #bae6fd;
+            transform: translateY(-1px);
+        }
+
+        .instructions-block {
+            margin-bottom: 1.1rem;
+            background: rgba(15, 23, 42, 0.55);
+            border: 1px solid rgba(51, 65, 85, 0.9);
+            border-radius: 12px;
+            padding: 0.9rem 0.95rem;
+        }
+
+        .instructions-block h3 {
+            margin: 0 0 0.55rem;
+            color: #7dd3fc;
+            font-size: 0.84rem;
+            font-weight: 800;
+            letter-spacing: 0.07em;
+            text-transform: uppercase;
+        }
+
+        .instructions-block p {
+            margin: 0;
+            color: #cbd5e1;
+            font-size: 0.92rem;
+            line-height: 1.52;
+        }
+
+        .instructions-list {
+            margin: 0;
+            padding-left: 1.1rem;
+            color: #cbd5e1;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .instructions-list li + li {
+            margin-top: 0.38rem;
+        }
+
+        .instructions-foot {
+            margin-top: 0.35rem;
+            color: #94a3b8;
+            font-size: 0.8rem;
+            line-height: 1.45;
+        }
+
         /* Resultados por jugador tras revelar */
         .player-results {
             display: none;
@@ -1281,6 +1414,7 @@
 
 <div class="menu-dropdown" id="menuDropdown">
     <div class="menu-title">⚙️ Opciones</div>
+    <button class="menu-help-btn" onclick="openInstructionsModal()">📘 VER INSTRUCCIONES</button>
 
     <div class="menu-section" style="margin-top: 2rem;">
         <div class="menu-section-title">👥 Jugadores</div>
@@ -1306,15 +1440,6 @@
         <div id="openTriviaHint" class="menu-section-help">Cargar preguntas online desde Open Trivia DB.</div>
     </div>
 
-    <div class="menu-section">
-        <div class="menu-section-title">🔊 Audio</div>
-        <label class="menu-toggle-row">
-            <span class="menu-toggle-text">Sonidos</span>
-            <input id="soundToggle" class="menu-toggle" type="checkbox" onchange="updateSoundEnabled(this.checked)">
-        </label>
-        <div class="menu-section-help">Activa o desactiva efectos de sonido del juego.</div>
-    </div>
-    
     <div class="menu-section" id="categorySection">
         <div class="menu-section-title">📁 Categoría</div>
         <select id="catFilter" onchange="resetAndLoad()" multiple class="menu-select"></select>
@@ -1327,6 +1452,19 @@
             <option value="Media">Media</option>
             <option value="Difícil">Difícil</option>
         </select>
+    </div>
+
+    <div class="menu-section">
+        <div class="menu-section-title">🔊 Audio</div>
+        <label class="menu-toggle-row">
+            <span class="menu-toggle-text">Sonidos</span>
+            <input id="soundToggle" class="menu-toggle" type="checkbox" onchange="updateSoundEnabled(this.checked)">
+        </label>
+        <label class="menu-toggle-row" style="margin-top: 0.55rem;">
+            <span class="menu-toggle-text">Vibración</span>
+            <input id="vibrationToggle" class="menu-toggle" type="checkbox" onchange="updateVibrationEnabled(this.checked)">
+        </label>
+        <div class="menu-section-help">Activa o desactiva sonido y vibración del juego.</div>
     </div>
 
     <button class="menu-reset-btn" onclick="resetGame()">🔄 REINICIAR JUEGO</button>
@@ -1349,6 +1487,64 @@
         <div class="game-over-winner" id="gameOverWinner">Jugador</div>
         <div class="game-over-text" id="gameOverText">Las vidas se han reiniciado para la siguiente ronda.</div>
         <button class="game-over-btn" onclick="closeGameOverModal()">CONTINUAR</button>
+    </div>
+</div>
+
+<div id="instructionsOverlay" class="instructions-overlay" onclick="closeInstructionsModal(event)">
+    <div class="instructions-modal" role="dialog" aria-modal="true" aria-labelledby="instructionsTitle">
+        <div class="instructions-header">
+            <h2 id="instructionsTitle" class="instructions-title">Guía del Juego</h2>
+            <button class="instructions-close" onclick="closeInstructionsModal()" aria-label="Cerrar instrucciones">×</button>
+        </div>
+
+        <div class="instructions-block">
+            <h3>Objetivo</h3>
+            <p>Sobrevive con vidas y responde correctamente en formato A/B. En multijugador gana el último jugador con vidas. En un jugador, el objetivo es mantener tu racha y no quedarte sin vidas.</p>
+        </div>
+
+        <div class="instructions-block">
+            <h3>Flujo de Cada Pregunta</h3>
+            <ul class="instructions-list">
+                <li>Lee la pregunta y compara la opción A con la opción B.</li>
+                <li>En multijugador, cada jugador responde en su turno.</li>
+                <li>Pulsa REVELAR RESPUESTA para mostrar la opción correcta.</li>
+                <li>Si fallas, pierdes 1 vida. Si aciertas, conservas tus vidas.</li>
+                <li>Pulsa SIGUIENTE PREGUNTA para continuar con la ronda siguiente.</li>
+            </ul>
+        </div>
+
+        <div class="instructions-block">
+            <h3>Modos de Juego</h3>
+            <ul class="instructions-list">
+                <li>Modo normal: usa preguntas del archivo local y respeta filtros de categoría y dificultad.</li>
+                <li>Open Trivia: descarga 1 pregunta online por ronda y bloquea filtros locales mientras está activo.</li>
+                <li>En Open Trivia, si hay fallo de red, el juego reintenta automáticamente varias veces.</li>
+            </ul>
+        </div>
+
+        <div class="instructions-block">
+            <h3>Configuración del Menú</h3>
+            <ul class="instructions-list">
+                <li>Jugadores: añade, elimina y renombra jugadores.</li>
+                <li>Vidas por jugador: define cuántas vidas iniciales tendrá cada jugador.</li>
+                <li>Dificultad y categoría: filtran preguntas en modo normal.</li>
+                <li>Audio: activa o desactiva sonidos del juego.</li>
+                <li>Vibración: activa o desactiva feedback háptico en eventos clave.</li>
+                <li>Reiniciar juego: limpia progreso de preguntas respondidas y restaura vidas.</li>
+            </ul>
+        </div>
+
+        <div class="instructions-block">
+            <h3>Ranking y Fin de Partida</h3>
+            <ul class="instructions-list">
+                <li>El panel RANKING muestra vidas restantes y posiciones actuales.</li>
+                <li>Las filas se iluminan para indicar respuestas correctas e incorrectas de la ronda.</li>
+                <li>Cuando se define un ganador o se terminan las vidas, aparece un modal de fin de partida.</li>
+                <li>Tras el cierre del modal final, se inicia una nueva ronda con vidas reiniciadas.</li>
+            </ul>
+        </div>
+
+        <p class="instructions-foot">Consejo: para partidas fluidas en grupo, define nombres claros de jugadores y mantén el dispositivo visible para todos antes de revelar la respuesta.</p>
     </div>
 </div>
 
@@ -1427,6 +1623,7 @@
     let maxLives = 6;
     let openTriviaMode = false;
     let soundEnabled = true;
+    let vibrationEnabled = true;
 
     // ── Estado multijugador ─────────────────────────────────────
     let players = [{ name: 'Jugador 1', score: maxLives }];
@@ -1554,6 +1751,27 @@
         saveSoundEnabled();
     }
 
+    function saveVibrationEnabled() {
+        localStorage.setItem('vibrationEnabled', vibrationEnabled ? 'true' : 'false');
+    }
+
+    function loadVibrationEnabled() {
+        try {
+            const saved = localStorage.getItem('vibrationEnabled');
+            vibrationEnabled = saved !== 'false';
+        } catch (e) {
+            vibrationEnabled = true;
+        }
+
+        const toggle = document.getElementById('vibrationToggle');
+        if (toggle) toggle.checked = vibrationEnabled;
+    }
+
+    function updateVibrationEnabled(enabled) {
+        vibrationEnabled = !!enabled;
+        saveVibrationEnabled();
+    }
+
     function saveRankingVisibility(isCollapsed) {
         localStorage.setItem('rankingCollapsed', isCollapsed ? 'true' : 'false');
     }
@@ -1621,23 +1839,35 @@
         osc.stop(now + duration + 0.015);
     }
 
+    function triggerVibration(pattern) {
+        if (!vibrationEnabled) return;
+        if (!navigator.vibrate) return;
+        try {
+            navigator.vibrate(pattern);
+        } catch (e) {}
+    }
+
     function playCorrectSfx() {
+        triggerVibration([35, 35, 55]);
         playTone({ frequency: 620, duration: 0.1, type: 'triangle', volume: 0.035, offset: 0 });
         playTone({ frequency: 830, duration: 0.13, type: 'triangle', volume: 0.03, offset: 0.08 });
     }
 
     function playWrongSfx() {
+        triggerVibration([130]);
         playTone({ frequency: 230, duration: 0.12, type: 'sawtooth', volume: 0.032, offset: 0 });
         playTone({ frequency: 170, duration: 0.16, type: 'sawtooth', volume: 0.03, offset: 0.08 });
     }
 
     function playEliminationSfx() {
+        triggerVibration([80, 60, 120, 60, 150]);
         playTone({ frequency: 300, duration: 0.09, type: 'square', volume: 0.03, offset: 0 });
         playTone({ frequency: 220, duration: 0.1, type: 'square', volume: 0.03, offset: 0.06 });
         playTone({ frequency: 150, duration: 0.12, type: 'square', volume: 0.028, offset: 0.12 });
     }
 
     function playGameOverSfx() {
+        triggerVibration([200, 80, 200]);
         playTone({ frequency: 520, duration: 0.11, type: 'triangle', volume: 0.035, offset: 0 });
         playTone({ frequency: 660, duration: 0.14, type: 'triangle', volume: 0.033, offset: 0.1 });
         playTone({ frequency: 440, duration: 0.2, type: 'triangle', volume: 0.032, offset: 0.24 });
@@ -1993,6 +2223,16 @@
         document.getElementById('menuBtn').classList.remove('active');
         document.getElementById('menuDropdown').classList.remove('active');
         document.getElementById('menuOverlay').classList.remove('active');
+    }
+
+    function openInstructionsModal() {
+        closeMenu();
+        document.getElementById('instructionsOverlay').classList.add('active');
+    }
+
+    function closeInstructionsModal(event) {
+        if (event && event.target !== event.currentTarget) return;
+        document.getElementById('instructionsOverlay').classList.remove('active');
     }
     function resetGame() {
         if (confirm('¿Reiniciar el juego? Se borrarán preguntas respondidas y se restaurarán las vidas.')) {
@@ -2419,6 +2659,7 @@
     loadRankingVisibility();
     loadOpenTriviaMode();
     loadSoundEnabled();
+    loadVibrationEnabled();
     loadPlayers();
     loadQuestionsFromCSV();
 </script>
