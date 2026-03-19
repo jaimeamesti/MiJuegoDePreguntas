@@ -13,13 +13,13 @@
             min-height: 100vh; margin: 0; 
             background-color: #0f172a;
             background-size: cover; background-position: center;
-            transition: background-image 1s ease-in-out; /* Transición suave de imagen */
+            transition: background-image 1s ease-in-out;
         }
 
         #game-container { 
             background: var(--card); padding: 2.5rem; border-radius: 24px; 
             width: 95%; max-width: 600px; border: 1px solid #334155; 
-            text-align: center; backdrop-filter: blur(10px); /* Efecto cristal */
+            text-align: center; backdrop-filter: blur(10px);
         }
 
         .controls { display: flex; justify-content: space-between; margin-bottom: 30px; gap: 10px; }
@@ -70,35 +70,90 @@
     <button id="mainBtn" class="action-btn" onclick="handleAction()">REVELAR RESPUESTA</button>
 </div>
 
-<!-- Audio oculto (Sonido tipo Ding) -->
 <audio id="dingSound" src="https://assets.mixkit.co"></audio>
 
 <script>
-    // PEGA AQUÍ TUS 2000 PREGUNTAS
-    const questions = [
-        {c: "Espacio", d: "Media", q: "¿En qué planeta llueven diamantes?", a: "Neptuno", b: "Marte", r: "A", e: "La presión extrema convierte el metano en cristales de diamante."},
-        {c: "Naturaleza", d: "Media", q: "¿De qué color es la leche de hipopótamo?", a: "Blanca", b: "Rosa", r: "B", e: "Se mezcla con ácidos rojos que actúan como protector solar."},
-        {c: "Historia", d: "Difícil", q: "¿De qué era la dentadura de Washington?", a: "Madera", b: "Marfil y dientes reales", r: "B", e: "Es un mito que fuera madera; usaba marfil y dientes humanos reales."},
-        {c: "Cine", d: "Media", q: "¿Quién es Batman?", a: "Bruce Wayne", b: "Clark Kent", r: "A", e: "El multimillonario Bruce Wayne es el caballero oscuro."},
-        {c: "Ciencia", d: "Media", q: "¿Qué animal tiene tres corazones?", a: "Pulpo", b: "Tiburón", r: "A", e: "Dos para branquias y uno para el cuerpo."}
-    ];
-
+    let questions = [];
     let currentQ;
     let showingResult = false;
     const ding = document.getElementById('dingSound');
+
+    // Parse CSV and convert to questions array
+    function parseCSV(csvText) {
+        const lines = csvText.trim().split('\n');
+        const parsedQuestions = [];
+        
+        for (let i = 1; i < lines.length; i++) {
+            const line = lines[i].trim();
+            if (!line) continue;
+            
+            // Parse CSV with proper handling of quoted fields
+            const fields = [];
+            let current = '';
+            let inQuotes = false;
+            
+            for (let j = 0; j < line.length; j++) {
+                const char = line[j];
+                if (char === '"') {
+                    inQuotes = !inQuotes;
+                } else if (char === ',' && !inQuotes) {
+                    fields.push(current.trim());
+                    current = '';
+                } else {
+                    current += char;
+                }
+            }
+            fields.push(current.trim());
+            
+            if (fields.length >= 8) {
+                parsedQuestions.push({
+                    id: fields[0],
+                    c: fields[1],   // Categoría
+                    q: fields[2],   // Pregunta
+                    a: fields[3],   // Opción A
+                    b: fields[4],   // Opción B
+                    r: fields[5],   // Correcta
+                    d: fields[6],   // Dificultad
+                    e: fields[7]    // Explicación
+                });
+            }
+        }
+        return parsedQuestions;
+    }
+
+    async function loadQuestionsFromCSV() {
+        try {
+            const response = await fetch('preguntas.csv');
+            if (!response.ok) throw new Error('Failed to load CSV');
+            const csvText = await response.text();
+            questions = parseCSV(csvText);
+            
+            if (questions.length === 0) {
+                document.getElementById('q').innerText = 'No se encontraron preguntas.';
+                return;
+            }
+            
+            setupCategories();
+            loadQuestion();
+        } catch (error) {
+            console.error('Error:', error);
+            document.getElementById('q').innerText = 'Error al cargar preguntas.csv';
+        }
+    }
 
     function setupCategories() {
         const catSelect = document.getElementById('catFilter');
         const uniqueCategories = [...new Set(questions.map(q => q.c))].sort();
         uniqueCategories.forEach(cat => {
             const opt = document.createElement('option');
-            opt.value = cat; opt.innerText = cat; catSelect.appendChild(opt);
+            opt.value = cat;
+            opt.innerText = cat;
+            catSelect.appendChild(opt);
         });
     }
 
     function changeBackground(topic) {
-        // Busca una imagen en Unsplash relacionada con la categoría
-        const imageUrl = `https://source.unsplash.com{topic.toLowerCase()},wallpaper`;
+        const imageUrl = `https://source.unsplash.com/1600x900/?${topic.toLowerCase()},wallpaper`;
         document.body.style.backgroundImage = `linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('${imageUrl}')`;
     }
 
@@ -107,7 +162,6 @@
     function loadQuestion() {
         const diff = document.getElementById('diffFilter').value;
         const cat = document.getElementById('catFilter').value;
-
         let pool = questions.filter(q => (diff === "Todas" || q.d === diff) && (cat === "Todas" || q.c === cat));
 
         if (pool.length === 0) {
@@ -116,8 +170,6 @@
         }
 
         currentQ = pool[Math.floor(Math.random() * pool.length)];
-
-        // Cambiar fondo según categoría
         changeBackground(currentQ.c);
 
         document.getElementById('catTag').innerText = `${currentQ.c} | ${currentQ.d}`;
@@ -135,7 +187,6 @@
 
     function handleAction() {
         if (!showingResult) {
-            // Sonido
             ding.currentTime = 0;
             ding.play();
 
@@ -144,7 +195,6 @@
             
             document.getElementById(correctID).classList.add('highlight-correct');
             document.getElementById(wrongID).classList.add('dim-wrong');
-            
             document.getElementById('expl-text').innerText = currentQ.e;
             document.getElementById('explanation-card').classList.add('show');
             
@@ -156,8 +206,7 @@
         }
     }
 
-    setupCategories();
-    loadQuestion();
+    loadQuestionsFromCSV();
 </script>
 </body>
 </html>
