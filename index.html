@@ -1690,7 +1690,7 @@
 <!-- Pantalla de privacidad entre turnos -->
 <div id="privacyOverlay" class="privacy-overlay">
     <div class="privacy-card">
-        <div class="privacy-icon">✅</div>
+        <div class="privacy-icon">🧠</div>
         <div class="privacy-title" id="privacyTitle">¡Ha respondido!</div>
         <div class="privacy-subtitle" id="privacySubtitle">Pasa el dispositivo al siguiente jugador</div>
         <button class="privacy-btn" onclick="nextPlayerTurn()">LISTO</button>
@@ -1829,7 +1829,7 @@
 </div>
 
 <script>
-    const USE_MOCK_QUESTIONS = false;
+    const USE_MOCK_QUESTIONS = true;
     const MOCK_QUESTIONS = [
         { id: 'mock-1', c: 'Historia', q: '¿La Revolucion Francesa comenzo en 1789?', a: 'Si', b: 'No', r: 'A', d: 'Fácil', e: 'La toma de la Bastilla en 1789 marca convencionalmente el inicio de la Revolucion Francesa.' },
         { id: 'mock-2', c: 'Ciencia', q: '¿El agua hierve a 100 grados Celsius al nivel del mar?', a: 'Si', b: 'No', r: 'A', d: 'Fácil', e: 'A una atmosfera de presion, el punto de ebullicion del agua es 100 °C.' },
@@ -3042,11 +3042,22 @@
 
     // ── Acción principal ─────────────────────────────────────────
     function handleAction() {
+        const mainBtn = document.getElementById('mainBtn');
+
+        if (mainBtn && mainBtn.innerText === 'SIGUIENTE PREGUNTA') {
+            if (currentQ && !answeredQuestions.includes(currentQ.id)) {
+                answeredQuestions.push(currentQ.id);
+                saveAnsweredQuestions();
+            }
+            loadQuestion();
+            return;
+        }
+
         if (pendingNewRound) {
             pendingNewRound = false;
             answeredQuestions = [];
             saveAnsweredQuestions();
-            document.getElementById('mainBtn').style.background = 'var(--accent)';
+            if (mainBtn) mainBtn.style.background = 'var(--accent)';
             loadQuestion();
             return;
         }
@@ -3144,7 +3155,7 @@
         }
 
         document.getElementById('mainBtn').innerText = 'SIGUIENTE PREGUNTA';
-        document.getElementById('mainBtn').style.background = '#475569';
+        document.getElementById('mainBtn').style.background = 'var(--accent)';
         document.getElementById('mainBtn').disabled = false;
     }
 
