@@ -2299,12 +2299,98 @@
 
     const OPEN_TRIVIA_RETRY_DELAYS_MS = [3000, 6000, 9000, 12000];
     const TRANSLATION_BATCH_SEPARATOR = '|||OTDB_SPLIT|||';
+    const DEFAULT_MS_TRANSLATOR_ENDPOINT = 'https://5050translator.cognitiveservices.azure.com';
+    const DEFAULT_MS_TRANSLATOR_REGION = 'italynorth';
+    const DEFAULT_MS_TRANSLATOR_KEY = '';
 
     function sleep(ms) {
         return new Promise(resolve => setTimeout(resolve, ms));
     }
 
     const translationCache = new Map();
+
+    function normalizeEndpoint(endpoint) {
+        return (endpoint || '').trim().replace(/\/+$/, '');
+    }
+
+    function getMicrosoftTranslatorConfig() {
+        const endpoint = normalizeEndpoint(
+            localStorage.getItem('msTranslatorEndpoint') || DEFAULT_MS_TRANSLATOR_ENDPOINT
+        );
+        const key = (localStorage.getItem('msTranslatorKey') || DEFAULT_MS_TRANSLATOR_KEY).trim();
+        const region = (localStorage.getItem('msTranslatorRegion') || DEFAULT_MS_TRANSLATOR_REGION).trim();
+        return { endpoint, key, region };
+    }
+
+    function isSameText(a, b) {
+        return (a || '').trim().toLowerCase() === (b || '').trim().toLowerCase();
+    }
+
+    function getMicrosoftTranslatorHeaders(config) {
+        const headers = {
+            'Content-Type': 'application/json',
+            'Ocp-Apim-Subscription-Key': config.key
+        };
+        if (config.region) {
+            headers['Ocp-Apim-Subscription-Region'] = config.region;
+        }
+        return headers;
+    }
+
+    async function translateTextWithMicrosoft(source) {
+        const config = getMicrosoftTranslatorConfig();
+        if (!config.endpoint || !config.key) {
+            console.warn('Microsoft Translator omitido: falta endpoint o clave.');
+            return null;
+        }
+
+        const response = await fetch(
+            `${config.endpoint}/translator/text/v3.0/translate?api-version=3.0&from=en&to=es`,
+            {
+                method: 'POST',
+                headers: getMicrosoftTranslatorHeaders(config),
+                body: JSON.stringify([{ Text: source }])
+            }
+        );
+
+        if (!response.ok) throw new Error('Microsoft Translator error');
+
+        const data = await response.json();
+        const translated = decodeHtmlEntities(
+            data?.[0]?.translations?.[0]?.text || ''
+        ).trim();
+
+        return translated || null;
+    }
+
+    async function translateBatchWithMicrosoft(texts) {
+        const config = getMicrosoftTranslatorConfig();
+        if (!config.endpoint || !config.key) {
+            console.warn('Microsoft Translator batch omitido: falta endpoint o clave.');
+            return null;
+        }
+
+        const response = await fetch(
+            `${config.endpoint}/translator/text/v3.0/translate?api-version=3.0&from=en&to=es`,
+            {
+                method: 'POST',
+                headers: getMicrosoftTranslatorHeaders(config),
+                body: JSON.stringify(texts.map(text => ({ Text: text })))
+            }
+        );
+
+        if (!response.ok) throw new Error('Microsoft Translator error');
+
+        const data = await response.json();
+        if (!Array.isArray(data) || data.length !== texts.length) return null;
+
+        const translated = data.map(item =>
+            decodeHtmlEntities(item?.translations?.[0]?.text || '').trim()
+        );
+
+        if (translated.some(text => !text)) return null;
+        return translated;
+    }
 
     async function translateTextToSpanish(text) {
         const source = (text || '').trim();
@@ -2318,10 +2404,34 @@
             if (!response.ok) throw new Error('Translation service error');
 
             const data = await response.json();
-            const translated = decodeHtmlEntities(data?.responseData?.translatedText || source).trim() || source;
+            const status = Number(data?.responseStatus || 200);
+            if (status !== 200) {
+                throw new Error(`MyMemory responseStatus=${status}`);
+            }
+
+            const translated = decodeHtmlEntities(data?.responseData?.translatedText || '').trim();
+            const match = Number(data?.responseData?.match || 0);
+            const isReliable = !!translated && (!isSameText(translated, source) || match >= 0.1);
+
+            if (!isReliable) {
+                throw new Error('MyMemory respuesta poco fiable');
+            }
+
             translationCache.set(source, translated);
             return translated;
-        } catch (e) {}
+        } catch (e) {
+            console.warn('MyMemory falló (single). Se intenta Microsoft Translator.', e);
+        }
+
+        try {
+            const translated = await translateTextWithMicrosoft(source);
+            if (translated) {
+                translationCache.set(source, translated);
+                return translated;
+            }
+        } catch (e) {
+            console.warn('Microsoft Translator falló (single).', e);
+        }
 
         return source;
     }
@@ -2344,14 +2454,36 @@
             );
             if (response.ok) {
                 const data = await response.json();
-                const translatedBatch = decodeHtmlEntities(data?.responseData?.translatedText || sourceBatch).trim() || sourceBatch;
+                const status = Number(data?.responseStatus || 200);
+                if (status !== 200) {
+                    throw new Error(`MyMemory responseStatus=${status}`);
+                }
+
+                const translatedBatch = decodeHtmlEntities(data?.responseData?.translatedText || '').trim();
                 const split = splitBatchTranslation(translatedBatch, normalized.length);
                 if (split) {
+                    const allEqualToSource = split.every((item, idx) => isSameText(item, normalized[idx]));
+                    if (allEqualToSource) {
+                        throw new Error('MyMemory batch sin traducción efectiva');
+                    }
+
                     translationCache.set(sourceBatch, split);
                     return split;
                 }
             }
-        } catch (e) {}
+        } catch (e) {
+            console.warn('MyMemory falló (batch). Se intenta Microsoft Translator.', e);
+        }
+
+        try {
+            const microsoftTranslated = await translateBatchWithMicrosoft(normalized);
+            if (microsoftTranslated) {
+                translationCache.set(sourceBatch, microsoftTranslated);
+                return microsoftTranslated;
+            }
+        } catch (e) {
+            console.warn('Microsoft Translator falló (batch).', e);
+        }
 
         return normalized;
     }
