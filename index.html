@@ -24,10 +24,10 @@
             margin: 0; 
             padding: 1rem;
             background-color: #0f172a;
+            background-image: radial-gradient(circle at top, rgba(255,255,255,0.08), transparent 35%), linear-gradient(135deg, #0f172a, #1e293b);
             background-size: cover; 
             background-position: center;
             background-attachment: fixed;
-            transition: background-image 1s ease-in-out;
         }
 
         #game-container { 
@@ -2234,7 +2234,6 @@
     }
 
     const OPEN_TRIVIA_RETRY_DELAYS_MS = [3000, 6000, 9000, 12000];
-    const LIBRETRANSLATE_ENDPOINT = 'https://libretranslate.de/translate';
     const TRANSLATION_BATCH_SEPARATOR = '|||OTDB_SPLIT|||';
 
     function sleep(ms) {
@@ -2260,28 +2259,6 @@
             return translated;
         } catch (e) {}
 
-        try {
-            const libreResponse = await fetch(LIBRETRANSLATE_ENDPOINT, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    q: source,
-                    source: 'en',
-                    target: 'es',
-                    format: 'text'
-                })
-            });
-
-            if (libreResponse.ok) {
-                const libreData = await libreResponse.json();
-                const libreTranslated = decodeHtmlEntities(libreData?.translatedText || source).trim() || source;
-                translationCache.set(source, libreTranslated);
-                return libreTranslated;
-            }
-        } catch (e) {}
-
         return source;
     }
 
@@ -2305,31 +2282,6 @@
                 const data = await response.json();
                 const translatedBatch = decodeHtmlEntities(data?.responseData?.translatedText || sourceBatch).trim() || sourceBatch;
                 const split = splitBatchTranslation(translatedBatch, normalized.length);
-                if (split) {
-                    translationCache.set(sourceBatch, split);
-                    return split;
-                }
-            }
-        } catch (e) {}
-
-        try {
-            const libreResponse = await fetch(LIBRETRANSLATE_ENDPOINT, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    q: sourceBatch,
-                    source: 'en',
-                    target: 'es',
-                    format: 'text'
-                })
-            });
-
-            if (libreResponse.ok) {
-                const libreData = await libreResponse.json();
-                const libreTranslatedBatch = decodeHtmlEntities(libreData?.translatedText || sourceBatch).trim() || sourceBatch;
-                const split = splitBatchTranslation(libreTranslatedBatch, normalized.length);
                 if (split) {
                     translationCache.set(sourceBatch, split);
                     return split;
@@ -2783,11 +2735,6 @@
             catSelect.appendChild(opt);
         });
     }
-    function changeBackground(topic) {
-        const url = `https://source.unsplash.com/1600x900/?${topic.toLowerCase()},wallpaper`;
-        document.body.style.backgroundImage =
-            `linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('${url}')`;
-    }
 
     // ── Cargar pregunta ──────────────────────────────────────────
     async function loadQuestion() {
@@ -2835,7 +2782,6 @@
             if (openTriviaLoader) openTriviaLoader.style.display = 'none';
             mainBtn.style.display = '';
             mainBtn.disabled = false;
-            changeBackground(currentQ.c);
             updateQuestionTags(currentQ);
             document.getElementById('progress').innerText = 'Open Trivia · pregunta online';
 
@@ -2908,7 +2854,6 @@
 
         document.getElementById('mainBtn').disabled = false;
         currentQ = available[Math.floor(Math.random() * available.length)];
-        changeBackground(currentQ.c);
         updateQuestionTags(currentQ);
 
         const total = questions.filter(inPool);
